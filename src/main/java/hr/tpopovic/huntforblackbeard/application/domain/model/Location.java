@@ -23,10 +23,27 @@ public abstract sealed class Location {
         Collections.addAll(this.overLandLocations, locations);
     }
 
+    public Set<Location> getOverWaterLocations() {
+        return Collections.unmodifiableSet(overWaterLocations);
+    }
+
+    public Set<Location> getOverLandLocations() {
+        return Collections.unmodifiableSet(overLandLocations);
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public abstract static sealed class Water extends Location {
 
         private Water(String name) {
             super(name);
+        }
+
+        @Override
+        void addOverLandLocations(Location... locations) {
+            throw new UnsupportedOperationException("Water locations cannot have over land locations.");
         }
 
         public static final class Sound extends Water {

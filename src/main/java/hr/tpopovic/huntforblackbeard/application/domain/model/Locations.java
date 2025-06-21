@@ -2,10 +2,6 @@ package hr.tpopovic.huntforblackbeard.application.domain.model;
 
 public class Locations {
 
-    private Locations() {
-        throw new IllegalStateException("Utility class");
-    }
-
     public static final Location TOPSAIL_INLET = new Location.Water.Ocean("Topsail Inlet");
     public static final Location FISH_TOWN = new Location.Land.Town("Fish Town");
     public static final Location NEUS_RIVER = new Location.Land.Anchorage("Neuse River");
@@ -73,6 +69,10 @@ public class Locations {
         JAMES_RIVER.addOverWaterLocations(CAPE_HENRY);
         JAMES_RIVER.addOverLandLocations(ALBEMARLE_COUNTY);
         CAPE_HENRY.addOverWaterLocations(JAMES_RIVER, CURRITUCK_INLET, ROANOKE_INLET, GUN_INLET, CAPE_HATTERAS, OCRACOKE_INLET, TOPSAIL_INLET);
+    }
+
+    private Locations() {
+        throw new IllegalStateException("Utility class");
     }
 
 }
