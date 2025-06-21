@@ -4,8 +4,8 @@ import java.util.Set;
 
 public final class Person extends Piece {
 
-    Person(Name name, Location location) {
-        super(name, location);
+    Person(Name name) {
+        super(name);
     }
 
     @Override
@@ -15,9 +15,10 @@ public final class Person extends Piece {
 
     @Override
     public void move(Location destination) {
-        if (location.getOverLandLocations()
-                .contains(destination)) {
+        if (location.getOverLandLocations().contains(destination)) {
+            this.location.removePiece(this);
             this.location = destination;
+            this.location.addPiece(this);
         } else {
             throw new IllegalArgumentException("Cannot move to the specified destination: " + destination.getName());
         }

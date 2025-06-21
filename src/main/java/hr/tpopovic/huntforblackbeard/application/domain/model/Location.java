@@ -4,22 +4,28 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.util.Objects.requireNonNull;
+
 
 public abstract sealed class Location {
 
     private final String name;
     private final Set<Location> overWaterLocations = new HashSet<>();
     private final Set<Location> overLandLocations = new HashSet<>();
+    private final Set<Piece> pieces = new HashSet<>();
 
     private Location(String name) {
+        requireNonNull(name, "Name cannot be null");
         this.name = name;
     }
 
     void addOverWaterLocations(Location... locations) {
+        requireNonNull(locations, "Locations cannot be null");
         Collections.addAll(this.overWaterLocations, locations);
     }
 
     void addOverLandLocations(Location... locations) {
+        requireNonNull(locations, "Locations cannot be null");
         Collections.addAll(this.overLandLocations, locations);
     }
 
@@ -33,6 +39,20 @@ public abstract sealed class Location {
 
     public String getName() {
         return name;
+    }
+
+    public void addPiece(Piece piece) {
+        requireNonNull(piece, "Piece cannot be null");
+        pieces.add(piece);
+    }
+
+    public void removePiece(Piece piece) {
+        requireNonNull(piece, "Piece cannot be null");
+        this.pieces.remove(piece);
+    }
+
+    public Set<Piece> getPieces() {
+        return Collections.unmodifiableSet(pieces);
     }
 
     public abstract static sealed class Water extends Location {

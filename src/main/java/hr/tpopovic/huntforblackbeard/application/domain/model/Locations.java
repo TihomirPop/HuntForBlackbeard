@@ -28,7 +28,7 @@ public class Locations {
     public static final Location GUN_INLET = new Location.Water.Ocean("Gun Inlet");
     public static final Location ROANOKE_INLET = new Location.Water.Ocean("Roanoke Inlet");
     public static final Location CURRITUCK_INLET = new Location.Water.Ocean("Currituck Inlet");
-    public static final Location JAMES_RIVER = new Location.Water.Blank("James River");
+    public static final Location JAMES_RIVER = new Location.Land.Blank("James River");
     public static final Location CAPE_HENRY = new Location.Water.Blank("Cape Henry");
 
     static {
