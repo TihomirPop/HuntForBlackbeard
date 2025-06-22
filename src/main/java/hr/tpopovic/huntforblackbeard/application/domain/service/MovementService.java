@@ -1,8 +1,8 @@
 package hr.tpopovic.huntforblackbeard.application.domain.service;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces;
 import hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.MovementResult;
@@ -17,17 +17,17 @@ public class MovementService implements ForMovingPieces {
         Piece piece = command.piece();
         Location destination = command.destination();
 
-        if (!Player.canUseMove()) {
+        if (!GameState.canCurrentPlayerMove()) {
             return new MovementResult.Failure("Player cannot move.");
         }
 
-        if (!Player.PLAYERS_PIECES.contains(piece)) {
+        if (!GameState.isCurrentPlayersPiece(piece)) {
             return new MovementResult.Failure("Piece is not owned by the player.");
         }
 
         try {
+            GameState.currentPlayerMoves();
             piece.move(destination);
-            Player.useMove();
             return new MovementResult.Success();
         } catch (IllegalArgumentException e) {
             return new MovementResult.Failure("Cannot move to the specified destination: " + e.getMessage());

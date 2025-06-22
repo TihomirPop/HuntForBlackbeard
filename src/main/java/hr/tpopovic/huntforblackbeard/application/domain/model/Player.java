@@ -4,23 +4,23 @@ import java.util.Set;
 
 public class Player {
 
-    public static final Set<Piece> PLAYERS_PIECES = Set.of(
-            Pieces.HUNTER_SHIP_JANE,
-            Pieces.HUNTER_SHIP_RANGER,
-            Pieces.HUNTER_CAPTAIN_BRAND
-    );
-    private static final int STARTING_NUMBER_OF_MOVES = 7;
+    private final Type type;
+    private final Set<Piece> pieces;
+    private final int startingNumberOfMoves;
+    private Integer numberOfMoves;
 
-    private static Integer numberOfMoves = STARTING_NUMBER_OF_MOVES;
-
-    private Player() {
+    public Player(Type type, Set<Piece> pieces, int startingNumberOfMoves) {
+        this.type = type;
+        this.pieces = pieces;
+        this.startingNumberOfMoves = startingNumberOfMoves;
+        this.numberOfMoves = startingNumberOfMoves;
     }
 
-    public static Integer getNumberOfMoves() {
+    public Integer getNumberOfMoves() {
         return numberOfMoves;
     }
 
-    public static void useMove() {
+    public void useMove() {
         if (numberOfMoves > 0) {
             numberOfMoves--;
         } else {
@@ -28,12 +28,21 @@ public class Player {
         }
     }
 
-    public static boolean canUseMove() {
+    public boolean canUseMove() {
         return numberOfMoves > 0;
     }
 
-    public static void resetMoves() {
-        numberOfMoves = STARTING_NUMBER_OF_MOVES;
+    public void resetMoves() {
+        numberOfMoves = startingNumberOfMoves;
+    }
+
+    public Set<Piece> getPieces() {
+        return pieces;
+    }
+
+    public enum Type {
+        HUNTER,
+        PIRATE
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
 
-public abstract sealed class    Piece permits Ship, Person {
+public abstract sealed class Piece permits Ship, Person {
 
     private final Name name;
     protected Location location;
