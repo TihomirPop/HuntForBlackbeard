@@ -3,6 +3,7 @@ module hr.tpopovic.huntforblackbeard {
     requires javafx.fxml;
 
 
-    opens hr.tpopovic.huntforblackbeard to javafx.fxml;
+    opens hr.tpopovic.huntforblackbeard.adapter.in to javafx.fxml;
     exports hr.tpopovic.huntforblackbeard;
+    exports hr.tpopovic.huntforblackbeard.adapter.in;
 }
