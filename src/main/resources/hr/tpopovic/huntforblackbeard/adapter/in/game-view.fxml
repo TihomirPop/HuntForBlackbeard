@@ -52,41 +52,60 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <AnchorPane fx:id="anchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <AnchorPane fx:id="gamePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
                 <ImageView fx:id="mapImageView" fitHeight="694.0" fitWidth="1078.0" layoutX="164.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                     <image>
                         <Image url="@map.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="topsailInletButton" layoutX="244.0" layoutY="173.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="fishTownButton" layoutX="361.0" layoutY="173.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="neuseRiverButton" layoutX="467.0" layoutY="226.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="bathTownButton" layoutX="640.0" layoutY="213.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="topsailInletButton" layoutX="246.0" layoutY="173.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="fishTownButton" layoutX="358.0" layoutY="171.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="neuseRiverButton" layoutX="465.0" layoutY="222.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="bathTownButton" layoutX="646.0" layoutY="213.0" mnemonicParsing="false" text="X" />
                 <Button fx:id="newBernButton" layoutX="516.0" layoutY="86.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="huntingQuarterSoundButton" layoutX="389.0" layoutY="297.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="coreBanksButton" layoutX="412.0" layoutY="421.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="westPamlicoSoundButton" layoutX="548.0" layoutY="406.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="ocracokeInletButton" layoutX="372.0" layoutY="524.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="ocracokeIslandButton" layoutX="467.0" layoutY="511.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="huntingQuarterSoundButton" layoutX="387.0" layoutY="299.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="coreBanksButton" layoutX="411.0" layoutY="424.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="westPamlicoSoundButton" layoutX="547.0" layoutY="406.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="ocracokeInletButton" layoutX="368.0" layoutY="531.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="ocracokeIslandButton" layoutX="468.0" layoutY="508.0" mnemonicParsing="false" text="X" />
                 <Button fx:id="eastPamlicoSoundButton" layoutX="581.0" layoutY="530.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="hatterasBankButton" layoutX="527.0" layoutY="614.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="capeHatterasButton" layoutX="435.0" layoutY="662.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="machapungaBluffButton" layoutX="640.0" layoutY="434.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="roanokeRiverButton" layoutX="788.0" layoutY="172.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="queenAnnesCreekButton" layoutX="893.0" layoutY="239.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="albemarleCountyButton" layoutX="979.0" layoutY="147.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="hatterasBankButton" layoutX="525.0" layoutY="614.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="capeHatterasButton" layoutX="461.0" layoutY="668.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="machapungaBluffButton" layoutX="640.0" layoutY="433.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="roanokeRiverButton" layoutX="788.0" layoutY="168.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="queenAnnesCreekButton" layoutX="887.0" layoutY="237.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="albemarleCountyButton" layoutX="981.0" layoutY="148.0" mnemonicParsing="false" text="X" />
                 <Button fx:id="batsGraveButton" layoutX="857.0" layoutY="364.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="pasquotankRiverButton" layoutX="931.0" layoutY="451.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="notsIslandButton" layoutX="1003.0" layoutY="537.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="albemarleSoundButton" layoutX="826.0" layoutY="477.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="roanokeIslandButton" layoutX="743.0" layoutY="578.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="currituckSoundButton" layoutX="893.0" layoutY="578.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="gunInletButton" layoutX="652.0" layoutY="662.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="roanokeInletButton" layoutX="777.0" layoutY="662.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="currituckInletButton" layoutX="1040.0" layoutY="649.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="jamesRiverButton" layoutX="1220.0" layoutY="351.0" mnemonicParsing="false" text="X" />
-                <Button fx:id="capeHenryButton" layoutX="1220.0" layoutY="565.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="pasquotankRiverButton" layoutX="931.0" layoutY="456.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="notsIslandButton" layoutX="1009.0" layoutY="536.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="albemarleSoundButton" layoutX="826.0" layoutY="475.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="roanokeIslandButton" layoutX="749.0" layoutY="572.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="currituckSoundButton" layoutX="892.0" layoutY="578.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="gunInletButton" layoutX="687.0" layoutY="668.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="roanokeInletButton" layoutX="809.0" layoutY="668.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="currituckInletButton" layoutX="1039.0" layoutY="649.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="jamesRiverButton" layoutX="1184.0" layoutY="356.0" mnemonicParsing="false" text="X" />
+                <Button fx:id="capeHenryButton" layoutX="1186.0" layoutY="565.0" mnemonicParsing="false" text="X" />
+                <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="86.0" prefHeight="80.0" prefWidth="30.0" spacing="10.0">
+                    <children>
+                        <ImageView fitHeight="20.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@jane.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="12.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@jane.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="12.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@jane.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
             </children>
         </AnchorPane>
     </children>

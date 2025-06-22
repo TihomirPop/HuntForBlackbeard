@@ -1,6 +1,7 @@
 module hr.tpopovic.huntforblackbeard {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens hr.tpopovic.huntforblackbeard.adapter.in to javafx.fxml;
