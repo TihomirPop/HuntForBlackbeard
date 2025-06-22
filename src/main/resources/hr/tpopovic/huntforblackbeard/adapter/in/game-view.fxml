@@ -33,6 +33,7 @@
 -->
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -40,6 +41,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tpopovic.huntforblackbeard.adapter.in.GameController">
     <children>
@@ -87,25 +89,12 @@
                 <Button fx:id="currituckInletButton" layoutX="1039.0" layoutY="649.0" mnemonicParsing="false" text="X" />
                 <Button fx:id="jamesRiverButton" layoutX="1184.0" layoutY="356.0" mnemonicParsing="false" text="X" />
                 <Button fx:id="capeHenryButton" layoutX="1186.0" layoutY="565.0" mnemonicParsing="false" text="X" />
-                <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="86.0" prefHeight="80.0" prefWidth="30.0" spacing="10.0">
-                    <children>
-                        <ImageView fitHeight="20.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@jane.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="12.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@jane.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="12.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@jane.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </VBox>
+            <VBox layoutX="10.0" layoutY="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selected piece:" />
+                  <ComboBox prefWidth="150.0" />
+               </children>
+            </VBox>
             </children>
         </AnchorPane>
     </children>
