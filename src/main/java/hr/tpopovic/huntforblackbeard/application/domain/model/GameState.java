@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import java.util.Set;
+
 public class GameState {
 
     private static Player currentPlayer = Players.HUNTER;
@@ -29,6 +31,10 @@ public class GameState {
         } else {
             throw new IllegalStateException("Current player cannot move, no moves left.");
         }
+    }
+
+    public static Set<Piece> getCurrentPlayerPieces() {
+        return currentPlayer.getPieces();
     }
 
 }

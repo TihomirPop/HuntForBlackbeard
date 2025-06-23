@@ -1,5 +1,6 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import java.util.Collections;
 import java.util.Set;
 
 public class Player {
@@ -37,7 +38,7 @@ public class Player {
     }
 
     public Set<Piece> getPieces() {
-        return pieces;
+        return Collections.unmodifiableSet(pieces);
     }
 
     public enum Type {

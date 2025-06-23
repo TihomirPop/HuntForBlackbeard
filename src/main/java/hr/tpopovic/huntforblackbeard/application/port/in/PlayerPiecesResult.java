@@ -1,11 +1,25 @@
 package hr.tpopovic.huntforblackbeard.application.port.in;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
+
+import java.util.Set;
+
 public abstract sealed class PlayerPiecesResult {
 
     private PlayerPiecesResult() {
     }
 
     public static final class Success extends PlayerPiecesResult {
+
+        private final Set<Piece> pieces;
+
+        public Success(Set<Piece> pieces) {
+            this.pieces = pieces;
+        }
+
+        public Set<Piece> getPieces() {
+            return pieces;
+        }
 
     }
 
