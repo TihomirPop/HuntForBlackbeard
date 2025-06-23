@@ -11,13 +11,13 @@ public abstract sealed class PlayerPiecesResult {
 
     public static final class Success extends PlayerPiecesResult {
 
-        private final Set<Piece> pieces;
+        private final Set<Piece.Name> pieces;
 
-        public Success(Set<Piece> pieces) {
+        public Success(Set<Piece.Name> pieces) {
             this.pieces = pieces;
         }
 
-        public Set<Piece> getPieces() {
+        public Set<Piece.Name> getPieces() {
             return pieces;
         }
 

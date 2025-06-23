@@ -14,6 +14,10 @@ public abstract sealed class Piece permits Ship, Person {
         this.name = name;
     }
 
+    public Name getName() {
+        return name;
+    }
+
     void setLocation(Location location) {
         requireNonNull(location, "Location cannot be null");
         this.location = location;
@@ -24,11 +28,21 @@ public abstract sealed class Piece permits Ship, Person {
 
     public abstract void move(Location destination);
 
-    protected enum Name {
-        HUNTER_SHIP_JANE,
-        HUNTER_SHIP_RANGER,
-        HUNTER_CAPTAIN_BRAND,
-        PIRATE_SHIP_ADVENTURE
+    public enum Name {
+        HUNTER_SHIP_JANE("Jane"),
+        HUNTER_SHIP_RANGER("Ranger"),
+        HUNTER_CAPTAIN_BRAND("Brand"),
+        PIRATE_SHIP_ADVENTURE("Adventure");
+
+        private final String displayName;
+
+        Name(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
     }
 
 }

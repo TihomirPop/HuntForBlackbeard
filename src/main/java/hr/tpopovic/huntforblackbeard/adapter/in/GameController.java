@@ -1,8 +1,16 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
+import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.application.domain.model.*;
+import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
+import hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService;
+import hr.tpopovic.huntforblackbeard.application.port.in.*;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -12,11 +20,15 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class GameController {
 
     @FXML
     AnchorPane gamePane;
+    @FXML
+    ComboBox<String> selectedPieceComboBox;
 
     @FXML
     public void initialize() {
@@ -55,6 +67,49 @@ public class GameController {
 
                 gamePane.getChildren().add(vBoxRight);
                 gamePane.getChildren().add(vBoxLeft);
+            }
+        }
+
+        ForFetchingPlayerPieces forFetchingPlayerPieces = new PlayerPiecesService();
+        PlayerPiecesQuery query = switch (Application.PLAYER_TYPE) {
+            case "HUNTER" -> new PlayerPiecesQuery(Player.Type.HUNTER);
+            case "PIRATE" -> new PlayerPiecesQuery(Player.Type.PIRATE);
+            default -> throw new IllegalArgumentException("Unknown player type: " + Application.PLAYER_TYPE);
+        };
+        PlayerPiecesResult result = forFetchingPlayerPieces.fetch(query);
+        if(result instanceof PlayerPiecesResult.Success success) {
+            List<String> pieceNames = success.getPieces()
+                    .stream()
+                    .map(Piece.Name::getDisplayName)
+                    .toList();
+            selectedPieceComboBox.setItems(FXCollections.observableList(pieceNames));
+            selectedPieceComboBox.setValue(pieceNames.getFirst());
+            updateMapWithAvailablePositionsForGivenPiece(Pieces.HUNTER_SHIP_JANE.getName());
+        }
+    }
+
+    @FXML
+    void onPieceSelected(ActionEvent event) {
+        System.out.println("Selected piece: " + selectedPieceComboBox.getValue());
+    }
+
+    private void updateMapWithAvailablePositionsForGivenPiece(Piece.Name pieceName) {
+        ForMovingPieces forMovingPieces = new MovementService();
+        MovementLocationQuery query = new MovementLocationQuery(pieceName);
+        MovementLocationResult result = forMovingPieces.fetchAvailableMovementLocations(query);
+        if (result instanceof MovementLocationResult.Success success) {
+            Set<String> availablePositions = success.getLocations()
+                    .stream()
+                    .map(location -> location.id)
+                    .map("%sButton"::formatted)
+                    .collect(Collectors.toSet());
+            for (var node : gamePane.getChildren()) {
+                if (node instanceof Button button) {
+                    String buttonId = button.getId();
+                    if (availablePositions.contains(buttonId)) {
+                        button.setVisible(true);
+                    }
+                }
             }
         }
     }

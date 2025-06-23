@@ -9,12 +9,12 @@ import static java.util.Objects.requireNonNull;
 
 public abstract sealed class Location {
 
-    private final String name;
+    private final Name name;
     private final Set<Location> overWaterLocations = new HashSet<>();
     private final Set<Location> overLandLocations = new HashSet<>();
     private final Set<Piece> pieces = new HashSet<>();
 
-    private Location(String name) {
+    private Location(Name name) {
         requireNonNull(name, "Name cannot be null");
         this.name = name;
     }
@@ -37,7 +37,7 @@ public abstract sealed class Location {
         return Collections.unmodifiableSet(overLandLocations);
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -57,7 +57,7 @@ public abstract sealed class Location {
 
     public abstract static sealed class Water extends Location {
 
-        private Water(String name) {
+        private Water(Name name) {
             super(name);
         }
 
@@ -68,7 +68,7 @@ public abstract sealed class Location {
 
         public static final class Sound extends Water {
 
-            Sound(String name) {
+            Sound(Name name) {
                 super(name);
             }
 
@@ -76,7 +76,7 @@ public abstract sealed class Location {
 
         public static final class Ocean extends Water {
 
-            Ocean(String name) {
+            Ocean(Name name) {
                 super(name);
             }
 
@@ -84,7 +84,7 @@ public abstract sealed class Location {
 
         public static final class Blank extends Water {
 
-            Blank(String name) {
+            Blank(Name name) {
                 super(name);
             }
 
@@ -94,13 +94,13 @@ public abstract sealed class Location {
 
     public abstract static sealed class Land extends Location {
 
-        private Land(String name) {
+        private Land(Name name) {
             super(name);
         }
 
         public static final class Town extends Land {
 
-            Town(String name) {
+            Town(Name name) {
                 super(name);
             }
 
@@ -108,7 +108,7 @@ public abstract sealed class Location {
 
         public static final class Anchorage extends Land {
 
-            Anchorage(String name) {
+            Anchorage(Name name) {
                 super(name);
             }
 
@@ -116,12 +116,51 @@ public abstract sealed class Location {
 
         public static final class Blank extends Land {
 
-            Blank(String name) {
+            Blank(Name name) {
                 super(name);
             }
 
         }
 
+    }
+
+    public enum Name {
+        TOPSAIL_INLET("Topsail Inlet", "topsailInlet"),
+        FISH_TOWN("Fish Town", "fishTown"),
+        NEUS_RIVER("Neus River", "neusRiver"),
+        BATH_TOWN("Bath Town", "bathTown"),
+        NEW_BERN("New Bern", "newBern"),
+        HUNTING_QUARTER_SOUND("Hunting Quarter Sound", "huntingQuarterSound"),
+        CORE_BANKS("Core Banks", "coreBanks"),
+        WEST_PAMLICO_SOUND("West Pamlico Sound", "westPamlicoSound"),
+        OCRACOKE_INLET("Ocracoke Inlet", "ocracokeInlet"),
+        OCRACOKE_ISLAND("Ocracoke Island", "ocracokeIsland"),
+        EAST_PAMLICO_SOUND("East Pamlico Sound", "eastPamlicoSound"),
+        HATTERAS_BANK("Hatteras Bank", "hatterasBank"),
+        CAPE_HATTERAS("Cape Hatteras", "capeHatteras"),
+        MACHAPUNGA_BLUFF("Machapunga Bluff", "machapungaBluff"),
+        ROANOKE_RIVER("Roanoke River", "roanokeRiver"),
+        QUEEN_ANNES_CREEK("Queen Anne's Creek", "queenAnnesCreek"),
+        ALBEMARLE_COUNTY("Albemarle County", "albemarleCounty"),
+        BATS_GRAVE("Bats Grave", "batsGrave"),
+        PASQUOTANK_RIVER("Pasquotank River", "pasquotankRiver"),
+        NOTS_ISLAND("Nots Island", "notsIsland"),
+        ALBEMARLE_SOUND("Albemarle Sound", "albemarleSound"),
+        ROANOKE_ISLAND("Roanoke Island", "roanokeIsland"),
+        CURRITUCK_SOUND("Currituck Sound", "currituckSound"),
+        GUN_INLET("Gun Inlet", "gunInlet"),
+        ROANOKE_INLET("Roanoke Inlet", "roanokeInlet"),
+        CURRITUCK_INLET("Currituck Inlet", "currituckInlet"),
+        JAMES_RIVER("James River", "jamesRiver"),
+        CAPE_HENRY("Cape Henry", "capeHenry");
+
+        public final String displayName;
+        public final String id;
+
+        Name(String displayName, String id) {
+            this.displayName = displayName;
+            this.id = id;
+        }
     }
 
 }

@@ -17,4 +17,13 @@ public class Pieces {
         HUNTER_CAPTAIN_BRAND.setLocation(Locations.JAMES_RIVER);
     }
 
+    public static Piece getPieceByName(Piece.Name name) {
+        return switch (name) {
+            case HUNTER_SHIP_JANE -> HUNTER_SHIP_JANE;
+            case HUNTER_SHIP_RANGER -> HUNTER_SHIP_RANGER;
+            case HUNTER_CAPTAIN_BRAND -> HUNTER_CAPTAIN_BRAND;
+            case PIRATE_SHIP_ADVENTURE -> PIRATE_SHIP_ADVENTURE;
+        };
+    }
+
 }

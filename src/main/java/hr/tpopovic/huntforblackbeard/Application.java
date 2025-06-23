@@ -1,5 +1,6 @@
 package hr.tpopovic.huntforblackbeard;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,7 +32,7 @@ public class Application extends javafx.application.Application {
             return;
         }
         PLAYER_TYPE = playerType;
-
+        Pieces.initialize();
         launch();
     }
 

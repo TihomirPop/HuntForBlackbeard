@@ -6,12 +6,12 @@ import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import static java.util.Objects.requireNonNull;
 
 public record MovementCommand(
-        Piece piece,
+        Piece.Name pieceName,
         Location destination
 ) {
 
     public MovementCommand {
-        requireNonNull(piece, "Piece cannot be null");
+        requireNonNull(pieceName, "Piece name cannot be null");
         requireNonNull(destination, "Destination cannot be null");
     }
 
