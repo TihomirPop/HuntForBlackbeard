@@ -95,6 +95,26 @@
                   <ComboBox fx:id="selectedPieceComboBox" onAction="#onPieceSelected" prefWidth="150.0" />
                </children>
             </VBox>
+            <ImageView fx:id="jane" fitHeight="20.0" fitWidth="30.0" layoutX="1236.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jane.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ranger" fitHeight="20.0" fitWidth="30.0" layoutX="1236.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ranger.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="brand" fitHeight="20.0" fitWidth="30.0" layoutX="1236.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@brand.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="adventure" fitHeight="20.0" fitWidth="30.0" layoutX="1236.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@adventure.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>

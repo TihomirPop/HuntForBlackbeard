@@ -1,7 +1,9 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
-import hr.tpopovic.huntforblackbeard.application.domain.model.*;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
 import hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
@@ -9,17 +11,14 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -29,6 +28,14 @@ public class GameController {
     AnchorPane gamePane;
     @FXML
     ComboBox<String> selectedPieceComboBox;
+    @FXML
+    ImageView jane;
+    @FXML
+    ImageView ranger;
+    @FXML
+    ImageView brand;
+    @FXML
+    ImageView adventure;
 
     @FXML
     public void initialize() {
@@ -39,31 +46,21 @@ public class GameController {
                 double buttonY = button.getLayoutY();
 
                 VBox vBoxRight = new VBox();
+                vBoxRight.setId("%sVBoxRight".formatted(button.getId()));
                 vBoxRight.setAlignment(Pos.TOP_CENTER);
                 vBoxRight.setLayoutX(buttonX + 31);
                 vBoxRight.setLayoutY(buttonY - 87);
                 vBoxRight.setPrefHeight(90);
                 vBoxRight.setPrefWidth(30);
-                vBoxRight.setBackground(Background.fill(Color.rgb(255, 0, 0)));
                 vBoxRight.setSpacing(10);
                 VBox vBoxLeft = new VBox();
+                vBoxLeft.setId("%sVBoxLeft".formatted(button.getId()));
                 vBoxLeft.setAlignment(Pos.TOP_CENTER);
                 vBoxLeft.setLayoutX(buttonX - 38);
                 vBoxLeft.setLayoutY(buttonY - 87);
                 vBoxLeft.setPrefHeight(90);
                 vBoxLeft.setPrefWidth(30);
-                vBoxLeft.setBackground(Background.fill(Color.rgb(0, 0, 255)));
                 vBoxLeft.setSpacing(10);
-
-                ImageView imageView = new ImageView(new Image(Objects.requireNonNull(GameController.class.getResourceAsStream("jane.png"))));
-                imageView.setFitHeight(20);
-                imageView.setPreserveRatio(true);
-                ImageView imageView2 = new ImageView(new Image(Objects.requireNonNull(GameController.class.getResourceAsStream("jane.png"))));
-                imageView2.setFitHeight(20);
-                imageView2.setPreserveRatio(true);
-                vBoxRight.getChildren().add(imageView);
-                vBoxRight.getChildren().add(imageView2);
-
 
                 gamePane.getChildren().add(vBoxRight);
                 gamePane.getChildren().add(vBoxLeft);
@@ -85,6 +82,17 @@ public class GameController {
             selectedPieceComboBox.setItems(FXCollections.observableList(pieceNames));
             selectedPieceComboBox.setValue(pieceNames.getFirst());
             updateMapWithAvailablePositionsForGivenPiece(Pieces.HUNTER_SHIP_JANE.getName());
+        }
+
+        gamePane.getChildren().removeAll(jane, ranger, brand, adventure);
+        Node vBoxRight = gamePane.lookup("#jamesRiverButtonVBoxRight");
+        if( vBoxRight instanceof VBox vBox) {
+            vBox.getChildren().addAll(jane, ranger, brand);
+        }
+        Node vBoxLeft = gamePane.lookup("#jamesRiverButtonVBoxLeft");
+        if( vBoxLeft instanceof VBox vBox) {
+            adventure.setVisible(false);
+            vBox.getChildren().add(adventure);
         }
     }
 
