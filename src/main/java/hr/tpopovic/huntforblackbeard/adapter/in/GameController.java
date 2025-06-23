@@ -18,6 +18,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -94,6 +99,46 @@ public class GameController {
             adventure.setVisible(false);
             vBox.getChildren().add(adventure);
         }
+
+        new Thread(() -> {
+            try (ServerSocket serverSocket = new ServerSocket(4242)){
+                while (true) {
+                    Socket clientSocket = serverSocket.accept();
+                    new Thread(() -> processSerializableClient(clientSocket)).start();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    protected void processSerializableClient(Socket clientSocket) {
+        try (
+                ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+                ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());)
+        {
+//            GameState receivedGameState = (GameState) ois.readObject();
+//            refreshGameState(receivedGameState, currentGameState);
+            oos.writeObject(Boolean.TRUE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sendRequest() {
+        try (Socket clientSocket = new Socket("localhost", 4242)) {
+            sendSerializableRequest(clientSocket);
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sendSerializableRequest(Socket client) throws IOException, ClassNotFoundException {
+        ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
+        ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
+//        oos.writeObject(gameState);
+//        log.info("Game state received confirmation: " + ois.readObject());
     }
 
     @FXML
