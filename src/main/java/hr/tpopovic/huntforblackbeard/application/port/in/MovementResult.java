@@ -17,7 +17,7 @@ public abstract sealed class MovementResult {
             this.message = message;
         }
 
-        public String getReason() {
+        public String getMessage() {
             return message;
         }
 

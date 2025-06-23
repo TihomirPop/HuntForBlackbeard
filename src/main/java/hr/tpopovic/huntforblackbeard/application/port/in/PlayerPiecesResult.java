@@ -1,15 +1,15 @@
 package hr.tpopovic.huntforblackbeard.application.port.in;
 
-public abstract sealed class TurnFinishResult {
+public abstract sealed class PlayerPiecesResult {
 
-    private TurnFinishResult() {
+    private PlayerPiecesResult() {
     }
 
-    public static final class Success extends TurnFinishResult {
+    public static final class Success extends PlayerPiecesResult {
 
     }
 
-    public static final class Failure extends TurnFinishResult {
+    public static final class Failure extends PlayerPiecesResult {
 
         private final String message;
 
