@@ -1,9 +1,6 @@
 package hr.tpopovic.huntforblackbeard.application.domain.service;
 
-import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
+import hr.tpopovic.huntforblackbeard.application.domain.model.*;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
 
 import java.util.Set;
@@ -12,6 +9,14 @@ import java.util.stream.Collectors;
 import static java.util.Objects.requireNonNull;
 
 public class MovementService implements ForMovingPieces {
+
+    @Override
+    public NumberOfMovesResult fetchNumberOfAvailableMoves(NumberOfMovesQuery query) {
+        requireNonNull(query, "NumberOfMovesQuery cannot be null");
+        Player.Type playerType = query.playerType();
+        Integer numberOfMoves = Players.getPlayerByType(playerType).getNumberOfMoves();
+        return new NumberOfMovesResult.Success(numberOfMoves);
+    }
 
     @Override
     public MovementLocationResult fetchAvailableMovementLocations(MovementLocationQuery query) {

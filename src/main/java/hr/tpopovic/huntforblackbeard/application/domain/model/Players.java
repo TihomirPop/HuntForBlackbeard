@@ -24,4 +24,11 @@ public class Players {
     private Players() {
     }
 
+    public static Player getPlayerByType(Player.Type playerType) {
+        return switch (playerType) {
+            case HUNTER -> HUNTER;
+            case PIRATE -> PIRATE;
+        };
+    }
+
 }
