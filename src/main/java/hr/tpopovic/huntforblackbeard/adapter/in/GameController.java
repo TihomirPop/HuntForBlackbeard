@@ -1,6 +1,7 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
@@ -43,6 +44,8 @@ public class GameController {
     ImageView adventure;
     @FXML
     Text numberOfMovesText;
+
+    private Piece currentlySelectedPiece = Pieces.HUNTER_SHIP_JANE; //todo: use piece name instead of Piece proper
 
     @FXML
     public void initialize() {
@@ -88,6 +91,7 @@ public class GameController {
                     .toList();
             selectedPieceComboBox.setItems(FXCollections.observableList(pieceNames));
             selectedPieceComboBox.setValue(pieceNames.getFirst());
+            // set proper currentlySelectedPiece
             updateMapWithAvailablePositionsForGivenPiece(Pieces.HUNTER_SHIP_JANE.getName());
         }
 
@@ -155,7 +159,37 @@ public class GameController {
 
     @FXML
     void onPieceSelected(ActionEvent event) {
-        System.out.println("Selected piece: " + selectedPieceComboBox.getValue());
+        currentlySelectedPiece = switch (selectedPieceComboBox.getValue()) {
+            case "Jane" -> Pieces.HUNTER_SHIP_JANE;
+            case "Ranger" -> Pieces.HUNTER_SHIP_RANGER;
+            case "Brand" -> Pieces.HUNTER_CAPTAIN_BRAND;
+            case "Adventure" -> Pieces.PIRATE_SHIP_ADVENTURE;
+            default -> throw new IllegalStateException("Unexpected value: " + selectedPieceComboBox.getValue());
+        };
+    }
+
+    @FXML
+    void onMovementButtonPressed(ActionEvent event) {
+        String buttonId = ((Button) event.getSource()).getId();
+        String locationId = buttonId.substring(0, buttonId.length() - "Button".length());
+        System.out.println(locationId);
+        Location.Name location = Location.Name.findById(locationId);
+        ForMovingPieces forMovingPieces = new MovementService();
+        MovementCommand movementCommand = new MovementCommand(currentlySelectedPiece.getName(), location);
+        MovementResult result = forMovingPieces.move(movementCommand);
+        switch (result) {
+            case MovementResult.Success success -> movementSuccess(success);
+            case MovementResult.Failure failure -> movementFailure(failure);
+        }
+    }
+
+    private void movementSuccess(MovementResult.Success success) {
+        numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
+        updateMapWithAvailablePositionsForGivenPiece(currentlySelectedPiece.getName());
+    }
+
+    private void movementFailure(MovementResult.Failure failure) {
+
     }
 
     private void updateMapWithAvailablePositionsForGivenPiece(Piece.Name pieceName) {

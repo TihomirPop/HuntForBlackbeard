@@ -34,8 +34,9 @@ public class MovementService implements ForMovingPieces {
     public MovementResult move(MovementCommand command) {
         requireNonNull(command, "MovementCommand cannot be null");
         Piece.Name pieceName = command.pieceName();
-        Location destination = command.destination();
+        Location.Name destinationName = command.destination();
         Piece piece = Pieces.getPieceByName(pieceName);
+        Location destination = Locations.getLocationByName(destinationName);
 
         if (!GameState.canCurrentPlayerMove()) {
             return new MovementResult.Failure("Player cannot move.");

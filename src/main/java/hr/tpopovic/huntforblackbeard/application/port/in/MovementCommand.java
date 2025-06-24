@@ -7,7 +7,7 @@ import static java.util.Objects.requireNonNull;
 
 public record MovementCommand(
         Piece.Name pieceName,
-        Location destination
+        Location.Name destination
 ) {
 
     public MovementCommand {

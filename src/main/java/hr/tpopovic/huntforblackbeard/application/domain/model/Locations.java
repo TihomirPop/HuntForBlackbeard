@@ -75,4 +75,37 @@ public class Locations {
         throw new IllegalStateException("Utility class");
     }
 
+    public static Location getLocationByName(Location.Name locationName) {
+        return switch (locationName) {
+            case TOPSAIL_INLET -> TOPSAIL_INLET;
+            case FISH_TOWN -> FISH_TOWN;
+            case NEUS_RIVER -> NEUS_RIVER;
+            case BATH_TOWN -> BATH_TOWN;
+            case NEW_BERN -> NEW_BERN;
+            case HUNTING_QUARTER_SOUND -> HUNTING_QUARTER_SOUND;
+            case CORE_BANKS -> CORE_BANKS;
+            case WEST_PAMLICO_SOUND -> WEST_PAMLICO_SOUND;
+            case OCRACOKE_INLET -> OCRACOKE_INLET;
+            case OCRACOKE_ISLAND -> OCRACOKE_ISLAND;
+            case EAST_PAMLICO_SOUND -> EAST_PAMLICO_SOUND;
+            case HATTERAS_BANK -> HATTERAS_BANK;
+            case CAPE_HATTERAS -> CAPE_HATTERAS;
+            case MACHAPUNGA_BLUFF -> MACHAPUNGA_BLUFF;
+            case ROANOKE_RIVER -> ROANOKE_RIVER;
+            case QUEEN_ANNES_CREEK -> QUEEN_ANNES_CREEK;
+            case ALBEMARLE_COUNTY -> ALBEMARLE_COUNTY;
+            case BATS_GRAVE -> BATS_GRAVE;
+            case PASQUOTANK_RIVER -> PASQUOTANK_RIVER;
+            case NOTS_ISLAND -> NOTS_ISLAND;
+            case ALBEMARLE_SOUND -> ALBEMARLE_SOUND;
+            case ROANOKE_ISLAND -> ROANOKE_ISLAND;
+            case CURRITUCK_SOUND -> CURRITUCK_SOUND;
+            case GUN_INLET -> GUN_INLET;
+            case ROANOKE_INLET -> ROANOKE_INLET;
+            case CURRITUCK_INLET -> CURRITUCK_INLET;
+            case JAMES_RIVER -> JAMES_RIVER;
+            case CAPE_HENRY -> CAPE_HENRY;
+        };
+    }
+
 }

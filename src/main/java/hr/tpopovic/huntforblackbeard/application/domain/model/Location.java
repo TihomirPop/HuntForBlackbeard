@@ -1,5 +1,6 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -160,6 +161,13 @@ public abstract sealed class Location {
         Name(String displayName, String id) {
             this.displayName = displayName;
             this.id = id;
+        }
+
+        public static Location.Name findById(String id) {
+            return Arrays.stream(Name.values())
+                    .filter(name -> name.id.equals(id))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid location name id"));
         }
     }
 

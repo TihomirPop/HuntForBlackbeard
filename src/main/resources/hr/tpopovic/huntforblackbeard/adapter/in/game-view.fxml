@@ -62,34 +62,34 @@
                         <Image url="@map.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="topsailInletButton" layoutX="246.0" layoutY="173.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="fishTownButton" layoutX="358.0" layoutY="171.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="neuseRiverButton" layoutX="465.0" layoutY="222.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="bathTownButton" layoutX="646.0" layoutY="213.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="newBernButton" layoutX="516.0" layoutY="86.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="huntingQuarterSoundButton" layoutX="387.0" layoutY="299.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="coreBanksButton" layoutX="411.0" layoutY="424.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="westPamlicoSoundButton" layoutX="547.0" layoutY="406.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="ocracokeInletButton" layoutX="368.0" layoutY="531.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="ocracokeIslandButton" layoutX="468.0" layoutY="508.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="eastPamlicoSoundButton" layoutX="581.0" layoutY="530.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="hatterasBankButton" layoutX="525.0" layoutY="614.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="capeHatterasButton" layoutX="461.0" layoutY="668.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="machapungaBluffButton" layoutX="640.0" layoutY="433.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="roanokeRiverButton" layoutX="788.0" layoutY="168.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="queenAnnesCreekButton" layoutX="887.0" layoutY="237.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="albemarleCountyButton" layoutX="981.0" layoutY="148.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="batsGraveButton" layoutX="857.0" layoutY="364.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="pasquotankRiverButton" layoutX="931.0" layoutY="456.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="notsIslandButton" layoutX="1009.0" layoutY="536.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="albemarleSoundButton" layoutX="826.0" layoutY="475.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="roanokeIslandButton" layoutX="749.0" layoutY="572.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="currituckSoundButton" layoutX="892.0" layoutY="578.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="gunInletButton" layoutX="687.0" layoutY="668.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="roanokeInletButton" layoutX="809.0" layoutY="668.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="currituckInletButton" layoutX="1039.0" layoutY="649.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="jamesRiverButton" layoutX="1184.0" layoutY="356.0" mnemonicParsing="false" text="X" visible="false" />
-                <Button fx:id="capeHenryButton" layoutX="1186.0" layoutY="565.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="topsailInletButton" layoutX="246.0" layoutY="173.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="fishTownButton" layoutX="358.0" layoutY="171.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="neuseRiverButton" layoutX="465.0" layoutY="222.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="bathTownButton" layoutX="646.0" layoutY="213.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="newBernButton" layoutX="516.0" layoutY="86.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="huntingQuarterSoundButton" layoutX="387.0" layoutY="299.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="coreBanksButton" layoutX="411.0" layoutY="424.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="westPamlicoSoundButton" layoutX="547.0" layoutY="406.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="ocracokeInletButton" layoutX="368.0" layoutY="531.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="ocracokeIslandButton" layoutX="468.0" layoutY="508.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="eastPamlicoSoundButton" layoutX="581.0" layoutY="530.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="hatterasBankButton" layoutX="525.0" layoutY="614.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="capeHatterasButton" layoutX="461.0" layoutY="668.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="machapungaBluffButton" layoutX="640.0" layoutY="433.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="roanokeRiverButton" layoutX="788.0" layoutY="168.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="queenAnnesCreekButton" layoutX="887.0" layoutY="237.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="albemarleCountyButton" layoutX="981.0" layoutY="148.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="batsGraveButton" layoutX="857.0" layoutY="364.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="pasquotankRiverButton" layoutX="931.0" layoutY="456.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="notsIslandButton" layoutX="1009.0" layoutY="536.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="albemarleSoundButton" layoutX="826.0" layoutY="475.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="roanokeIslandButton" layoutX="749.0" layoutY="572.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="currituckSoundButton" layoutX="892.0" layoutY="578.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="gunInletButton" layoutX="687.0" layoutY="668.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="roanokeInletButton" layoutX="809.0" layoutY="668.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="currituckInletButton" layoutX="1039.0" layoutY="649.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="jamesRiverButton" layoutX="1184.0" layoutY="356.0" mnemonicParsing="false" text="X" visible="false" />
+                <Button onAction="#onMovementButtonPressed" fx:id="capeHenryButton" layoutX="1186.0" layoutY="565.0" mnemonicParsing="false" text="X" visible="false" />
             <VBox layoutX="10.0" layoutY="10.0">
                <children>
                   <Text fx:id="numberOfMovesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining moves: ">
