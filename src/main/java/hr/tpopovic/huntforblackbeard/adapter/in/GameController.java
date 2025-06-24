@@ -172,7 +172,6 @@ public class GameController {
     void onMovementButtonPressed(ActionEvent event) {
         String buttonId = ((Button) event.getSource()).getId();
         String locationId = buttonId.substring(0, buttonId.length() - "Button".length());
-        System.out.println(locationId);
         Location.Name location = Location.Name.findById(locationId);
         ForMovingPieces forMovingPieces = new MovementService();
         MovementCommand movementCommand = new MovementCommand(currentlySelectedPiece.getName(), location);
@@ -205,6 +204,7 @@ public class GameController {
             for (var node : gamePane.getChildren()) {
                 if (node instanceof Button button) {
                     String buttonId = button.getId();
+                    button.setVisible(false);
                     if (availablePositions.contains(buttonId)) {
                         button.setVisible(true);
                     }
