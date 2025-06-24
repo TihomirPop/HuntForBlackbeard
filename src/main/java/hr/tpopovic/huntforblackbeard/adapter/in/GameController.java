@@ -17,11 +17,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 import java.util.Set;
@@ -41,6 +41,8 @@ public class GameController {
     ImageView brand;
     @FXML
     ImageView adventure;
+    @FXML
+    Text numberOfMovesText;
 
     @FXML
     public void initialize() {
@@ -79,7 +81,7 @@ public class GameController {
             default -> throw new IllegalArgumentException("Unknown player type: " + Application.PLAYER_TYPE);
         };
         PlayerPiecesResult result = forFetchingPlayerPieces.fetch(query);
-        if(result instanceof PlayerPiecesResult.Success success) {
+        if (result instanceof PlayerPiecesResult.Success success) {
             List<String> pieceNames = success.getPieces()
                     .stream()
                     .map(Piece.Name::getDisplayName)
@@ -91,32 +93,42 @@ public class GameController {
 
         gamePane.getChildren().removeAll(jane, ranger, brand, adventure);
         Node vBoxRight = gamePane.lookup("#jamesRiverButtonVBoxRight");
-        if( vBoxRight instanceof VBox vBox) {
+        if (vBoxRight instanceof VBox vBox) {
             vBox.getChildren().addAll(jane, ranger, brand);
         }
         Node vBoxLeft = gamePane.lookup("#jamesRiverButtonVBoxLeft");
-        if( vBoxLeft instanceof VBox vBox) {
+        if (vBoxLeft instanceof VBox vBox) {
             adventure.setVisible(false);
             vBox.getChildren().add(adventure);
         }
 
-        new Thread(() -> {
-            try (ServerSocket serverSocket = new ServerSocket(4242)){
-                while (true) {
-                    Socket clientSocket = serverSocket.accept();
-                    new Thread(() -> processSerializableClient(clientSocket)).start();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
+        ForMovingPieces forMovingPieces = new MovementService();
+        NumberOfMovesQuery numberOfMovesQuery = switch (Application.PLAYER_TYPE) {
+            case "HUNTER" -> new NumberOfMovesQuery(Player.Type.HUNTER);
+            case "PIRATE" -> new NumberOfMovesQuery(Player.Type.PIRATE);
+            default -> throw new IllegalArgumentException("Unknown player type: " + Application.PLAYER_TYPE);
+        };
+
+        NumberOfMovesResult numberOfMovesResult = forMovingPieces.fetchNumberOfAvailableMoves(numberOfMovesQuery);
+        if (numberOfMovesResult instanceof NumberOfMovesResult.Success success) {
+            numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
+        }
+//        new Thread(() -> {
+//            try (ServerSocket serverSocket = new ServerSocket(4242)){
+//                while (true) {
+//                    Socket clientSocket = serverSocket.accept();
+//                    new Thread(() -> processSerializableClient(clientSocket)).start();
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }).start();
     }
 
     protected void processSerializableClient(Socket clientSocket) {
         try (
                 ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
-                ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());)
-        {
+                ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());) {
 //            GameState receivedGameState = (GameState) ois.readObject();
 //            refreshGameState(receivedGameState, currentGameState);
             oos.writeObject(Boolean.TRUE);
