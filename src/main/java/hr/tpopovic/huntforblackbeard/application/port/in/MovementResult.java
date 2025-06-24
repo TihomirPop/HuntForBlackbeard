@@ -6,6 +6,15 @@ public abstract sealed class MovementResult {
     }
 
     public static final class Success extends MovementResult {
+        private final Integer numberOfMoves;
+
+        public Success(Integer numberOfMoves) {
+            this.numberOfMoves = numberOfMoves;
+        }
+
+        public Integer getNumberOfMoves() {
+            return this.numberOfMoves;
+        }
 
     }
 

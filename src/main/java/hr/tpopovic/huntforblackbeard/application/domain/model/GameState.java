@@ -37,4 +37,8 @@ public class GameState {
         return currentPlayer.getPieces();
     }
 
+    public static Integer getCurrentPlayerMoves() {
+        return currentPlayer.getNumberOfMoves();
+    }
+
 }
