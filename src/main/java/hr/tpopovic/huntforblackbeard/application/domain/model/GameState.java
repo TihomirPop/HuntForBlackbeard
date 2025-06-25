@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class GameState {
 
-    private static Player currentPlayer = Players.PIRATE;
+    private static Player currentPlayer = Players.HUNTER;
     private static Integer turnCount = 0;
 
     private GameState() {

@@ -45,18 +45,21 @@ public class GameController {
     @FXML
     Text numberOfMovesText;
 
+    private FXLocations locations;
     private Piece currentlySelectedPiece = Pieces.HUNTER_SHIP_JANE; //todo: use piece name instead of Piece proper
 
     @FXML
     public void initialize() {
-        var gamePaneChildren = List.copyOf(gamePane.getChildren());
-        for (var node : gamePaneChildren) {
+        FXLocations.Builder locationsBuilder = FXLocations.builder();
+        List<Node> gamePaneChildren = List.copyOf(gamePane.getChildren());
+        for (Node node : gamePaneChildren) {
             if (node instanceof Button button) {
                 double buttonX = button.getLayoutX();
                 double buttonY = button.getLayoutY();
+                String buttonId = button.getId();
 
                 VBox vBoxRight = new VBox();
-                vBoxRight.setId("%sVBoxRight".formatted(button.getId()));
+                vBoxRight.setId("%sVBoxRight".formatted(buttonId));
                 vBoxRight.setAlignment(Pos.TOP_CENTER);
                 vBoxRight.setLayoutX(buttonX + 31);
                 vBoxRight.setLayoutY(buttonY - 87);
@@ -64,7 +67,7 @@ public class GameController {
                 vBoxRight.setPrefWidth(30);
                 vBoxRight.setSpacing(10);
                 VBox vBoxLeft = new VBox();
-                vBoxLeft.setId("%sVBoxLeft".formatted(button.getId()));
+                vBoxLeft.setId("%sVBoxLeft".formatted(buttonId));
                 vBoxLeft.setAlignment(Pos.TOP_CENTER);
                 vBoxLeft.setLayoutX(buttonX - 38);
                 vBoxLeft.setLayoutY(buttonY - 87);
@@ -74,15 +77,20 @@ public class GameController {
 
                 gamePane.getChildren().add(vBoxRight);
                 gamePane.getChildren().add(vBoxLeft);
+
+                locationsBuilder.addLocation(new FXLocation(
+                        buttonId.replaceFirst("Button$", ""),
+                        button,
+                        vBoxRight,
+                        vBoxLeft
+                ));
             }
         }
 
+        locations = locationsBuilder.build();
+
         ForFetchingPlayerPieces forFetchingPlayerPieces = new PlayerPiecesService();
-        PlayerPiecesQuery query = switch (Application.PLAYER_TYPE) {
-            case "HUNTER" -> new PlayerPiecesQuery(Player.Type.HUNTER);
-            case "PIRATE" -> new PlayerPiecesQuery(Player.Type.PIRATE);
-            default -> throw new IllegalArgumentException("Unknown player type: " + Application.PLAYER_TYPE);
-        };
+        PlayerPiecesQuery query = new PlayerPiecesQuery(Application.PLAYER_TYPE);
         PlayerPiecesResult result = forFetchingPlayerPieces.fetch(query);
         if (result instanceof PlayerPiecesResult.Success success) {
             List<String> pieceNames = success.getPieces()
@@ -107,12 +115,7 @@ public class GameController {
         }
 
         ForMovingPieces forMovingPieces = new MovementService();
-        NumberOfMovesQuery numberOfMovesQuery = switch (Application.PLAYER_TYPE) {
-            case "HUNTER" -> new NumberOfMovesQuery(Player.Type.HUNTER);
-            case "PIRATE" -> new NumberOfMovesQuery(Player.Type.PIRATE);
-            default -> throw new IllegalArgumentException("Unknown player type: " + Application.PLAYER_TYPE);
-        };
-
+        NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(Application.PLAYER_TYPE);
         NumberOfMovesResult numberOfMovesResult = forMovingPieces.fetchNumberOfAvailableMoves(numberOfMovesQuery);
         if (numberOfMovesResult instanceof NumberOfMovesResult.Success success) {
             numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
@@ -170,9 +173,8 @@ public class GameController {
 
     @FXML
     void onMovementButtonPressed(ActionEvent event) {
-        String buttonId = ((Button) event.getSource()).getId();
-        String locationId = buttonId.substring(0, buttonId.length() - "Button".length());
-        Location.Name location = Location.Name.findById(locationId);
+        FXLocation fxLocation = locations.findByButton(event.getSource());
+        Location.Name location = Location.Name.findById(fxLocation.id());
         ForMovingPieces forMovingPieces = new MovementService();
         MovementCommand movementCommand = new MovementCommand(currentlySelectedPiece.getName(), location);
         MovementResult result = forMovingPieces.move(movementCommand);

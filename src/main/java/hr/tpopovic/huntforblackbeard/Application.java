@@ -1,6 +1,8 @@
 package hr.tpopovic.huntforblackbeard;
 
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
+import hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,7 +11,7 @@ import java.io.IOException;
 
 public class Application extends javafx.application.Application {
 
-    public static String PLAYER_TYPE;
+    public static Player.Type PLAYER_TYPE;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -27,11 +29,11 @@ public class Application extends javafx.application.Application {
             return;
         }
         var playerType = args[0].toUpperCase();
-        if (!playerType.equals("HUNTER") && !playerType.equals("PIRATE")) {
-            System.out.println("Invalid player type. Please provide HUNTER or PIRATE.");
-            return;
-        }
-        PLAYER_TYPE = playerType;
+        PLAYER_TYPE = switch (playerType) {
+            case "HUNTER" -> Player.Type.HUNTER;
+            case "PIRATE" -> Player.Type.PIRATE;
+            default -> throw new IllegalArgumentException("Invalid player type: %s. Expected HUNTER or PIRATE.".formatted(playerType));
+        };
         Pieces.initialize();
         launch();
     }
