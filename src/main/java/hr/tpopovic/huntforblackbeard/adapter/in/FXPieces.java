@@ -57,22 +57,22 @@ public class FXPieces {
         }
 
         public Builder setJane(ImageView jane) {
-            this.jane = new FXPiece("Jane", jane);
+            this.jane = new FXPiece("Jane", jane, FXPiece.Type.HUNTER);
             return this;
         }
 
         public Builder setRanger(ImageView ranger) {
-            this.ranger = new FXPiece("Ranger", ranger);
+            this.ranger = new FXPiece("Ranger", ranger, FXPiece.Type.HUNTER);
             return this;
         }
 
         public Builder setBrand(ImageView brand) {
-            this.brand = new FXPiece("Brand", brand);
+            this.brand = new FXPiece("Brand", brand, FXPiece.Type.HUNTER);
             return this;
         }
 
         public Builder setAdventure(ImageView adventure) {
-            this.adventure = new FXPiece("Adventure", adventure);
+            this.adventure = new FXPiece("Adventure", adventure, FXPiece.Type.PIRATE);
             return this;
         }
 

@@ -172,13 +172,15 @@ public class GameController {
         MovementCommand movementCommand = new MovementCommand(currentlySelectedPieceName, location);
         MovementResult result = forMovingPieces.move(movementCommand);
         switch (result) {
-            case MovementResult.Success success -> movementSuccess(success);
+            case MovementResult.Success success -> movementSuccess(success, fxLocation);
             case MovementResult.Failure failure -> movementFailure(failure);
         }
     }
 
-    private void movementSuccess(MovementResult.Success success) {
+    private void movementSuccess(MovementResult.Success success, FXLocation fxLocation) {
         updateMapWithAvailablePositionsForCurrentlySelectedPiece();
+        currentlySelectedPiece.changeLocation(fxLocation);
+        numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
     }
 
     private void movementFailure(MovementResult.Failure failure) {
