@@ -101,16 +101,9 @@ public class GameController {
         currentlySelectedPiece = pieces.findByName(selectedPieceName);
         updateMapWithAvailablePositionsForCurrentlySelectedPiece();
 
-        gamePane.getChildren().removeAll(jane, ranger, brand, adventure);
-        Node vBoxRight = gamePane.lookup("#jamesRiverButtonVBoxRight");
-        if (vBoxRight instanceof VBox vBox) {
-            vBox.getChildren().addAll(jane, ranger, brand);
-        }
-        Node vBoxLeft = gamePane.lookup("#jamesRiverButtonVBoxLeft");
-        if (vBoxLeft instanceof VBox vBox) {
-            adventure.setVisible(false);
-            vBox.getChildren().add(adventure);
-        }
+        FXLocation jamesRiverLocation = locations.findById("jamesRiver");
+        pieces.forEach(piece -> piece.changeLocation(jamesRiverLocation));
+        pieces.findByName("Adventure").imageView().setVisible(false);
 
         ForMovingPieces forMovingPieces = new MovementService();
         NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(Application.PLAYER_TYPE);

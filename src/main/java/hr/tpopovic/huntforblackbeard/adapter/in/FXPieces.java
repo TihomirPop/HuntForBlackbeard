@@ -4,7 +4,7 @@ import hr.tpopovic.huntforblackbeard.Application;
 import javafx.scene.image.ImageView;
 
 import java.util.List;
-import java.util.Set;
+import java.util.function.Consumer;
 
 public class FXPieces {
 
@@ -44,6 +44,13 @@ public class FXPieces {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public void forEach(Consumer<FXPiece> consumer) {
+        consumer.accept(jane);
+        consumer.accept(ranger);
+        consumer.accept(brand);
+        consumer.accept(adventure);
     }
 
     public static class Builder {
