@@ -3,12 +3,10 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
-import hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -25,8 +23,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class GameController {
 
@@ -46,7 +44,8 @@ public class GameController {
     Text numberOfMovesText;
 
     private FXLocations locations;
-    private Piece currentlySelectedPiece = Pieces.HUNTER_SHIP_JANE; //todo: use piece name instead of Piece proper
+    private FXPieces pieces;
+    private FXPiece currentlySelectedPiece;
 
     @FXML
     public void initialize() {
@@ -88,20 +87,19 @@ public class GameController {
         }
 
         locations = locationsBuilder.build();
+        pieces = FXPieces.builder()
+                .setJane(jane)
+                .setRanger(ranger)
+                .setBrand(brand)
+                .setAdventure(adventure)
+                .build();
 
-        ForFetchingPlayerPieces forFetchingPlayerPieces = new PlayerPiecesService();
-        PlayerPiecesQuery query = new PlayerPiecesQuery(Application.PLAYER_TYPE);
-        PlayerPiecesResult result = forFetchingPlayerPieces.fetch(query);
-        if (result instanceof PlayerPiecesResult.Success success) {
-            List<String> pieceNames = success.getPieces()
-                    .stream()
-                    .map(Piece.Name::getDisplayName)
-                    .toList();
-            selectedPieceComboBox.setItems(FXCollections.observableList(pieceNames));
-            selectedPieceComboBox.setValue(pieceNames.getFirst());
-            // set proper currentlySelectedPiece
-            updateMapWithAvailablePositionsForGivenPiece(Pieces.HUNTER_SHIP_JANE.getName());
-        }
+        ObservableList<String> playerPieceNames = FXCollections.observableList(pieces.getPlayerPieceNames());
+        selectedPieceComboBox.setItems(playerPieceNames);
+        String selectedPieceName = playerPieceNames.getFirst();
+        selectedPieceComboBox.setValue(selectedPieceName);
+        currentlySelectedPiece = pieces.findByName(selectedPieceName);
+        updateMapWithAvailablePositionsForCurrentlySelectedPiece();
 
         gamePane.getChildren().removeAll(jane, ranger, brand, adventure);
         Node vBoxRight = gamePane.lookup("#jamesRiverButtonVBoxRight");
@@ -162,21 +160,16 @@ public class GameController {
 
     @FXML
     void onPieceSelected(ActionEvent event) {
-        currentlySelectedPiece = switch (selectedPieceComboBox.getValue()) {
-            case "Jane" -> Pieces.HUNTER_SHIP_JANE;
-            case "Ranger" -> Pieces.HUNTER_SHIP_RANGER;
-            case "Brand" -> Pieces.HUNTER_CAPTAIN_BRAND;
-            case "Adventure" -> Pieces.PIRATE_SHIP_ADVENTURE;
-            default -> throw new IllegalStateException("Unexpected value: " + selectedPieceComboBox.getValue());
-        };
+        currentlySelectedPiece = pieces.findByName(selectedPieceComboBox.getValue());
     }
 
     @FXML
     void onMovementButtonPressed(ActionEvent event) {
+        Piece.Name currentlySelectedPieceName = Piece.Name.findByName(selectedPieceComboBox.getValue());
         FXLocation fxLocation = locations.findByButton(event.getSource());
         Location.Name location = Location.Name.findById(fxLocation.id());
         ForMovingPieces forMovingPieces = new MovementService();
-        MovementCommand movementCommand = new MovementCommand(currentlySelectedPiece.getName(), location);
+        MovementCommand movementCommand = new MovementCommand(currentlySelectedPieceName, location);
         MovementResult result = forMovingPieces.move(movementCommand);
         switch (result) {
             case MovementResult.Success success -> movementSuccess(success);
@@ -185,33 +178,23 @@ public class GameController {
     }
 
     private void movementSuccess(MovementResult.Success success) {
-        numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
-        updateMapWithAvailablePositionsForGivenPiece(currentlySelectedPiece.getName());
+        updateMapWithAvailablePositionsForCurrentlySelectedPiece();
     }
 
     private void movementFailure(MovementResult.Failure failure) {
 
     }
 
-    private void updateMapWithAvailablePositionsForGivenPiece(Piece.Name pieceName) {
+    private void updateMapWithAvailablePositionsForCurrentlySelectedPiece() {
         ForMovingPieces forMovingPieces = new MovementService();
-        MovementLocationQuery query = new MovementLocationQuery(pieceName);
+        MovementLocationQuery query = new MovementLocationQuery(currentlySelectedPiece.name());
         MovementLocationResult result = forMovingPieces.fetchAvailableMovementLocations(query);
         if (result instanceof MovementLocationResult.Success success) {
-            Set<String> availablePositions = success.getLocations()
-                    .stream()
-                    .map(location -> location.id)
-                    .map("%sButton"::formatted)
-                    .collect(Collectors.toSet());
-            for (var node : gamePane.getChildren()) {
-                if (node instanceof Button button) {
-                    String buttonId = button.getId();
-                    button.setVisible(false);
-                    if (availablePositions.contains(buttonId)) {
-                        button.setVisible(true);
-                    }
-                }
-            }
+            Map<Boolean, Set<FXLocation>> movementAvailableToLocations = locations.partitionByContains(success.getLocations());
+            movementAvailableToLocations.getOrDefault(true, Set.of())
+                    .forEach(location -> location.button().setVisible(true));
+            movementAvailableToLocations.getOrDefault(false, Set.of())
+                    .forEach(location -> location.button().setVisible(false));
         }
     }
 

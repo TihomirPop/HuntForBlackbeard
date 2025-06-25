@@ -1,7 +1,11 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
+
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FXLocations {
     private final Set<FXLocation> locations;
@@ -22,6 +26,17 @@ public class FXLocations {
                 .filter(location -> location.button().equals(button))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("No location found with button: " + button));
+    }
+
+    public Map<Boolean, Set<FXLocation>> partitionByContains(Set<Location.Name> locationNames) {
+        Set<String> locationIds = locationNames.stream()
+                .map(name -> name.id)
+                .collect(Collectors.toSet());
+        return this.locations.stream()
+                .collect(Collectors.partitioningBy(
+                        location -> locationIds.contains(location.id()),
+                        Collectors.toSet()
+                ));
     }
 
     public static Builder builder() {

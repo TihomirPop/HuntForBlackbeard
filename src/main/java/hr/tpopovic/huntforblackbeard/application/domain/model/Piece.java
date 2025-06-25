@@ -40,6 +40,17 @@ public abstract sealed class Piece permits Ship, Person {
             this.displayName = displayName;
         }
 
+        public static Name findByName(String name) {
+            requireNonNull(name, "Name cannot be null");
+            return switch (name.toUpperCase()) {
+                case "JANE" -> HUNTER_SHIP_JANE;
+                case "RANGER" -> HUNTER_SHIP_RANGER;
+                case "BRAND" -> HUNTER_CAPTAIN_BRAND;
+                case "ADVENTURE" -> PIRATE_SHIP_ADVENTURE;
+                default -> throw new IllegalArgumentException("Unknown piece name: " + name);
+            };
+        }
+
         public String getDisplayName() {
             return displayName;
         }

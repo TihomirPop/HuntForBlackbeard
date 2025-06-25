@@ -11,4 +11,8 @@ public record MovementLocationQuery(
     public MovementLocationQuery {
         requireNonNull(pieceName, "Piece name cannot be null");
     }
+
+    public MovementLocationQuery(String name) {
+        this(Piece.Name.findByName(name));
+    }
 }
