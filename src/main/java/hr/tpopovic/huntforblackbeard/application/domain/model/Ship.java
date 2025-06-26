@@ -16,9 +16,7 @@ public final class Ship extends Piece {
     @Override
     public void move(Location destination) {
         if (location.getOverWaterLocations().contains(destination)) {
-            this.location.removePiece(this);
-            this.location = destination;
-            this.location.addPiece(this);
+            changeLocation(destination);
         } else {
             throw new IllegalArgumentException("Cannot move to the specified destination: " + destination.getName());
         }

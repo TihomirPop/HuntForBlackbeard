@@ -28,8 +28,13 @@ public abstract sealed class Piece permits Ship, Person {
         return location;
     }
 
-    public abstract Set<Location> getAvailableDestinations();
+    public void changeLocation(Location destination) {
+        this.location.removePiece(this);
+        this.location = destination;
+        this.location.addPiece(this);
+    }
 
+    public abstract Set<Location> getAvailableDestinations();
     public abstract void move(Location destination);
 
     public enum Name {

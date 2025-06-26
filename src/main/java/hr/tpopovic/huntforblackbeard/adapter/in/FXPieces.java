@@ -42,6 +42,22 @@ public class FXPieces {
         };
     }
 
+    public FXPiece getJane() {
+        return jane;
+    }
+
+    public FXPiece getRanger() {
+        return ranger;
+    }
+
+    public FXPiece getBrand() {
+        return brand;
+    }
+
+    public FXPiece getAdventure() {
+        return adventure;
+    }
+
     public static Builder builder() {
         return new Builder();
     }

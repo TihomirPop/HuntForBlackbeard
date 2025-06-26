@@ -16,9 +16,7 @@ public final class Person extends Piece {
     @Override
     public void move(Location destination) {
         if (location.getOverLandLocations().contains(destination)) {
-            this.location.removePiece(this);
-            this.location = destination;
-            this.location.addPiece(this);
+            changeLocation(destination);
         } else {
             throw new IllegalArgumentException("Cannot move to the specified destination: " + destination.getName());
         }

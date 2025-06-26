@@ -2,13 +2,14 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
-import hr.tpopovic.huntforblackbeard.application.domain.GameStateUpdateService;
+import hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
 import hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
+import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,7 +49,6 @@ public class GameController {
     private FXLocations locations;
     private FXPieces pieces;
     private FXPiece currentlySelectedPiece;
-    private SignalUpdateServerSocket signalUpdateServerSocket;
 
     @FXML
     public void initialize() {
@@ -116,8 +116,14 @@ public class GameController {
         }
 
         ForUpdatingGameState forUpdatingGameState = new GameStateUpdateService();
-        SignalUpdateHandler signalUpdateHandler = new SignalUpdateHandler(forUpdatingGameState);
-        signalUpdateServerSocket = new SignalUpdateServerSocket(signalUpdateHandler);
+        SignalUpdateHandler signalUpdateHandler = new SignalUpdateHandler(
+                forUpdatingGameState,
+                pieces,
+                locations,
+                selectedPieceComboBox,
+                finishTurnButton
+        );
+        SignalUpdateServerSocket signalUpdateServerSocket = new SignalUpdateServerSocket(signalUpdateHandler);
         signalUpdateServerSocket.start();
     }
 

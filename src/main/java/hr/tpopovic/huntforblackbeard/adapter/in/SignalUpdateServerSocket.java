@@ -69,8 +69,8 @@ public class SignalUpdateServerSocket {
             log.info("Received request of type: {}", request.getClass().getName());
             if (request instanceof SignalUpdateRequest signalUpdateRequest) {
                 log.info("Processing SignalUpdateRequest: {}", signalUpdateRequest);
-                signalUpdateHandler.update(signalUpdateRequest);
-                outputStream.writeObject(new SignalUpdateResponse(Response.Result.SUCCESS));
+                SignalUpdateResponse response = signalUpdateHandler.update(signalUpdateRequest);
+                outputStream.writeObject(response);
             } else {
                 log.warn("Received unexpected request type: {}", request.getClass().getName());
                 outputStream.writeObject(new SignalUpdateResponse(Response.Result.FAILURE));
