@@ -22,23 +22,24 @@ public class IocContainer {
             throw new IllegalArgumentException("Class or one of its dependencies isn't managed by the IoC container.");
         }
 
-        Class<?> managedClass = type;
+        if (!classInstances.containsKey(type)) {
+            classInstances.put(type, createInstance(type));
+        }
+
+        return type.cast(classInstances.get(type));
+    }
+
+    private static <T> T createInstance(Class<T> type) {
         if(type.isInterface()) {
-            managedClass =  managedClasses.stream()
+            Class<?> managedClass = managedClasses.stream()
                     .filter(clazz -> !clazz.isInterface())
                     .filter(type::isAssignableFrom)
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("No implementation found for the interface: " + type.getName()));
+
+            return type.cast(getInstance(managedClass));
         }
 
-        if (!classInstances.containsKey(managedClass)) {
-            classInstances.put(managedClass, createInstance(managedClass));
-        }
-
-        return type.cast(classInstances.get(managedClass));
-    }
-
-    private static  <T> T createInstance(Class<T> type) {
         if (type.getConstructors().length > 1) {
             throw new IllegalStateException("There is more than one constructor for this class.");
         }
@@ -56,7 +57,7 @@ public class IocContainer {
 
             return constructor.newInstance(dependencies);
         } catch (InstantiationException | InvocationTargetException | IllegalAccessException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException("Failed to create an instance of " + type.getName(), e); //TODO: make custom exceptions
         }
     }
 
