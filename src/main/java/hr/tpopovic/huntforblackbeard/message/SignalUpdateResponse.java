@@ -2,7 +2,7 @@ package hr.tpopovic.huntforblackbeard.message;
 
 public class SignalUpdateResponse extends Response {
 
-    protected SignalUpdateResponse(Result result) {
+    public SignalUpdateResponse(Result result) {
         super(result);
     }
 

@@ -15,6 +15,7 @@ public class Pieces {
         HUNTER_SHIP_JANE.setLocation(Locations.JAMES_RIVER);
         HUNTER_SHIP_RANGER.setLocation(Locations.JAMES_RIVER);
         HUNTER_CAPTAIN_BRAND.setLocation(Locations.JAMES_RIVER);
+        PIRATE_SHIP_ADVENTURE.setLocation(Locations.JAMES_RIVER);
     }
 
     public static Piece getPieceByName(Piece.Name name) {

@@ -24,6 +24,10 @@ public abstract sealed class Piece permits Ship, Person {
         this.location.addPiece(this);
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
     public abstract Set<Location> getAvailableDestinations();
 
     public abstract void move(Location destination);

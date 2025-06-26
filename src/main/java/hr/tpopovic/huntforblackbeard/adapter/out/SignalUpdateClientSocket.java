@@ -11,12 +11,17 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class SignalUpdateClientSocket implements ForSignalingUpdate {
 
+    private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+
     @Override
-    public SignalUpdateResult signal(SignalUpdateCommand command) {
+    public CompletableFuture<SignalUpdateResult> signal(SignalUpdateCommand command) {
 
         SignalUpdateRequest request = new SignalUpdateRequest(
                 command.janeLocation().id,
@@ -25,7 +30,14 @@ public class SignalUpdateClientSocket implements ForSignalingUpdate {
                 command.adventureLocation().id
         );
 
-        try (Socket clientSocket = new Socket("localhost", Application.SERVER_PORT)) {
+        return CompletableFuture.supplyAsync(
+                () -> sendRequest(request, "localhost", Application.CLIENT_PORT),
+                executor
+        );
+    }
+
+    private SignalUpdateResult sendRequest(SignalUpdateRequest request, String serverAddress, int serverPort) {
+        try (Socket clientSocket = new Socket(serverAddress, serverPort)) {
             ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getInputStream());
             outputStream.writeObject(request);

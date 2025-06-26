@@ -1,7 +1,9 @@
 package hr.tpopovic.huntforblackbeard.application.port.out;
 
+import java.util.concurrent.CompletableFuture;
+
 public interface ForSignalingUpdate {
 
-    SignalUpdateResult signal(SignalUpdateCommand command);
+    CompletableFuture<SignalUpdateResult> signal(SignalUpdateCommand command);
 
 }

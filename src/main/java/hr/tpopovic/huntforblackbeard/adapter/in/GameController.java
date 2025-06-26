@@ -1,11 +1,13 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
 import hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
+import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,6 +48,7 @@ public class GameController {
     @FXML
     Button finishTurnButton;
 
+    private SignalUpdateServerSocket signalUpdateServerSocket = new SignalUpdateServerSocket();
     private FXLocations locations;
     private FXPieces pieces;
     private FXPiece currentlySelectedPiece;
@@ -114,28 +117,8 @@ public class GameController {
         if (numberOfMovesResult instanceof NumberOfMovesResult.Success success) {
             numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
         }
-//        new Thread(() -> {
-//            try (ServerSocket serverSocket = new ServerSocket(4242)){
-//                while (true) {
-//                    Socket clientSocket = serverSocket.accept();
-//                    new Thread(() -> processSerializableClient(clientSocket)).start();
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }).start();
-    }
 
-    protected void processSerializableClient(Socket clientSocket) {
-        try (
-                ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
-                ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());) {
-//            GameState receivedGameState = (GameState) ois.readObject();
-//            refreshGameState(receivedGameState, currentGameState);
-            oos.writeObject(Boolean.TRUE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        signalUpdateServerSocket.start();
     }
 
     @FXML
@@ -159,7 +142,8 @@ public class GameController {
 
     @FXML
     void onFinishTurnButtonPressed(ActionEvent event) {
-        ForFinishingTurn forFinishingTurn = new TurnFinishingService();
+        ForSignalingUpdate forSignalingUpdate = new SignalUpdateClientSocket();
+        ForFinishingTurn forFinishingTurn = new TurnFinishingService(forSignalingUpdate);
         forFinishingTurn.finishTurn();
         locations.forEach(location -> location.button().setDisable(true));
         selectedPieceComboBox.setDisable(true);

@@ -13,6 +13,7 @@ public class Application extends javafx.application.Application {
 
     public static Player.Type PLAYER_TYPE;
     public static Integer SERVER_PORT;
+    public static Integer CLIENT_PORT;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -42,11 +43,13 @@ public class Application extends javafx.application.Application {
     private static void hunter() {
         PLAYER_TYPE = Player.Type.HUNTER;
         SERVER_PORT = 8042;
+        CLIENT_PORT = 8043;
     }
 
     private static void pirate() {
         PLAYER_TYPE = Player.Type.PIRATE;
         SERVER_PORT = 8043;
+        CLIENT_PORT = 8042;
     }
 
 }
