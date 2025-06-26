@@ -1,6 +1,7 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.IocContainer;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
@@ -50,6 +51,9 @@ public class GameController {
     private FXPieces pieces;
     private FXPiece currentlySelectedPiece;
     private NumberOfMovesHandler numberOfMovesHandler;
+    private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
+    private final ForUpdatingGameState forUpdatingGameState = IocContainer.getInstance(ForUpdatingGameState.class);
+    private final ForFinishingTurn forFinishingTurn = IocContainer.getInstance(ForFinishingTurn.class);
 
     @FXML
     public void initialize() {
@@ -113,14 +117,12 @@ public class GameController {
             pieces.getAdventure().imageView().setVisible(false);
         }
 
-        ForMovingPieces forMovingPieces = new MovementService();
         numberOfMovesHandler = new NumberOfMovesHandler(
                 forMovingPieces,
                 numberOfMovesText
         );
         numberOfMovesHandler.updateNumberOfMoves();
 
-        ForUpdatingGameState forUpdatingGameState = new GameStateUpdateService();
         SignalUpdateHandler signalUpdateHandler = new SignalUpdateHandler(
                 forUpdatingGameState,
                 numberOfMovesHandler,
@@ -154,8 +156,6 @@ public class GameController {
 
     @FXML
     void onFinishTurnButtonPressed(ActionEvent event) {
-        ForSignalingUpdate forSignalingUpdate = new SignalUpdateClientSocket();
-        ForFinishingTurn forFinishingTurn = new TurnFinishingService(forSignalingUpdate);
         forFinishingTurn.finishTurn();
         locations.forEach(location -> location.button().setDisable(true));
         selectedPieceComboBox.setDisable(true);
@@ -173,7 +173,6 @@ public class GameController {
     }
 
     private void updateMapWithAvailablePositionsForCurrentlySelectedPiece() {
-        ForMovingPieces forMovingPieces = new MovementService();
         MovementLocationQuery query = new MovementLocationQuery(currentlySelectedPiece.name());
         MovementLocationResult result = forMovingPieces.fetchAvailableMovementLocations(query);
         if (result instanceof MovementLocationResult.Success success) {
