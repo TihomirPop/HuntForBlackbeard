@@ -5,6 +5,7 @@ import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class FXLocations {
@@ -37,6 +38,10 @@ public class FXLocations {
                         location -> locationIds.contains(location.id()),
                         Collectors.toSet()
                 ));
+    }
+
+    public void forEach(Consumer<FXLocation> action) {
+        locations.forEach(action);
     }
 
     public static Builder builder() {

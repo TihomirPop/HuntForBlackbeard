@@ -46,11 +46,11 @@ public class FXPieces {
         return new Builder();
     }
 
-    public void forEach(Consumer<FXPiece> consumer) {
-        consumer.accept(jane);
-        consumer.accept(ranger);
-        consumer.accept(brand);
-        consumer.accept(adventure);
+    public void forEach(Consumer<FXPiece> action) {
+        action.accept(jane);
+        action.accept(ranger);
+        action.accept(brand);
+        action.accept(adventure);
     }
 
     public static class Builder {

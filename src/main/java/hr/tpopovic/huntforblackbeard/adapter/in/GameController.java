@@ -4,6 +4,7 @@ import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
+import hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +43,8 @@ public class GameController {
     ImageView adventure;
     @FXML
     Text numberOfMovesText;
+    @FXML
+    Button finishTurnButton;
 
     private FXLocations locations;
     private FXPieces pieces;
@@ -168,6 +171,15 @@ public class GameController {
             case MovementResult.Success success -> movementSuccess(success, fxLocation);
             case MovementResult.Failure failure -> movementFailure(failure);
         }
+    }
+
+    @FXML
+    void onFinishTurnButtonPressed(ActionEvent event) {
+        ForFinishingTurn forFinishingTurn = new TurnFinishingService();
+        forFinishingTurn.finishTurn();
+        locations.forEach(location -> location.button().setDisable(true));
+        selectedPieceComboBox.setDisable(true);
+        finishTurnButton.setDisable(true);
     }
 
     private void movementSuccess(MovementResult.Success success, FXLocation fxLocation) {
