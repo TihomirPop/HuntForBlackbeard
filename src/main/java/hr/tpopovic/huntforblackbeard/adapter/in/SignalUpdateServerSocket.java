@@ -2,7 +2,10 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.message.Response;
+import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
 import hr.tpopovic.huntforblackbeard.message.SignalUpdateResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,31 +17,67 @@ import java.util.concurrent.Executors;
 
 public class SignalUpdateServerSocket {
 
+    private static final Logger log = LoggerFactory.getLogger(SignalUpdateServerSocket.class);
+
     private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+    private final SignalUpdateHandler signalUpdateHandler;
+    private volatile boolean running = true;
 
-    void start() {
-        executor.submit(this::handle);
-        System.out.println("SignalUpdateServerSocket started");
+    public SignalUpdateServerSocket(SignalUpdateHandler signalUpdateHandler) {
+        this.signalUpdateHandler = signalUpdateHandler;
     }
 
-    private void handle() {
-        try (ServerSocket serverSocket = new ServerSocket(Application.SERVER_PORT)){
-            System.out.println("Server started on port: " + Application.SERVER_PORT);
-            while (true) {
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Client connected: " + clientSocket.getInetAddress());
-                try(ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
-                        ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getInputStream());) {
-                    Object read = inputStream.readObject();
-                    System.out.println(read.getClass());
-                    outputStream.writeObject(new SignalUpdateResponse(Response.Result.SUCCESS));
-                } catch (ClassNotFoundException e) {
-                    System.out.println("Error reading object from client: " + e.getMessage());
-                }
+    public void start() {
+        executor.submit(this::startSocket);
+        log.info("SignalUpdateServerSocket started");
+    }
+
+    public void stop() {
+        running = false;
+        executor.shutdownNow();
+        log.info("SignalUpdateServerSocket stopped");
+    }
+
+    private void startSocket() {
+        try (ServerSocket serverSocket = new ServerSocket(Application.SERVER_PORT)) {
+            log.info("Server started on port: {}", Application.SERVER_PORT);
+            while (running) {
+                waitForAndHandleRequest(serverSocket);
             }
-        }  catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            log.error("Failed to start server socket", e);
         }
-
     }
+
+    private void waitForAndHandleRequest(ServerSocket serverSocket) {
+        try {
+            Socket clientSocket = serverSocket.accept();
+            log.info("Client connected from port: {}", clientSocket.getPort());
+            executor.submit(() -> handleRequest(clientSocket));
+        } catch (IOException e) {
+            log.error("Error accepting client connection", e);
+        }
+    }
+
+    private void handleRequest(Socket clientSocket) {
+        try (
+                Socket socket = clientSocket;
+                ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream())
+        ) {
+            Object request = inputStream.readObject();
+            log.info("Received request of type: {}", request.getClass().getName());
+            if (request instanceof SignalUpdateRequest signalUpdateRequest) {
+                log.info("Processing SignalUpdateRequest: {}", signalUpdateRequest);
+                signalUpdateHandler.update(signalUpdateRequest);
+                outputStream.writeObject(new SignalUpdateResponse(Response.Result.SUCCESS));
+            } else {
+                log.warn("Received unexpected request type: {}", request.getClass().getName());
+                outputStream.writeObject(new SignalUpdateResponse(Response.Result.FAILURE));
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            log.error("Error handling request", e);
+        }
+    }
+
 }

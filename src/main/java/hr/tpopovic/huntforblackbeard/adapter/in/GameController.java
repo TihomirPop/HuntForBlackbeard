@@ -2,6 +2,7 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
+import hr.tpopovic.huntforblackbeard.application.domain.GameStateUpdateService;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
@@ -21,10 +22,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -48,10 +45,10 @@ public class GameController {
     @FXML
     Button finishTurnButton;
 
-    private SignalUpdateServerSocket signalUpdateServerSocket = new SignalUpdateServerSocket();
     private FXLocations locations;
     private FXPieces pieces;
     private FXPiece currentlySelectedPiece;
+    private SignalUpdateServerSocket signalUpdateServerSocket;
 
     @FXML
     public void initialize() {
@@ -118,6 +115,9 @@ public class GameController {
             numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
         }
 
+        ForUpdatingGameState forUpdatingGameState = new GameStateUpdateService();
+        SignalUpdateHandler signalUpdateHandler = new SignalUpdateHandler(forUpdatingGameState);
+        signalUpdateServerSocket = new SignalUpdateServerSocket(signalUpdateHandler);
         signalUpdateServerSocket.start();
     }
 
