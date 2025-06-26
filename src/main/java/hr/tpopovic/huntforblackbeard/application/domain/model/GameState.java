@@ -12,6 +12,7 @@ public class GameState {
 
     public static void endTurn() {
         turnCount++;
+        currentPlayer.resetMoves();
         currentPlayer = currentPlayer == Players.HUNTER
                 ? Players.PIRATE
                 : Players.HUNTER;

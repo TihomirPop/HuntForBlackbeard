@@ -18,16 +18,20 @@ public class SignalUpdateHandler {
     private static final Logger log = LoggerFactory.getLogger(SignalUpdateHandler.class);
 
     private final ForUpdatingGameState forUpdatingGameState;
+    private final NumberOfMovesHandler numberOfMovesHandler;
     private final FXPieces pieces;
     private final FXLocations locations;
     private final ComboBox<String> selectedPieceComboBox;
     private final Button finishTurnButton;
 
 
-    public SignalUpdateHandler(ForUpdatingGameState forUpdatingGameState, FXPieces pieces, FXLocations locations, ComboBox<String> selectedPieceComboBox,
+    public SignalUpdateHandler(ForUpdatingGameState forUpdatingGameState,
+            NumberOfMovesHandler numberOfMovesHandler,
+            FXPieces pieces, FXLocations locations, ComboBox<String> selectedPieceComboBox,
             Button finishTurnButton
     ) {
         this.forUpdatingGameState = forUpdatingGameState;
+        this.numberOfMovesHandler = numberOfMovesHandler;
         this.pieces = pieces;
         this.locations = locations;
         this.selectedPieceComboBox = selectedPieceComboBox;
@@ -44,12 +48,20 @@ public class SignalUpdateHandler {
 
         UpdateGameStateResult result = forUpdatingGameState.update(command);
 
-        Platform.runLater(() -> updateFrontend(request));
-
         return switch (result) {
-            case UpdateGameStateResult.Success _ -> success();
+            case UpdateGameStateResult.Success _ -> success(request);
             case UpdateGameStateResult.Failure failure -> failure(failure);
         };
+    }
+
+    private SignalUpdateResponse success(SignalUpdateRequest request) {
+        Platform.runLater(() -> updateFrontend(request));
+        return new SignalUpdateResponse(Response.Result.SUCCESS);
+    }
+
+    private SignalUpdateResponse failure(UpdateGameStateResult.Failure failure) {
+        log.error("Signal update failed: {}", failure.getMessage());
+        return new SignalUpdateResponse(Response.Result.FAILURE);
     }
 
     private void updateFrontend(SignalUpdateRequest request) {
@@ -60,15 +72,7 @@ public class SignalUpdateHandler {
         locations.forEach(location -> location.button().setDisable(false));
         selectedPieceComboBox.setDisable(false);
         finishTurnButton.setDisable(false);
-    }
-
-    private SignalUpdateResponse success() {
-        return new SignalUpdateResponse(Response.Result.SUCCESS);
-    }
-
-    private SignalUpdateResponse failure(UpdateGameStateResult.Failure failure) {
-        log.error("Signal update failed: {}", failure.getMessage());
-        return new SignalUpdateResponse(Response.Result.FAILURE);
+        numberOfMovesHandler.updateNumberOfMoves();
     }
 
 }

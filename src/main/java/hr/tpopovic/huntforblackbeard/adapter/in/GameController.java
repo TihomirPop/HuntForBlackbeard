@@ -2,15 +2,14 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
-import hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
+import hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService;
 import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
 import hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -50,6 +49,7 @@ public class GameController {
     private FXLocations locations;
     private FXPieces pieces;
     private FXPiece currentlySelectedPiece;
+    private NumberOfMovesHandler numberOfMovesHandler;
 
     @FXML
     public void initialize() {
@@ -114,15 +114,16 @@ public class GameController {
         }
 
         ForMovingPieces forMovingPieces = new MovementService();
-        NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(Application.PLAYER_TYPE);
-        NumberOfMovesResult numberOfMovesResult = forMovingPieces.fetchNumberOfAvailableMoves(numberOfMovesQuery);
-        if (numberOfMovesResult instanceof NumberOfMovesResult.Success success) {
-            numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
-        }
+        numberOfMovesHandler = new NumberOfMovesHandler(
+                forMovingPieces,
+                numberOfMovesText
+        );
+        numberOfMovesHandler.updateNumberOfMoves();
 
         ForUpdatingGameState forUpdatingGameState = new GameStateUpdateService();
         SignalUpdateHandler signalUpdateHandler = new SignalUpdateHandler(
                 forUpdatingGameState,
+                numberOfMovesHandler,
                 pieces,
                 locations,
                 selectedPieceComboBox,
@@ -164,7 +165,7 @@ public class GameController {
     private void movementSuccess(MovementResult.Success success, FXLocation fxLocation) {
         updateMapWithAvailablePositionsForCurrentlySelectedPiece();
         currentlySelectedPiece.changeLocation(fxLocation);
-        numberOfMovesText.setText("Remaining moves: %s".formatted(success.getNumberOfMoves()));
+        numberOfMovesHandler.setNumberOfMoves(success.getNumberOfMoves());
     }
 
     private void movementFailure(MovementResult.Failure failure) {
