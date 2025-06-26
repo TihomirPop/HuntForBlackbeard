@@ -41,6 +41,10 @@ public class Player {
         return Collections.unmodifiableSet(pieces);
     }
 
+    public boolean isFirstMove() {
+        return numberOfMoves.equals(startingNumberOfMoves);
+    }
+
     public enum Type {
         HUNTER,
         PIRATE

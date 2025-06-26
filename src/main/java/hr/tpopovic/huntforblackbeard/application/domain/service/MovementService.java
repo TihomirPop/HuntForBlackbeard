@@ -47,8 +47,8 @@ public class MovementService implements ForMovingPieces {
         }
 
         try {
-            GameState.currentPlayerMoves();
             piece.move(destination);
+            GameState.currentPlayerMoves();
             Integer numberOfMoves = GameState.getCurrentPlayerMoves();
             return new MovementResult.Success(numberOfMoves);
         } catch (IllegalArgumentException e) {

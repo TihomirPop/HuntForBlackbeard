@@ -34,8 +34,15 @@ public abstract sealed class Piece permits Ship, Person {
         this.location.addPiece(this);
     }
 
+    public void move(Location destination) {
+        if (getAvailableDestinations().contains(destination)) {
+            changeLocation(destination);
+        } else {
+            throw new IllegalArgumentException("Cannot move to the specified destination: " + destination.getName());
+        }
+    }
+
     public abstract Set<Location> getAvailableDestinations();
-    public abstract void move(Location destination);
 
     public enum Name {
         HUNTER_SHIP_JANE("Jane"),

@@ -2,10 +2,10 @@ package hr.tpopovic.huntforblackbeard.application.domain.model;
 
 public class Pieces {
 
-    public static final Piece HUNTER_SHIP_JANE = new Ship(Piece.Name.HUNTER_SHIP_JANE);
-    public static final Piece HUNTER_SHIP_RANGER = new Ship(Piece.Name.HUNTER_SHIP_RANGER);
-    public static final Piece HUNTER_CAPTAIN_BRAND = new Person(Piece.Name.HUNTER_CAPTAIN_BRAND);
-    public static final Piece PIRATE_SHIP_ADVENTURE = new Ship(Piece.Name.PIRATE_SHIP_ADVENTURE);
+    public static final Piece HUNTER_SHIP_JANE = new HunterShip(Piece.Name.HUNTER_SHIP_JANE);
+    public static final Piece HUNTER_SHIP_RANGER = new HunterShip(Piece.Name.HUNTER_SHIP_RANGER);
+    public static final Piece HUNTER_CAPTAIN_BRAND = new HunterShip(Piece.Name.HUNTER_CAPTAIN_BRAND);
+    public static final Piece PIRATE_SHIP_ADVENTURE = new PirateShip(Piece.Name.PIRATE_SHIP_ADVENTURE);
 
     private Pieces() {
         throw new IllegalStateException("Utility class");

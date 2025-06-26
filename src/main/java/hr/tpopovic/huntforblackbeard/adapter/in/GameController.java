@@ -2,6 +2,7 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
@@ -105,8 +106,12 @@ public class GameController {
         updateMapWithAvailablePositionsForCurrentlySelectedPiece();
 
         FXLocation jamesRiverLocation = locations.findById("jamesRiver");
-        pieces.forEach(piece -> piece.changeLocation(jamesRiverLocation));
-        pieces.findByName("Adventure").imageView().setVisible(false);
+        pieces.getJane().changeLocation(jamesRiverLocation);
+        pieces.getRanger().changeLocation(jamesRiverLocation);
+        pieces.getBrand().changeLocation(jamesRiverLocation);
+        if (Application.PLAYER_TYPE == Player.Type.HUNTER) {
+            pieces.getAdventure().imageView().setVisible(false);
+        }
 
         ForMovingPieces forMovingPieces = new MovementService();
         NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(Application.PLAYER_TYPE);

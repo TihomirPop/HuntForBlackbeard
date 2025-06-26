@@ -1,5 +1,8 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class Locations {
 
     public static final Location TOPSAIL_INLET = new Location.Water.Ocean(Location.Name.TOPSAIL_INLET);
@@ -30,6 +33,16 @@ public class Locations {
     public static final Location CURRITUCK_INLET = new Location.Water.Ocean(Location.Name.CURRITUCK_INLET);
     public static final Location JAMES_RIVER = new Location.Land.Blank(Location.Name.JAMES_RIVER);
     public static final Location CAPE_HENRY = new Location.Water.Blank(Location.Name.CAPE_HENRY);
+
+    private static final Set<Location> locations = Set.of(
+            TOPSAIL_INLET, FISH_TOWN, NEUS_RIVER, BATH_TOWN, NEW_BERN,
+            HUNTING_QUARTER_SOUND, CORE_BANKS, WEST_PAMLICO_SOUND, OCRACOKE_INLET,
+            OCRACOKE_ISLAND, EAST_PAMLICO_SOUND, HATTERAS_BANK, CAPE_HATTERAS,
+            MACHAPUNGA_BLUFF, ROANOKE_RIVER, QUEEN_ANNES_CREEK, ALBEMARLE_COUNTY,
+            BATS_GRAVE, PASQUOTANK_RIVER, NOTS_ISLAND, ALBEMARLE_SOUND,
+            ROANOKE_ISLAND, CURRITUCK_SOUND, GUN_INLET, ROANOKE_INLET,
+            CURRITUCK_INLET, JAMES_RIVER, CAPE_HENRY
+    );
 
     static {
         TOPSAIL_INLET.addOverWaterLocations(FISH_TOWN, HUNTING_QUARTER_SOUND, OCRACOKE_INLET);
@@ -106,6 +119,14 @@ public class Locations {
             case JAMES_RIVER -> JAMES_RIVER;
             case CAPE_HENRY -> CAPE_HENRY;
         };
+    }
+
+    public static Set<Location> getPirateStartingLocations() {
+        return locations.stream()
+                .filter(location -> !(location instanceof Location.Land.Town))
+                .filter(location -> !(location instanceof Location.Land.Blank))
+                .filter(location -> !(location instanceof Location.Water.Blank))
+                .collect(Collectors.toSet());
     }
 
 }

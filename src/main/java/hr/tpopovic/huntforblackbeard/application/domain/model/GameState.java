@@ -41,4 +41,12 @@ public class GameState {
         return currentPlayer.getNumberOfMoves();
     }
 
+    public static boolean isFirstTurn() {
+        return turnCount == 0;
+    }
+
+    public static boolean isFirstMove() {
+        return currentPlayer.isFirstMove();
+    }
+
 }

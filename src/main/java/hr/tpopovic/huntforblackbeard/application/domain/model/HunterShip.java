@@ -2,15 +2,15 @@ package hr.tpopovic.huntforblackbeard.application.domain.model;
 
 import java.util.Set;
 
-public final class Person extends Piece {
+public final class HunterShip extends Ship {
 
-    Person(Name name) {
+    HunterShip(Name name) {
         super(name);
     }
 
     @Override
     public Set<Location> getAvailableDestinations() {
-        return location.getOverLandLocations();
+        return location.getOverWaterLocations();
     }
 
 }
