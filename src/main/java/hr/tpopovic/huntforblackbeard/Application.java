@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
 
     public static Player.Type PLAYER_TYPE;
+    public static Integer SERVER_PORT;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -29,13 +30,23 @@ public class Application extends javafx.application.Application {
             return;
         }
         var playerType = args[0].toUpperCase();
-        PLAYER_TYPE = switch (playerType) {
-            case "HUNTER" -> Player.Type.HUNTER;
-            case "PIRATE" -> Player.Type.PIRATE;
+        switch (playerType) {
+            case "HUNTER" -> hunter();
+            case "PIRATE" -> pirate();
             default -> throw new IllegalArgumentException("Invalid player type: %s. Expected HUNTER or PIRATE.".formatted(playerType));
         };
         Pieces.initialize();
         launch();
+    }
+
+    private static void hunter() {
+        PLAYER_TYPE = Player.Type.HUNTER;
+        SERVER_PORT = 8042;
+    }
+
+    private static void pirate() {
+        PLAYER_TYPE = Player.Type.PIRATE;
+        SERVER_PORT = 8043;
     }
 
 }

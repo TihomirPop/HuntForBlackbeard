@@ -138,22 +138,6 @@ public class GameController {
         }
     }
 
-    private void sendRequest() {
-        try (Socket clientSocket = new Socket("localhost", 4242)) {
-            sendSerializableRequest(clientSocket);
-
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void sendSerializableRequest(Socket client) throws IOException, ClassNotFoundException {
-        ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-        ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
-//        oos.writeObject(gameState);
-//        log.info("Game state received confirmation: " + ois.readObject());
-    }
-
     @FXML
     void onPieceSelected(ActionEvent event) {
         currentlySelectedPiece = pieces.findByName(selectedPieceComboBox.getValue());
