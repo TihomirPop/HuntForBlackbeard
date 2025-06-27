@@ -39,11 +39,11 @@ public class MovementService implements ForMovingPieces {
         Location destination = Locations.getLocationByName(destinationName);
 
         if (!GameState.canCurrentPlayerMove()) {
-            return new MovementResult.Failure("Player cannot move.");
+            return new MovementResult.Failure("Player has no moves left.");
         }
 
         if (!GameState.isCurrentPlayersPiece(piece)) {
-            return new MovementResult.Failure("Piece is not owned by the player.");
+            return new MovementResult.Failure("It's not this piece's turn to move.");
         }
 
         try {

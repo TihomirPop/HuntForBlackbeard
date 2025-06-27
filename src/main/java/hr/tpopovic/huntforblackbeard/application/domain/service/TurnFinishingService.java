@@ -19,7 +19,7 @@ public class TurnFinishingService implements ForFinishingTurn {
     }
 
     @Override
-    public TurnFinishResult finishTurn() {
+    public CompletableFuture<TurnFinishResult> finishTurn() {
         GameState.endTurn();
         SignalUpdateCommand command = new SignalUpdateCommand(
                 Pieces.HUNTER_SHIP_JANE.getLocation().getName(),
@@ -27,12 +27,13 @@ public class TurnFinishingService implements ForFinishingTurn {
                 Pieces.HUNTER_CAPTAIN_BRAND.getLocation().getName(),
                 Pieces.PIRATE_SHIP_ADVENTURE.getLocation().getName()
         );
-        CompletableFuture<SignalUpdateResult> result = forSignalingUpdate.signal(command); //todo: handle async properly
-//        return switch (result) {
-//            case SignalUpdateResult.Success _ -> success();
-//            case SignalUpdateResult.Failure failure -> failure(failure);
-//        };
-        return new TurnFinishResult.Success();
+        return forSignalingUpdate.signal(command)
+                .thenApply(result ->
+                        switch (result) {
+                            case SignalUpdateResult.Success _ -> success();
+                            case SignalUpdateResult.Failure failure -> failure(failure);
+                        }
+                );
     }
 
     private TurnFinishResult success() {

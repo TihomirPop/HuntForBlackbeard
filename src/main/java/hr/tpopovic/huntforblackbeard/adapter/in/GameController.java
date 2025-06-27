@@ -145,7 +145,6 @@ public class GameController {
         Piece.Name currentlySelectedPieceName = Piece.Name.findByName(selectedPieceComboBox.getValue());
         FXLocation fxLocation = locations.findByButton(event.getSource());
         Location.Name location = Location.Name.findById(fxLocation.id());
-        ForMovingPieces forMovingPieces = new MovementService();
         MovementCommand movementCommand = new MovementCommand(currentlySelectedPieceName, location);
         MovementResult result = forMovingPieces.move(movementCommand);
         switch (result) {
@@ -156,7 +155,12 @@ public class GameController {
 
     @FXML
     void onFinishTurnButtonPressed(ActionEvent event) {
-        forFinishingTurn.finishTurn();
+        forFinishingTurn.finishTurn()
+                .thenAccept(result -> {
+                    if (result instanceof TurnFinishResult.Failure failure) {
+                        AlertManager.showInfo("Turn Finish Error", failure.getMessage());
+                    }
+                });
         locations.forEach(location -> location.button().setDisable(true));
         selectedPieceComboBox.setDisable(true);
         finishTurnButton.setDisable(true);
@@ -169,7 +173,7 @@ public class GameController {
     }
 
     private void movementFailure(MovementResult.Failure failure) {
-
+        AlertManager.showInfo("Movement Error", failure.getMessage());
     }
 
     private void updateMapWithAvailablePositionsForCurrentlySelectedPiece() {
