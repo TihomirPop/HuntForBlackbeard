@@ -4,7 +4,7 @@ import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
 
-public abstract sealed class Piece permits HunterPiece, PirateShip {
+public abstract sealed class Piece permits Discoverer, HunterPiece, PirateShip {
 
     private final Name name;
     protected Location location;
@@ -48,7 +48,8 @@ public abstract sealed class Piece permits HunterPiece, PirateShip {
         HUNTER_SHIP_JANE("Jane"),
         HUNTER_SHIP_RANGER("Ranger"),
         HUNTER_CAPTAIN_BRAND("Brand"),
-        PIRATE_SHIP_ADVENTURE("Adventure");
+        PIRATE_SHIP_ADVENTURE("Adventure"),
+        DISCOVERER("Discoverer");
 
         private final String displayName;
 

@@ -2,6 +2,7 @@ package hr.tpopovic.huntforblackbeard.application.domain.service;
 
 import hr.tpopovic.huntforblackbeard.application.domain.model.*;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings;
+import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult;
 
@@ -32,6 +33,27 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
 
         Location location = piece.getLocation();
 
+        return getPirateSightingResult(location);
+    }
+
+    @Override
+    public PirateSightingResult discover(PirateSightingCommand command) {
+        requireNonNull(command, "PirateSightingCommand cannot be null");
+        Location destination = Locations.getLocationByName(command.destinationName());
+        Piece piece = Pieces.DISCOVERER;
+
+        if(!GameState.isCurrentPlayerHunter()) {
+            return new PirateSightingResult.Failure("Only hunters can discover pirate sightings.");
+        }
+
+        if(!piece.getAvailableDestinations().contains(destination)) {
+            return new PirateSightingResult.Failure("Cannot discover pirates at the specified location: " + destination.getName());
+        }
+
+        return getPirateSightingResult(destination);
+    }
+
+    private static PirateSightingResult getPirateSightingResult(Location location) {
         if(location.getPieces().contains(Pieces.PIRATE_SHIP_ADVENTURE)) {
             return new PirateSightingResult.Found();
         }

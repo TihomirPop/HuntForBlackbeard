@@ -74,7 +74,15 @@ public class Locations {
         PASQUOTANK_RIVER.addOverWaterLocations(ALBEMARLE_SOUND);
         PASQUOTANK_RIVER.addOverLandLocations(BATS_GRAVE);
         NOTS_ISLAND.addOverWaterLocations(CURRITUCK_SOUND, CURRITUCK_INLET);
-        ALBEMARLE_SOUND.addOverWaterLocations(ROANOKE_RIVER, QUEEN_ANNES_CREEK, BATS_GRAVE, PASQUOTANK_RIVER, ROANOKE_ISLAND, ROANOKE_INLET, CURRITUCK_SOUND);
+        ALBEMARLE_SOUND.addOverWaterLocations(
+                ROANOKE_RIVER,
+                QUEEN_ANNES_CREEK,
+                BATS_GRAVE,
+                PASQUOTANK_RIVER,
+                ROANOKE_ISLAND,
+                ROANOKE_INLET,
+                CURRITUCK_SOUND
+        );
         ROANOKE_ISLAND.addOverWaterLocations(EAST_PAMLICO_SOUND, GUN_INLET, ROANOKE_INLET, ALBEMARLE_SOUND, CURRITUCK_SOUND);
         CURRITUCK_SOUND.addOverWaterLocations(ALBEMARLE_SOUND, ROANOKE_ISLAND, ROANOKE_INLET, NOTS_ISLAND);
         GUN_INLET.addOverWaterLocations(CAPE_HATTERAS, ROANOKE_ISLAND, ROANOKE_INLET);
@@ -131,9 +139,15 @@ public class Locations {
                 .collect(Collectors.toSet());
     }
 
-    public static Set<Location.Name> getPirateSightingNames() {
+    public static Set<Location> getPirateSightings() {
         return locationSet.stream()
                 .filter(Location::isPirateSighted)
+                .collect(Collectors.toSet());
+    }
+
+    public static Set<Location.Name> getPirateSightingNames() {
+        return getPirateSightings()
+                .stream()
                 .map(Location::getName)
                 .collect(Collectors.toSet());
     }

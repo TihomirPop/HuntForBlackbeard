@@ -6,6 +6,7 @@ public class Pieces {
     public static final Piece HUNTER_SHIP_RANGER = new HunterShip(Piece.Name.HUNTER_SHIP_RANGER);
     public static final Piece HUNTER_CAPTAIN_BRAND = new HunterPerson(Piece.Name.HUNTER_CAPTAIN_BRAND);
     public static final Piece PIRATE_SHIP_ADVENTURE = new PirateShip(Piece.Name.PIRATE_SHIP_ADVENTURE);
+    public static final Piece DISCOVERER = new Discoverer(Piece.Name.DISCOVERER);
 
     private Pieces() {
         throw new IllegalStateException("Utility class");
@@ -16,6 +17,7 @@ public class Pieces {
         HUNTER_SHIP_RANGER.setLocation(Locations.JAMES_RIVER);
         HUNTER_CAPTAIN_BRAND.setLocation(Locations.JAMES_RIVER);
         PIRATE_SHIP_ADVENTURE.setLocation(Locations.OFF_BOARD);
+        DISCOVERER.setLocation(Locations.OFF_BOARD);
     }
 
     public static Piece getPieceByName(Piece.Name name) {
@@ -24,6 +26,7 @@ public class Pieces {
             case HUNTER_SHIP_RANGER -> HUNTER_SHIP_RANGER;
             case HUNTER_CAPTAIN_BRAND -> HUNTER_CAPTAIN_BRAND;
             case PIRATE_SHIP_ADVENTURE -> PIRATE_SHIP_ADVENTURE;
+            case DISCOVERER -> DISCOVERER;
         };
     }
 

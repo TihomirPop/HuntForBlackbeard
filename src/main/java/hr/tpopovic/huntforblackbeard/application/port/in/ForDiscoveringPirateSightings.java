@@ -4,4 +4,6 @@ public interface ForDiscoveringPirateSightings {
 
     PirateSightingResult startDiscovery(PirateSightingStartCommand command);
 
+    PirateSightingResult discover(PirateSightingCommand command);
+
 }
