@@ -16,4 +16,14 @@ public final class PirateShip extends Ship {
         return location.getOverWaterLocations();
     }
 
+    @Override
+    public void move(Location destination) {
+        if (getAvailableDestinations().contains(destination)) {
+            location.setPirateSighted(true);
+            changeLocation(destination);
+        } else {
+            throw new IllegalArgumentException("Cannot move to the specified destination: " + destination.getName());
+        }
+    }
+
 }

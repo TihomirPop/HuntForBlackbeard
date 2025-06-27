@@ -14,6 +14,7 @@ public abstract sealed class Location {
     private final Set<Location> overWaterLocations = new HashSet<>();
     private final Set<Location> overLandLocations = new HashSet<>();
     private final Set<Piece> pieces = new HashSet<>();
+    private boolean pirateSighted = false;
 
     private Location(Name name) {
         requireNonNull(name, "Name cannot be null");
@@ -54,6 +55,14 @@ public abstract sealed class Location {
 
     public Set<Piece> getPieces() {
         return Collections.unmodifiableSet(pieces);
+    }
+
+    public boolean isPirateSighted() {
+        return pirateSighted;
+    }
+
+    public void setPirateSighted(boolean pirateSighted) {
+        this.pirateSighted = pirateSighted;
     }
 
     public abstract static sealed class Water extends Location {
