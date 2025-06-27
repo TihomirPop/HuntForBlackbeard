@@ -50,4 +50,8 @@ public class GameState {
         return currentPlayer.isFirstMove();
     }
 
+    public static boolean isCurrentPlayerHunter() {
+        return currentPlayer == Players.HUNTER;
+    }
+
 }
