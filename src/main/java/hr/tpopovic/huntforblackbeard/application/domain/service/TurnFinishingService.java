@@ -1,6 +1,7 @@
 package hr.tpopovic.huntforblackbeard.application.domain.service;
 
 import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Locations;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn;
 import hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult;
@@ -25,7 +26,8 @@ public class TurnFinishingService implements ForFinishingTurn {
                 Pieces.HUNTER_SHIP_JANE.getLocation().getName(),
                 Pieces.HUNTER_SHIP_RANGER.getLocation().getName(),
                 Pieces.HUNTER_CAPTAIN_BRAND.getLocation().getName(),
-                Pieces.PIRATE_SHIP_ADVENTURE.getLocation().getName()
+                Pieces.PIRATE_SHIP_ADVENTURE.getLocation().getName(),
+                Locations.getPirateSightingNames()
         );
         return forSignalingUpdate.signal(command)
                 .thenApply(result ->

@@ -13,6 +13,9 @@ import javafx.scene.control.ComboBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Locale;
+import java.util.stream.Collectors;
+
 public class SignalUpdateHandler {
 
     private static final Logger log = LoggerFactory.getLogger(SignalUpdateHandler.class);
@@ -23,12 +26,14 @@ public class SignalUpdateHandler {
     private final FXLocations locations;
     private final ComboBox<String> selectedPieceComboBox;
     private final Button finishTurnButton;
+    private final Button searchForPiratesButton;
 
 
-    public SignalUpdateHandler(ForUpdatingGameState forUpdatingGameState,
+    public SignalUpdateHandler(
+            ForUpdatingGameState forUpdatingGameState,
             NumberOfMovesHandler numberOfMovesHandler,
             FXPieces pieces, FXLocations locations, ComboBox<String> selectedPieceComboBox,
-            Button finishTurnButton
+            Button finishTurnButton, Button searchForPiratesButton
     ) {
         this.forUpdatingGameState = forUpdatingGameState;
         this.numberOfMovesHandler = numberOfMovesHandler;
@@ -36,6 +41,7 @@ public class SignalUpdateHandler {
         this.locations = locations;
         this.selectedPieceComboBox = selectedPieceComboBox;
         this.finishTurnButton = finishTurnButton;
+        this.searchForPiratesButton = searchForPiratesButton;
     }
 
     public SignalUpdateResponse update(SignalUpdateRequest request) {
@@ -43,7 +49,11 @@ public class SignalUpdateHandler {
                 Location.Name.findById(request.getJaneLocation()),
                 Location.Name.findById(request.getRangerLocation()),
                 Location.Name.findById(request.getBrandLocation()),
-                Location.Name.findById(request.getAdventureLocation())
+                Location.Name.findById(request.getAdventureLocation()),
+                request.getPirateSightings()
+                        .stream()
+                        .map(Location.Name::findById)
+                        .collect(Collectors.toSet())
         );
 
         UpdateGameStateResult result = forUpdatingGameState.update(command);
@@ -72,6 +82,7 @@ public class SignalUpdateHandler {
         locations.forEach(location -> location.button().setDisable(false));
         selectedPieceComboBox.setDisable(false);
         finishTurnButton.setDisable(false);
+        searchForPiratesButton.setDisable(false);
         numberOfMovesHandler.updateNumberOfMoves();
     }
 

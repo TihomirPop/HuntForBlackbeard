@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.util.List;
@@ -39,6 +40,8 @@ public class GameController {
     Text numberOfMovesText;
     @FXML
     Button finishTurnButton;
+    @FXML
+    Button searchForPiratesButton;
 
     private FXLocations locations;
     private FXPieces pieces;
@@ -47,6 +50,7 @@ public class GameController {
     private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
     private final ForUpdatingGameState forUpdatingGameState = IocContainer.getInstance(ForUpdatingGameState.class);
     private final ForFinishingTurn forFinishingTurn = IocContainer.getInstance(ForFinishingTurn.class);
+    private final ForDiscoveringPirateSightings forDiscoveringPirateSightings = IocContainer.getInstance(ForDiscoveringPirateSightings.class);
 
     @FXML
     public void initialize() {
@@ -80,6 +84,10 @@ public class GameController {
         if (Application.PLAYER_TYPE == Player.Type.HUNTER) {
             pieces.getAdventure().imageView().setVisible(false);
             disableButtons();
+        } else {
+            if(searchForPiratesButton.getParent() instanceof Pane pane) {
+                pane.getChildren().remove(searchForPiratesButton);
+            }
         }
 
         numberOfMovesHandler = new NumberOfMovesHandler(
@@ -94,7 +102,8 @@ public class GameController {
                 pieces,
                 locations,
                 selectedPieceComboBox,
-                finishTurnButton
+                finishTurnButton,
+                searchForPiratesButton
         );
         SignalUpdateServerSocket signalUpdateServerSocket = new SignalUpdateServerSocket(signalUpdateHandler);
         signalUpdateServerSocket.start();
@@ -130,10 +139,25 @@ public class GameController {
         disableButtons();
     }
 
+
+    @FXML
+    void onSearchForPiratesButtonPressed() {
+        Piece.Name pieceName = Piece.Name.findByName(currentlySelectedPiece.name());
+        PirateSightingStartCommand command = new PirateSightingStartCommand(pieceName);
+        PirateSightingResult result = forDiscoveringPirateSightings.startDiscovery(command);
+        switch (result) {
+            case PirateSightingResult.Found _ -> pieces.getAdventure().imageView().setVisible(true);
+            case PirateSightingResult.Sighted sighted -> locations.findById(sighted.getLocation().id).pirateSightingImageView().setVisible(true);
+            case PirateSightingResult.NotSighted _ -> AlertManager.showInfo("Pirate Sighting", "No pirates sighted at this location.");
+            case PirateSightingResult.Failure failure -> AlertManager.showInfo("Pirate Sighting Failure", failure.getMessage());
+        }
+    }
+
     private void disableButtons() {
         locations.forEach(location -> location.button().setDisable(true));
         selectedPieceComboBox.setDisable(true);
         finishTurnButton.setDisable(true);
+        searchForPiratesButton.setDisable(true);
     }
 
     private void movementSuccess(MovementResult.Success success, FXLocation fxLocation) {

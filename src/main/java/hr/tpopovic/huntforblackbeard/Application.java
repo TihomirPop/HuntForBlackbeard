@@ -3,15 +3,7 @@ package hr.tpopovic.huntforblackbeard;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
-import hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService;
-import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
-import hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService;
-import hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService;
-import hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingPlayerPieces;
-import hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn;
-import hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces;
-import hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState;
-import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
+import hr.tpopovic.huntforblackbeard.application.domain.service.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -44,13 +36,14 @@ public class Application extends javafx.application.Application {
             case "HUNTER" -> hunter();
             case "PIRATE" -> pirate();
             default -> throw new IllegalArgumentException("Invalid player type: %s. Expected HUNTER or PIRATE.".formatted(playerType));
-        };
+        }
         Pieces.initialize();
         IocContainer.addClassToManage(SignalUpdateClientSocket.class);
         IocContainer.addClassToManage(GameStateUpdateService.class);
         IocContainer.addClassToManage(MovementService.class);
         IocContainer.addClassToManage(PlayerPiecesService.class);
         IocContainer.addClassToManage(TurnFinishingService.class);
+        IocContainer.addClassToManage(PirateDiscoveryService.class);
         launch();
     }
 

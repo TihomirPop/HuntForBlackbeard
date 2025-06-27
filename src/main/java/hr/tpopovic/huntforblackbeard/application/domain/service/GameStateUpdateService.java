@@ -15,6 +15,10 @@ public class GameStateUpdateService implements ForUpdatingGameState {
         Pieces.HUNTER_SHIP_RANGER.changeLocation(Locations.getLocationByName(command.rangerLocation()));
         Pieces.HUNTER_CAPTAIN_BRAND.changeLocation(Locations.getLocationByName(command.brandLocation()));
         Pieces.PIRATE_SHIP_ADVENTURE.changeLocation(Locations.getLocationByName(command.adventureLocation()));
+        command.pirateSightings()
+                .stream()
+                .map(Locations::getLocationByName)
+                .forEach(location -> location.setPirateSighted(true));
         GameState.endTurn();
         return new UpdateGameStateResult.Success();
     }

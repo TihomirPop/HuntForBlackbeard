@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard.application.port.in;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
+
 public abstract sealed class PirateSightingResult {
 
     private PirateSightingResult() {
@@ -11,6 +13,15 @@ public abstract sealed class PirateSightingResult {
 
     public static final class Sighted extends PirateSightingResult {
 
+        private final Location.Name location;
+
+        public Sighted(Location.Name location) {
+            this.location = location;
+        }
+
+        public Location.Name getLocation() {
+            return location;
+        }
     }
 
     public static final class NotSighted extends PirateSightingResult {

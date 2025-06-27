@@ -14,6 +14,7 @@ import java.net.Socket;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 
 public class SignalUpdateClientSocket implements ForSignalingUpdate {
@@ -22,12 +23,15 @@ public class SignalUpdateClientSocket implements ForSignalingUpdate {
 
     @Override
     public CompletableFuture<SignalUpdateResult> signal(SignalUpdateCommand command) {
-
         SignalUpdateRequest request = new SignalUpdateRequest(
                 command.janeLocation().id,
                 command.rangerLocation().id,
                 command.brandLocation().id,
-                command.adventureLocation().id
+                command.adventureLocation().id,
+                command.pirateSightings()
+                        .stream()
+                        .map(locationName -> locationName.id)
+                        .collect(Collectors.toSet())
         );
 
         return CompletableFuture.supplyAsync(

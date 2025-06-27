@@ -129,4 +129,11 @@ public class Locations {
                 .collect(Collectors.toSet());
     }
 
+    public static Set<Location.Name> getPirateSightingNames() {
+        return locationSet.stream()
+                .filter(Location::isPirateSighted)
+                .map(Location::getName)
+                .collect(Collectors.toSet());
+    }
+
 }

@@ -36,7 +36,7 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
         }
 
         if(location.isPirateSighted()) {
-            return new PirateSightingResult.Sighted();
+            return new PirateSightingResult.Sighted(location.getName());
         }
 
         return new PirateSightingResult.NotSighted();
