@@ -2,7 +2,7 @@ package hr.tpopovic.huntforblackbeard.application.domain.model;
 
 import java.util.Set;
 
-public final class PirateShip extends Ship {
+public final class PirateShip extends Piece {
 
     PirateShip(Name name) {
         super(name);

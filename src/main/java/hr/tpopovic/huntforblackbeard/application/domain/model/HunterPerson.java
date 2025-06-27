@@ -2,9 +2,9 @@ package hr.tpopovic.huntforblackbeard.application.domain.model;
 
 import java.util.Set;
 
-public final class Person extends Piece {
+public final class HunterPerson extends HunterPiece {
 
-    Person(Name name) {
+    HunterPerson(Name name) {
         super(name);
     }
 

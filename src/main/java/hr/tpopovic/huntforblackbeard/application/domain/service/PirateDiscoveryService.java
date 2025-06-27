@@ -1,9 +1,6 @@
 package hr.tpopovic.huntforblackbeard.application.domain.service;
 
-import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
+import hr.tpopovic.huntforblackbeard.application.domain.model.*;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings;
 import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult;
@@ -27,6 +24,10 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
 
         if(!GameState.canCurrentPlayerMove()) {
             return new PirateSightingResult.Failure("Player has no moves left.");
+        }
+
+        if(piece instanceof HunterPiece hunterPiece) {
+            hunterPiece.startSearching();
         }
 
         Location location = piece.getLocation();

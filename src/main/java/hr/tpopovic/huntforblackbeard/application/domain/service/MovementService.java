@@ -46,6 +46,10 @@ public class MovementService implements ForMovingPieces {
             return new MovementResult.Failure("It's not this piece's turn to move.");
         }
 
+        if(piece instanceof HunterPiece hunterPiece && hunterPiece.hasStartedSearching()) {
+            return new MovementResult.Failure("Hunter piece has already started searching and cannot move.");
+        }
+
         try {
             piece.move(destination);
             GameState.currentPlayerMoves();
