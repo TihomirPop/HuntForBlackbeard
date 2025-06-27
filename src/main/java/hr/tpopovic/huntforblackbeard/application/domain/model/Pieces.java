@@ -4,7 +4,7 @@ public class Pieces {
 
     public static final Piece HUNTER_SHIP_JANE = new HunterShip(Piece.Name.HUNTER_SHIP_JANE);
     public static final Piece HUNTER_SHIP_RANGER = new HunterShip(Piece.Name.HUNTER_SHIP_RANGER);
-    public static final Piece HUNTER_CAPTAIN_BRAND = new HunterShip(Piece.Name.HUNTER_CAPTAIN_BRAND);
+    public static final Piece HUNTER_CAPTAIN_BRAND = new Person(Piece.Name.HUNTER_CAPTAIN_BRAND);
     public static final Piece PIRATE_SHIP_ADVENTURE = new PirateShip(Piece.Name.PIRATE_SHIP_ADVENTURE);
 
     private Pieces() {

@@ -34,7 +34,7 @@ public class Locations {
     public static final Location JAMES_RIVER = new Location.Land.Blank(Location.Name.JAMES_RIVER);
     public static final Location CAPE_HENRY = new Location.Water.Blank(Location.Name.CAPE_HENRY);
 
-    private static final Set<Location> locations = Set.of(
+    private static final Set<Location> locationSet = Set.of(
             TOPSAIL_INLET, FISH_TOWN, NEUS_RIVER, BATH_TOWN, NEW_BERN,
             HUNTING_QUARTER_SOUND, CORE_BANKS, WEST_PAMLICO_SOUND, OCRACOKE_INLET,
             OCRACOKE_ISLAND, EAST_PAMLICO_SOUND, HATTERAS_BANK, CAPE_HATTERAS,
@@ -66,7 +66,7 @@ public class Locations {
         ROANOKE_RIVER.addOverWaterLocations(QUEEN_ANNES_CREEK, BATS_GRAVE, ALBEMARLE_SOUND);
         ROANOKE_RIVER.addOverLandLocations(BATH_TOWN, MACHAPUNGA_BLUFF, QUEEN_ANNES_CREEK);
         QUEEN_ANNES_CREEK.addOverWaterLocations(ROANOKE_RIVER, BATS_GRAVE, ALBEMARLE_SOUND);
-        QUEEN_ANNES_CREEK.addOverLandLocations(ROANOKE_RIVER, BATH_TOWN, MACHAPUNGA_BLUFF, ALBEMARLE_COUNTY);
+        QUEEN_ANNES_CREEK.addOverLandLocations(ROANOKE_RIVER, BATS_GRAVE, ALBEMARLE_COUNTY);
         ALBEMARLE_COUNTY.addOverLandLocations(QUEEN_ANNES_CREEK, JAMES_RIVER);
         BATS_GRAVE.addOverWaterLocations(ALBEMARLE_SOUND, QUEEN_ANNES_CREEK, ROANOKE_RIVER);
         BATS_GRAVE.addOverLandLocations(QUEEN_ANNES_CREEK, PASQUOTANK_RIVER);
@@ -122,7 +122,7 @@ public class Locations {
     }
 
     public static Set<Location> getPirateStartingLocations() {
-        return locations.stream()
+        return locationSet.stream()
                 .filter(location -> !(location instanceof Location.Land.Town))
                 .filter(location -> !(location instanceof Location.Land.Blank))
                 .filter(location -> !(location instanceof Location.Water.Blank))

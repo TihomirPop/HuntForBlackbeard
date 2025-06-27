@@ -64,7 +64,7 @@
                 </ImageView>
                 <Button fx:id="topsailInletButton" layoutX="246.0" layoutY="173.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />
                 <Button fx:id="fishTownButton" layoutX="358.0" layoutY="171.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />
-                <Button fx:id="neuseRiverButton" layoutX="465.0" layoutY="222.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />
+                <Button fx:id="neusRiverButton" layoutX="465.0" layoutY="222.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />
                 <Button fx:id="bathTownButton" layoutX="646.0" layoutY="213.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />
                 <Button fx:id="newBernButton" layoutX="516.0" layoutY="86.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />
                 <Button fx:id="huntingQuarterSoundButton" layoutX="387.0" layoutY="299.0" mnemonicParsing="false" onAction="#onMovementButtonPressed" text="X" visible="false" />

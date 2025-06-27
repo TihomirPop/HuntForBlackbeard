@@ -2,15 +2,10 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.IocContainer;
-import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
-import hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService;
-import hr.tpopovic.huntforblackbeard.application.domain.service.MovementService;
-import hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
-import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -138,6 +133,7 @@ public class GameController {
     @FXML
     void onPieceSelected(ActionEvent event) {
         currentlySelectedPiece = pieces.findByName(selectedPieceComboBox.getValue());
+        updateMapWithAvailablePositionsForCurrentlySelectedPiece();
     }
 
     @FXML
