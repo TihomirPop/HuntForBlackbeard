@@ -110,6 +110,7 @@ public class GameController {
         pieces.getBrand().changeLocation(jamesRiverLocation);
         if (Application.PLAYER_TYPE == Player.Type.HUNTER) {
             pieces.getAdventure().imageView().setVisible(false);
+            disableButtons();
         }
 
         numberOfMovesHandler = new NumberOfMovesHandler(
@@ -131,7 +132,7 @@ public class GameController {
     }
 
     @FXML
-    void onPieceSelected(ActionEvent event) {
+    void onPieceSelected() {
         currentlySelectedPiece = pieces.findByName(selectedPieceComboBox.getValue());
         updateMapWithAvailablePositionsForCurrentlySelectedPiece();
     }
@@ -150,13 +151,17 @@ public class GameController {
     }
 
     @FXML
-    void onFinishTurnButtonPressed(ActionEvent event) {
+    void onFinishTurnButtonPressed() {
         forFinishingTurn.finishTurn()
                 .thenAccept(result -> {
                     if (result instanceof TurnFinishResult.Failure failure) {
                         AlertManager.showInfo("Turn Finish Error", failure.getMessage());
                     }
                 });
+        disableButtons();
+    }
+
+    private void disableButtons() {
         locations.forEach(location -> location.button().setDisable(true));
         selectedPieceComboBox.setDisable(true);
         finishTurnButton.setDisable(true);
