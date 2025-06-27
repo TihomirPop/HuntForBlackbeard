@@ -162,7 +162,8 @@ public abstract sealed class Location {
         ROANOKE_INLET("Roanoke Inlet", "roanokeInlet"),
         CURRITUCK_INLET("Currituck Inlet", "currituckInlet"),
         JAMES_RIVER("James River", "jamesRiver"),
-        CAPE_HENRY("Cape Henry", "capeHenry");
+        CAPE_HENRY("Cape Henry", "capeHenry"),
+        OFF_BOARD("Off Board", "offBoard");
 
         public final String displayName;
         public final String id;

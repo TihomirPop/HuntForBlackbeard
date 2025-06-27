@@ -33,6 +33,7 @@ public class Locations {
     public static final Location CURRITUCK_INLET = new Location.Water.Ocean(Location.Name.CURRITUCK_INLET);
     public static final Location JAMES_RIVER = new Location.Land.Blank(Location.Name.JAMES_RIVER);
     public static final Location CAPE_HENRY = new Location.Water.Blank(Location.Name.CAPE_HENRY);
+    public static final Location OFF_BOARD = new Location.Water.Blank(Location.Name.OFF_BOARD);
 
     private static final Set<Location> locationSet = Set.of(
             TOPSAIL_INLET, FISH_TOWN, NEUS_RIVER, BATH_TOWN, NEW_BERN,
@@ -118,6 +119,7 @@ public class Locations {
             case CURRITUCK_INLET -> CURRITUCK_INLET;
             case JAMES_RIVER -> JAMES_RIVER;
             case CAPE_HENRY -> CAPE_HENRY;
+            case OFF_BOARD -> OFF_BOARD;
         };
     }
 
