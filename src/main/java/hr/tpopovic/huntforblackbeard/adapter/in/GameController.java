@@ -10,13 +10,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.util.List;
@@ -56,36 +54,7 @@ public class GameController {
         List<Node> gamePaneChildren = List.copyOf(gamePane.getChildren());
         for (Node node : gamePaneChildren) {
             if (node instanceof Button button) {
-                double buttonX = button.getLayoutX();
-                double buttonY = button.getLayoutY();
-                String buttonId = button.getId();
-
-                VBox vBoxRight = new VBox();
-                vBoxRight.setId("%sVBoxRight".formatted(buttonId));
-                vBoxRight.setAlignment(Pos.TOP_CENTER);
-                vBoxRight.setLayoutX(buttonX + 31);
-                vBoxRight.setLayoutY(buttonY - 87);
-                vBoxRight.setPrefHeight(90);
-                vBoxRight.setPrefWidth(30);
-                vBoxRight.setSpacing(10);
-                VBox vBoxLeft = new VBox();
-                vBoxLeft.setId("%sVBoxLeft".formatted(buttonId));
-                vBoxLeft.setAlignment(Pos.TOP_CENTER);
-                vBoxLeft.setLayoutX(buttonX - 38);
-                vBoxLeft.setLayoutY(buttonY - 87);
-                vBoxLeft.setPrefHeight(90);
-                vBoxLeft.setPrefWidth(30);
-                vBoxLeft.setSpacing(10);
-
-                gamePane.getChildren().add(vBoxRight);
-                gamePane.getChildren().add(vBoxLeft);
-
-                locationsBuilder.addLocation(new FXLocation(
-                        buttonId.replaceFirst("Button$", ""),
-                        button,
-                        vBoxRight,
-                        vBoxLeft
-                ));
+                FXLocationInitializer.initialize(button, gamePane, locationsBuilder);
             }
         }
 
