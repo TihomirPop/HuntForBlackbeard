@@ -17,13 +17,13 @@ public class HtmlDocumentationGenerator implements ForGeneratingDocumentation {
     public DocumentationGenerationResult generate(DocumentationGenerationCommand command) {
         requireNonNull(command, "DocumentationGenerationCommand cannot be null");
         File outputFile = command.outputFile();
-        String htmlContent = HtmlDocumentationBuilder.build();
 
         try {
+            String htmlContent = HtmlDocumentationBuilder.build();
             Path outputPath = outputFile.toPath();
             Files.write(outputPath, htmlContent.getBytes());
             return new DocumentationGenerationResult.Success();
-        } catch (IOException e) {
+        } catch (IOException | HtmlDocumentBuilderException e) {
             return new DocumentationGenerationResult.Failure(e.getMessage());
         }
     }

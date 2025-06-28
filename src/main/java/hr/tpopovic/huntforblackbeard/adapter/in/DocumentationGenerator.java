@@ -24,11 +24,23 @@ public class DocumentationGenerator {
         DocumentationGenerationCommand command = new DocumentationGenerationCommand(file);
         DocumentationGenerationResult result = forGeneratingDocumentation.generate(command);
         switch (result) {
-            case DocumentationGenerationResult.Failure failure -> {
-            }
-            case DocumentationGenerationResult.Success success -> {
-            }
+            case DocumentationGenerationResult.Success _ -> success(file);
+            case DocumentationGenerationResult.Failure failure -> failure(failure);
         }
+    }
+
+    private void success(File file) {
+        AlertManager.showInfo(
+                "Documentation Generation Success",
+                file.getAbsolutePath()
+        );
+    }
+
+    private void failure(DocumentationGenerationResult.Failure failure) {
+        AlertManager.showInfo(
+                "Documentation Generation Failed",
+                failure.getMessage()
+        );
     }
 
 }

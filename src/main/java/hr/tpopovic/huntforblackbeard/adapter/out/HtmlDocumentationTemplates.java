@@ -2,6 +2,9 @@ package hr.tpopovic.huntforblackbeard.adapter.out;
 
 public class HtmlDocumentationTemplates {
 
+    private HtmlDocumentationTemplates() {
+    }
+
     public static final String HTML_TEMPLATE = """
             <!DOCTYPE html>
             <html lang="en">
@@ -21,6 +24,8 @@ public class HtmlDocumentationTemplates {
             <hr>
             <h2>%s</h2>
             """;
+
+    public static final String TYPE_TEMPLATE = "Type: %s";
 
     public static final String EXTENDS_TEMPLATE = "<p>Extends: %s</p>";
 
@@ -47,7 +52,7 @@ public class HtmlDocumentationTemplates {
                 </ul>
             """;
 
-    public static final String ATTRIBUTES_TEMPLATE = """
+    public static final String FIELDS_TEMPLATE = """
             <p>Attributes:</p>
                 <ul>
                     %s
