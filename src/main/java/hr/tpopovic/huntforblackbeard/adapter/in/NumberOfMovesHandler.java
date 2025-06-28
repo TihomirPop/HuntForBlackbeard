@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces;
 import hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery;
 import hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult;
@@ -21,7 +21,7 @@ public class NumberOfMovesHandler {
     }
 
     public void updateNumberOfMoves() {
-        NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(Application.PLAYER_TYPE);
+        NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(AppProperties.getPlayerType());
         NumberOfMovesResult numberOfMovesResult = forMovingPieces.fetchNumberOfAvailableMoves(numberOfMovesQuery);
         if (numberOfMovesResult instanceof NumberOfMovesResult.Success success) {
             numberOfMovesText.setText(REMAINING_MOVES_FORMAT.formatted(success.getNumberOfMoves()));

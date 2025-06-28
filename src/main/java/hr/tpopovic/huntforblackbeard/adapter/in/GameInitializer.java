@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces;
@@ -79,7 +79,7 @@ public class GameInitializer {
         pieces.getJane().changeLocation(jamesRiverLocation);
         pieces.getRanger().changeLocation(jamesRiverLocation);
         pieces.getBrand().changeLocation(jamesRiverLocation);
-        if (Application.PLAYER_TYPE == Player.Type.HUNTER) {
+        if (AppProperties.getPlayerType() == Player.Type.HUNTER) {
             pieces.getAdventure().imageView().setVisible(false);
             locations.forEach(location -> location.button().setDisable(true));
             selectedPieceComboBox.setDisable(true);

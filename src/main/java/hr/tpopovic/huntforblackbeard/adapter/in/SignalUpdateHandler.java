@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
@@ -94,7 +94,7 @@ public class SignalUpdateHandler {
         finishTurnButton.setDisable(false);
         searchForPiratesButton.setDisable(false);
         numberOfMovesHandler.updateNumberOfMoves();
-        if(Application.PLAYER_TYPE == Player.Type.HUNTER) {
+        if(AppProperties.getPlayerType() == Player.Type.HUNTER) {
             pieces.getAdventure().imageView().setVisible(false);
         }
         pieces.forEach(piece -> piece.setStartedSearching(false));

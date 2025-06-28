@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import javafx.scene.image.ImageView;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class FXPieces {
     }
 
     public List<String> getPlayerPieceNames() {
-        return switch (Application.PLAYER_TYPE) {
+        return switch (AppProperties.getPlayerType()) {
             case HUNTER -> List.of(jane.name(), ranger.name(), brand.name());
             case PIRATE -> List.of(adventure.name());
         };

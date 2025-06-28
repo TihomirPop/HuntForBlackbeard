@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForChatting;
@@ -46,7 +46,7 @@ public class ChatController {
             return;
         }
         ChatMessage chatMessage = new ChatMessage(
-                Application.PLAYER_TYPE,
+                AppProperties.getPlayerType(),
                 content
         );
         SendMessageCommand command = new SendMessageCommand(chatMessage);

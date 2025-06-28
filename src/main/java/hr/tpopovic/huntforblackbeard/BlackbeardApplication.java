@@ -3,12 +3,14 @@ package hr.tpopovic.huntforblackbeard;
 import hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.domain.service.*;
+import hr.tpopovic.huntforblackbeard.jndi.JndiProperties;
 import hr.tpopovic.huntforblackbeard.rmi.ChatService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.rmi.NotBoundException;
@@ -16,15 +18,13 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class Application extends javafx.application.Application {
+public class BlackbeardApplication extends javafx.application.Application {
 
-    public static Player.Type PLAYER_TYPE;
-    public static Integer SERVER_PORT;
-    public static Integer CLIENT_PORT;
+    private static final Logger log = LoggerFactory.getLogger(BlackbeardApplication.class);
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/hr/tpopovic/huntforblackbeard/adapter/in/game-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(BlackbeardApplication.class.getResource("/hr/tpopovic/huntforblackbeard/adapter/in/game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Hunt for Blackbeard");
         stage.setScene(scene);
@@ -34,15 +34,12 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("Please provide player type as an argument HUNTER or PIRATE.");
+            log.error("Please provide player type as an argument HUNTER or PIRATE.");
             return;
         }
         var playerType = args[0].toUpperCase();
-        switch (playerType) {
-            case "HUNTER" -> hunter();
-            case "PIRATE" -> pirate();
-            default -> throw new IllegalArgumentException("Invalid player type: %s. Expected HUNTER or PIRATE.".formatted(playerType));
-        }
+        AppProperties.init(playerType);
+
         Pieces.initialize();
         IocContainer.addClassToManage(SignalUpdateClientSocket.class);
         IocContainer.addClassToManage(GameStateUpdateService.class);
@@ -53,7 +50,10 @@ public class Application extends javafx.application.Application {
         IocContainer.addClassToManage(RmiChatService.class);
 
         try {
-            Registry registry = LocateRegistry.getRegistry("localhost", 4242);
+            Registry registry = LocateRegistry.getRegistry(
+                    JndiProperties.getRmiHostname(),
+                    JndiProperties.getRmiServerPort()
+            );
             ChatService chatService = (ChatService) registry.lookup(ChatService.REMOTE_OBJECT_NAME);
             IocContainer.addInstanceToManage(ChatService.class, chatService);
         } catch (RemoteException | NotBoundException e) {
@@ -61,18 +61,6 @@ public class Application extends javafx.application.Application {
         }
 
         launch();
-    }
-
-    private static void hunter() {
-        PLAYER_TYPE = Player.Type.HUNTER;
-        SERVER_PORT = 8042;
-        CLIENT_PORT = 8043;
-    }
-
-    private static void pirate() {
-        PLAYER_TYPE = Player.Type.PIRATE;
-        SERVER_PORT = 8043;
-        CLIENT_PORT = 8042;
     }
 
 }

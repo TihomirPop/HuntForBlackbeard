@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.out;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
 import hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand;
 import hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult;
@@ -36,13 +36,13 @@ public class SignalUpdateClientSocket implements ForSignalingUpdate {
         );
 
         return CompletableFuture.supplyAsync(
-                () -> sendRequest(request, "localhost", Application.CLIENT_PORT),
+                () -> sendRequest(request),
                 executor
         );
     }
 
-    private SignalUpdateResult sendRequest(SignalUpdateRequest request, String serverAddress, int serverPort) {
-        try (Socket clientSocket = new Socket(serverAddress, serverPort)) {
+    private SignalUpdateResult sendRequest(SignalUpdateRequest request) {
+        try (Socket clientSocket = new Socket(AppProperties.getClientHost(), AppProperties.getClientPort())) {
             ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getInputStream());
             outputStream.writeObject(request);

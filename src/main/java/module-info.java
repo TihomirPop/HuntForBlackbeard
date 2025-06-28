@@ -6,9 +6,10 @@ module hr.tpopovic.huntforblackbeard {
     requires java.rmi;
     requires java.naming;
 
-
     opens hr.tpopovic.huntforblackbeard.adapter.in to javafx.fxml;
+
     exports hr.tpopovic.huntforblackbeard;
     exports hr.tpopovic.huntforblackbeard.rmi to java.rmi;
     exports hr.tpopovic.huntforblackbeard.jndi to java.naming;
+    exports hr.tpopovic.huntforblackbeard.application.domain.model;
 }

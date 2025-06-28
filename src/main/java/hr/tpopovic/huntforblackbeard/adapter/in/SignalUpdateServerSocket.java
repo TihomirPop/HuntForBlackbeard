@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.message.Response;
 import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
 import hr.tpopovic.huntforblackbeard.message.SignalUpdateResponse;
@@ -39,8 +39,8 @@ public class SignalUpdateServerSocket {
     }
 
     private void startSocket() {
-        try (ServerSocket serverSocket = new ServerSocket(Application.SERVER_PORT)) {
-            log.info("Server started on port: {}", Application.SERVER_PORT);
+        try (ServerSocket serverSocket = new ServerSocket(AppProperties.getServerPort())) {
+            log.info("Server started on port: {}", AppProperties.getServerPort());
             while (running) {
                 waitForAndHandleRequest(serverSocket);
             }
