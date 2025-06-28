@@ -7,7 +7,7 @@ import static java.util.Objects.requireNonNull;
 
 public class GameState {
 
-    private static Integer LOCATIONS_NEEDED_TO_WIN = 5;
+    private static Integer LOCATIONS_NEEDED_TO_WIN = 15;
     private static Player currentPlayer = Players.PIRATE;
     private static Integer turnCount = 0;
     private static Set<Location> locationsDiscoveredByPirate = new HashSet<>();
