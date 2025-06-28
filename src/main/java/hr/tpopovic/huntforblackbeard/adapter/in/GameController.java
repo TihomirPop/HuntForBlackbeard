@@ -1,24 +1,17 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
-import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,66 +42,27 @@ public class GameController {
     private NumberOfMovesHandler numberOfMovesHandler;
     private MovementFetcher movementFetcher;
     private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
-    private final ForUpdatingGameState forUpdatingGameState = IocContainer.getInstance(ForUpdatingGameState.class);
     private final ForFinishingTurn forFinishingTurn = IocContainer.getInstance(ForFinishingTurn.class);
     private final ForDiscoveringPirateSightings forDiscoveringPirateSightings = IocContainer.getInstance(ForDiscoveringPirateSightings.class);
 
     @FXML
     public void initialize() {
-        FXLocations.Builder locationsBuilder = FXLocations.builder();
-        List<Node> gamePaneChildren = List.copyOf(gamePane.getChildren());
-        for (Node node : gamePaneChildren) {
-            if (node instanceof Button button) {
-                FXLocationInitializer.initialize(button, gamePane, locationsBuilder);
-            }
-        }
-
-        locations = locationsBuilder.build();
-        pieces = FXPieces.builder()
-                .setJane(jane)
-                .setRanger(ranger)
-                .setBrand(brand)
-                .setAdventure(adventure)
-                .build();
-
-        ObservableList<String> playerPieceNames = FXCollections.observableList(pieces.getPlayerPieceNames());
-        selectedPieceComboBox.setItems(playerPieceNames);
-        String selectedPieceName = playerPieceNames.getFirst();
-        selectedPieceComboBox.setValue(selectedPieceName);
-        currentlySelectedPiece = pieces.findByName(selectedPieceName);
-        movementFetcher = new MovementFetcher(locations);
-        movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
-
-        FXLocation jamesRiverLocation = locations.findById("jamesRiver");
-        pieces.getJane().changeLocation(jamesRiverLocation);
-        pieces.getRanger().changeLocation(jamesRiverLocation);
-        pieces.getBrand().changeLocation(jamesRiverLocation);
-        if (Application.PLAYER_TYPE == Player.Type.HUNTER) {
-            pieces.getAdventure().imageView().setVisible(false);
-            disableButtons();
-        } else {
-            if (searchForPiratesButton.getParent() instanceof Pane pane) {
-                pane.getChildren().remove(searchForPiratesButton);
-            }
-        }
-
-        numberOfMovesHandler = new NumberOfMovesHandler(
-                forMovingPieces,
-                numberOfMovesText
-        );
-        numberOfMovesHandler.updateNumberOfMoves();
-
-        SignalUpdateHandler signalUpdateHandler = new SignalUpdateHandler(
-                numberOfMovesHandler,
-                movementFetcher,
-                pieces,
-                locations,
+        InitializationResult result = new GameInitializer(
+                gamePane,
+                jane,
+                ranger,
+                brand,
+                adventure,
                 selectedPieceComboBox,
                 finishTurnButton,
-                searchForPiratesButton
-        );
-        SignalUpdateServerSocket signalUpdateServerSocket = new SignalUpdateServerSocket(signalUpdateHandler);
-        signalUpdateServerSocket.start();
+                searchForPiratesButton,
+                numberOfMovesText
+        ).initialize();
+        this.locations = result.locations();
+        this.pieces = result.pieces();
+        this.currentlySelectedPiece = result.currentlySelectedPiece();
+        this.numberOfMovesHandler = result.numberOfMovesHandler();
+        this.movementFetcher = result.movementFetcher();
     }
 
     @FXML
