@@ -3,9 +3,11 @@ module hr.tpopovic.huntforblackbeard {
     requires javafx.fxml;
     requires java.desktop;
     requires org.slf4j;
+    requires java.rmi;
 
 
     opens hr.tpopovic.huntforblackbeard.adapter.in to javafx.fxml;
     exports hr.tpopovic.huntforblackbeard;
     exports hr.tpopovic.huntforblackbeard.adapter.in;
+    exports hr.tpopovic.huntforblackbeard.rmi;
 }
