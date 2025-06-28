@@ -31,4 +31,8 @@ public final class Discoverer extends Piece {
         pirateSightings.clear();
     }
 
+    public Set<Location> getPirateSightings() {
+        return new HashSet<>(pirateSightings);
+    }
+
 }

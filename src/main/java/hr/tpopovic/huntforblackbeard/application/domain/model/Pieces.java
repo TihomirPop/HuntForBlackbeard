@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import java.util.function.Predicate;
+
 public class Pieces {
 
     public static final Piece HUNTER_SHIP_JANE = new HunterShip(Piece.Name.HUNTER_SHIP_JANE);
@@ -28,6 +30,12 @@ public class Pieces {
             case PIRATE_SHIP_ADVENTURE -> PIRATE_SHIP_ADVENTURE;
             case DISCOVERER -> DISCOVERER;
         };
+    }
+
+    public static boolean forAnyHunterPiece(Predicate<Piece> action) {
+        return action.test(HUNTER_SHIP_JANE) ||
+               action.test(HUNTER_SHIP_RANGER) ||
+               action.test(HUNTER_CAPTAIN_BRAND);
     }
 
 }

@@ -69,11 +69,24 @@ public class GameState {
     }
 
     public static Winner getWinner() {
-        if(locationsDiscoveredByPirate.size() >= LOCATIONS_NEEDED_TO_WIN) {
+        if (hasPirateWon()) {
             return Winner.PIRATE;
+        } else if (hasHunterWon()) {
+            return Winner.HUNTER;
         } else {
             return Winner.ONGOING;
         }
+    }
+
+    private static boolean hasPirateWon() {
+        return locationsDiscoveredByPirate.size() >= LOCATIONS_NEEDED_TO_WIN;
+    }
+
+    private static boolean hasHunterWon() {
+        Location adventureLocation = Pieces.PIRATE_SHIP_ADVENTURE.location;
+        boolean adventureHasBeenDiscovered = Pieces.DISCOVERER.getPirateSightings().contains(adventureLocation);
+        boolean hunterIsOnSameLocationAsAdventure = Pieces.forAnyHunterPiece(piece -> piece.getLocation().equals(adventureLocation));
+        return adventureHasBeenDiscovered && hunterIsOnSameLocationAsAdventure;
     }
 
     public static void addLocationDiscoveredByPirate(Location destination) {
@@ -105,4 +118,5 @@ public class GameState {
             return name;
         }
     }
+
 }

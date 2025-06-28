@@ -57,6 +57,7 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
 
     private PirateSightingResult getPirateSightingResult(Location destination, HunterPiece piece) {
         if (destination.getPieces().contains(Pieces.PIRATE_SHIP_ADVENTURE)) {
+            Pieces.DISCOVERER.addPirateSighting(destination);
             piece.finishSearching();
             return new PirateSightingResult.Found();
         }

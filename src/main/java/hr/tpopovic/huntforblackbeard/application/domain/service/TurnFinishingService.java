@@ -21,8 +21,8 @@ public class TurnFinishingService implements ForFinishingTurn {
 
     @Override
     public CompletableFuture<TurnFinishResult> finishTurn() {
-        GameState.endTurn();
         GameState.Winner winner = GameState.getWinner();
+        GameState.endTurn();
         SignalUpdateCommand command = new SignalUpdateCommand(
                 Pieces.HUNTER_SHIP_JANE.getLocation().getName(),
                 Pieces.HUNTER_SHIP_RANGER.getLocation().getName(),
