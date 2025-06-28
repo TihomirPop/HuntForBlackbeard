@@ -6,7 +6,7 @@ public class Pieces {
     public static final Piece HUNTER_SHIP_RANGER = new HunterShip(Piece.Name.HUNTER_SHIP_RANGER);
     public static final Piece HUNTER_CAPTAIN_BRAND = new HunterPerson(Piece.Name.HUNTER_CAPTAIN_BRAND);
     public static final Piece PIRATE_SHIP_ADVENTURE = new PirateShip(Piece.Name.PIRATE_SHIP_ADVENTURE);
-    public static final Piece DISCOVERER = new Discoverer(Piece.Name.DISCOVERER);
+    public static final Discoverer DISCOVERER = new Discoverer(Piece.Name.DISCOVERER);
 
     private Pieces() {
         throw new IllegalStateException("Utility class");

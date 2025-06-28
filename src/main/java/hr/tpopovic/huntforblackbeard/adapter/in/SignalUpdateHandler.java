@@ -1,6 +1,9 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
+import hr.tpopovic.huntforblackbeard.Application;
+import hr.tpopovic.huntforblackbeard.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState;
 import hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult;
@@ -20,8 +23,9 @@ public class SignalUpdateHandler {
 
     private static final Logger log = LoggerFactory.getLogger(SignalUpdateHandler.class);
 
-    private final ForUpdatingGameState forUpdatingGameState;
+    private final ForUpdatingGameState forUpdatingGameState = IocContainer.getInstance(ForUpdatingGameState.class);
     private final NumberOfMovesHandler numberOfMovesHandler;
+    private final MovementFetcher movementFetcher;
     private final FXPieces pieces;
     private final FXLocations locations;
     private final ComboBox<String> selectedPieceComboBox;
@@ -30,13 +34,15 @@ public class SignalUpdateHandler {
 
 
     public SignalUpdateHandler(
-            ForUpdatingGameState forUpdatingGameState,
-            NumberOfMovesHandler numberOfMovesHandler,
-            FXPieces pieces, FXLocations locations, ComboBox<String> selectedPieceComboBox,
-            Button finishTurnButton, Button searchForPiratesButton
+            NumberOfMovesHandler numberOfMovesHandler, MovementFetcher movementFetcher,
+            FXPieces pieces,
+            FXLocations locations,
+            ComboBox<String> selectedPieceComboBox,
+            Button finishTurnButton,
+            Button searchForPiratesButton
     ) {
-        this.forUpdatingGameState = forUpdatingGameState;
         this.numberOfMovesHandler = numberOfMovesHandler;
+        this.movementFetcher = movementFetcher;
         this.pieces = pieces;
         this.locations = locations;
         this.selectedPieceComboBox = selectedPieceComboBox;
@@ -79,11 +85,20 @@ public class SignalUpdateHandler {
         pieces.getRanger().changeLocation(locations.findById(request.getRangerLocation()));
         pieces.getBrand().changeLocation(locations.findById(request.getBrandLocation()));
         pieces.getAdventure().changeLocation(locations.findById(request.getAdventureLocation()));
-        locations.forEach(location -> location.button().setDisable(false));
+        locations.forEach(location -> {
+            location.button().setDisable(false);
+            location.pirateSightingImageView().setVisible(false);
+        });
         selectedPieceComboBox.setDisable(false);
         finishTurnButton.setDisable(false);
         searchForPiratesButton.setDisable(false);
         numberOfMovesHandler.updateNumberOfMoves();
+        if(Application.PLAYER_TYPE == Player.Type.HUNTER) {
+            pieces.getAdventure().imageView().setVisible(false);
+        }
+        pieces.forEach(piece -> piece.setStartedSearching(false));
+        FXPiece currentlySelectedPiece = pieces.findByName(selectedPieceComboBox.getValue());
+        movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
     }
 
 }

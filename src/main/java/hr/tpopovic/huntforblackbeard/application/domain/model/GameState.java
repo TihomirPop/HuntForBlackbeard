@@ -13,9 +13,18 @@ public class GameState {
     public static void endTurn() {
         turnCount++;
         currentPlayer.resetMoves();
-        currentPlayer = currentPlayer == Players.HUNTER
-                ? Players.PIRATE
-                : Players.HUNTER;
+        if (currentPlayer == Players.HUNTER) {
+            Locations.clearPirateSightings();
+            Pieces.DISCOVERER.clearPirateSightings();
+            getCurrentPlayerPieces().stream()
+                    .filter(HunterPiece.class::isInstance)
+                    .map(HunterPiece.class::cast)
+                    .forEach(HunterPiece::clearSearching);
+
+            currentPlayer = Players.PIRATE;
+        } else {
+            currentPlayer = Players.HUNTER;
+        }
     }
 
     public static boolean canCurrentPlayerMove() {

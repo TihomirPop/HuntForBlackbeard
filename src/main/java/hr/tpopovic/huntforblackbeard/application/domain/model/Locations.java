@@ -152,4 +152,8 @@ public class Locations {
                 .collect(Collectors.toSet());
     }
 
+    public static void clearPirateSightings() {
+        locationSet.forEach(location -> location.setPirateSighted(false));
+    }
+
 }

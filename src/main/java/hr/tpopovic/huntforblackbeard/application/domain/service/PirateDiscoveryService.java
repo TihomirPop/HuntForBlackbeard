@@ -3,8 +3,10 @@ package hr.tpopovic.huntforblackbeard.application.domain.service;
 import hr.tpopovic.huntforblackbeard.application.domain.model.*;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings;
 import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand;
-import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult;
+import hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand;
+
+import java.util.stream.Collectors;
 
 import static java.util.Objects.requireNonNull;
 
@@ -13,9 +15,9 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
     @Override
     public PirateSightingResult startDiscovery(PirateSightingStartCommand command) {
         requireNonNull(command, "PirateSightingCommand cannot be null");
-        Piece piece = Pieces.getPieceByName(command.pieceName());
+        HunterPiece piece = (HunterPiece) Pieces.getPieceByName(command.pieceName());
 
-        if(!GameState.isCurrentPlayerHunter()) {
+        if (!GameState.isCurrentPlayerHunter()) {
             return new PirateSightingResult.Failure("Only hunters can discover pirate sightings.");
         }
 
@@ -23,45 +25,54 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
             return new PirateSightingResult.Failure("It's not this piece's turn to discover pirates.");
         }
 
-        if(!GameState.canCurrentPlayerMove()) {
-            return new PirateSightingResult.Failure("Player has no moves left.");
+        if(piece.hasFinishedSearching()) {
+            return new PirateSightingResult.Failure("Hunter piece has already finished searching and cannot start again.");
         }
 
-        if(piece instanceof HunterPiece hunterPiece) {
-            hunterPiece.startSearching();
-        }
-
+        piece.startSearching();
         Location location = piece.getLocation();
+        Pieces.DISCOVERER.changeLocation(location);
 
-        return getPirateSightingResult(location);
+        return getPirateSightingResult(location, piece);
     }
 
     @Override
     public PirateSightingResult discover(PirateSightingCommand command) {
         requireNonNull(command, "PirateSightingCommand cannot be null");
         Location destination = Locations.getLocationByName(command.destinationName());
-        Piece piece = Pieces.DISCOVERER;
+        HunterPiece piece = (HunterPiece) Pieces.getPieceByName(command.pieceName());
 
-        if(!GameState.isCurrentPlayerHunter()) {
+        if (!GameState.isCurrentPlayerHunter()) {
             return new PirateSightingResult.Failure("Only hunters can discover pirate sightings.");
         }
 
-        if(!piece.getAvailableDestinations().contains(destination)) {
-            return new PirateSightingResult.Failure("Cannot discover pirates at the specified location: " + destination.getName());
+        if(piece.hasFinishedSearching()) {
+            return new PirateSightingResult.Failure("Hunter piece has already finished searching and cannot discover again.");
         }
 
-        return getPirateSightingResult(destination);
+        Pieces.DISCOVERER.changeLocation(destination);
+
+        return getPirateSightingResult(destination, piece);
     }
 
-    private static PirateSightingResult getPirateSightingResult(Location location) {
-        if(location.getPieces().contains(Pieces.PIRATE_SHIP_ADVENTURE)) {
+    private PirateSightingResult getPirateSightingResult(Location destination, HunterPiece piece) {
+        if (destination.getPieces().contains(Pieces.PIRATE_SHIP_ADVENTURE)) {
+            piece.finishSearching();
             return new PirateSightingResult.Found();
         }
 
-        if(location.isPirateSighted()) {
-            return new PirateSightingResult.Sighted(location.getName());
+        if (destination.isPirateSighted()) {
+            Pieces.DISCOVERER.addPirateSighting(destination);
+            return new PirateSightingResult.Sighted(
+                    destination.getName(),
+                    Pieces.DISCOVERER.getAvailableDestinations()
+                            .stream()
+                            .map(Location::getName)
+                            .collect(Collectors.toSet())
+            );
         }
 
+        piece.finishSearching();
         return new PirateSightingResult.NotSighted();
     }
 
