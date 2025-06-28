@@ -1,11 +1,16 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import java.util.HashSet;
 import java.util.Set;
+
+import static java.util.Objects.requireNonNull;
 
 public class GameState {
 
+    private static Integer LOCATIONS_NEEDED_TO_WIN = 5;
     private static Player currentPlayer = Players.PIRATE;
     private static Integer turnCount = 0;
+    private static Set<Location> locationsDiscoveredByPirate = new HashSet<>();
 
     private GameState() {
     }
@@ -63,4 +68,41 @@ public class GameState {
         return currentPlayer == Players.HUNTER;
     }
 
+    public static Winner getWinner() {
+        if(locationsDiscoveredByPirate.size() >= LOCATIONS_NEEDED_TO_WIN) {
+            return Winner.PIRATE;
+        } else {
+            return Winner.ONGOING;
+        }
+    }
+
+    public static void addLocationDiscoveredByPirate(Location destination) {
+        requireNonNull(destination, "Location cannot be null");
+        locationsDiscoveredByPirate.add(destination);
+    }
+
+    public enum Winner {
+        HUNTER("Hunter"),
+        PIRATE("Pirate"),
+        ONGOING("Ongoing");
+
+        private final String name;
+
+        Winner(String name) {
+            this.name = name;
+        }
+
+        public static Winner findByName(String winner) {
+            return switch (winner) {
+                case "Hunter" -> HUNTER;
+                case "Pirate" -> PIRATE;
+                case "Ongoing" -> ONGOING;
+                default -> throw new IllegalArgumentException("Unknown winner: " + winner);
+            };
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
 }

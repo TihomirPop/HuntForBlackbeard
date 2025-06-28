@@ -5,7 +5,15 @@ public abstract sealed class TurnFinishResult {
     private TurnFinishResult() {
     }
 
-    public static final class Success extends TurnFinishResult {
+    public static final class GameOngoing extends TurnFinishResult {
+
+    }
+
+    public static final class HunterWins extends TurnFinishResult {
+
+    }
+
+    public static final class PirateWins extends TurnFinishResult {
 
     }
 

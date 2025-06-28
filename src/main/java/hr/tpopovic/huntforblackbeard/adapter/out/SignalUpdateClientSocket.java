@@ -31,7 +31,8 @@ public class SignalUpdateClientSocket implements ForSignalingUpdate {
                 command.pirateSightings()
                         .stream()
                         .map(locationName -> locationName.id)
-                        .collect(Collectors.toSet())
+                        .collect(Collectors.toSet()),
+                command.winner().getName()
         );
 
         return CompletableFuture.supplyAsync(

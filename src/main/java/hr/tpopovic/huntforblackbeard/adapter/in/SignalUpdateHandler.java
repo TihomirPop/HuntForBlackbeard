@@ -2,6 +2,7 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.Application;
 import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState;
@@ -16,7 +17,6 @@ import javafx.scene.control.ComboBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class SignalUpdateHandler {
@@ -59,7 +59,8 @@ public class SignalUpdateHandler {
                 request.getPirateSightings()
                         .stream()
                         .map(Location.Name::findById)
-                        .collect(Collectors.toSet())
+                        .collect(Collectors.toSet()),
+                GameState.Winner.findByName(request.getWinner())
         );
 
         UpdateGameStateResult result = forUpdatingGameState.update(command);
@@ -99,6 +100,26 @@ public class SignalUpdateHandler {
         pieces.forEach(piece -> piece.setStartedSearching(false));
         FXPiece currentlySelectedPiece = pieces.findByName(selectedPieceComboBox.getValue());
         movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
+        switch(GameState.Winner.findByName(request.getWinner())) {
+            case ONGOING -> {
+                // Game is still ongoing, no action needed
+            }
+            case HUNTER -> {
+                AlertManager.showInfo("Game Over", "The Hunter has won the game!");
+                disableAllButtons();
+            }
+            case PIRATE -> {
+                AlertManager.showInfo("Game Over", "The Pirate has won the game!");
+                disableAllButtons();
+            }
+        }
+    }
+
+    private void disableAllButtons() {
+        finishTurnButton.setDisable(true);
+        searchForPiratesButton.setDisable(true);
+        selectedPieceComboBox.setDisable(true);
+        locations.forEach(location -> location.button().setDisable(true));
     }
 
 }

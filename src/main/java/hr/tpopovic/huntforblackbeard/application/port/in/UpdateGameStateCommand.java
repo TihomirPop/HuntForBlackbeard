@@ -1,5 +1,6 @@
 package hr.tpopovic.huntforblackbeard.application.port.in;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 
 import java.util.Set;
@@ -11,7 +12,8 @@ public record UpdateGameStateCommand(
         Location.Name rangerLocation,
         Location.Name brandLocation,
         Location.Name adventureLocation,
-        Set<Location.Name> pirateSightings
+        Set<Location.Name> pirateSightings,
+        GameState.Winner winner
 ) {
 
     public UpdateGameStateCommand {
@@ -20,6 +22,7 @@ public record UpdateGameStateCommand(
         requireNonNull(brandLocation, "Brand's location cannot be null");
         requireNonNull(adventureLocation, "Adventure's location cannot be null");
         requireNonNull(pirateSightings, "Pirate sightings cannot be null");
+        requireNonNull(winner, "Winner cannot be null");
     }
 
 }

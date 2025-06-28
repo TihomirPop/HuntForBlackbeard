@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard.message;
 
+import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
+
 import java.util.Set;
 
 public class SignalUpdateRequest extends Request {
@@ -9,18 +11,21 @@ public class SignalUpdateRequest extends Request {
     private final String brandLocation;
     private final String adventureLocation;
     private final Set<String> pirateSightings;
+    private final String winner;
 
     public SignalUpdateRequest(
             String janeLocation,
             String rangerLocation,
             String brandLocation,
-            String adventureLocation, Set<String> pirateSightings
+            String adventureLocation, Set<String> pirateSightings,
+            String winner
     ) {
         this.janeLocation = janeLocation;
         this.rangerLocation = rangerLocation;
         this.brandLocation = brandLocation;
         this.adventureLocation = adventureLocation;
         this.pirateSightings = pirateSightings;
+        this.winner = winner;
     }
 
     public String getJaneLocation() {
@@ -41,6 +46,10 @@ public class SignalUpdateRequest extends Request {
 
     public Set<String> getPirateSightings() {
         return pirateSightings;
+    }
+
+    public String getWinner() {
+        return winner;
     }
 
 }

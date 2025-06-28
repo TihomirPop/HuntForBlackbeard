@@ -22,24 +22,30 @@ public class TurnFinishingService implements ForFinishingTurn {
     @Override
     public CompletableFuture<TurnFinishResult> finishTurn() {
         GameState.endTurn();
+        GameState.Winner winner = GameState.getWinner();
         SignalUpdateCommand command = new SignalUpdateCommand(
                 Pieces.HUNTER_SHIP_JANE.getLocation().getName(),
                 Pieces.HUNTER_SHIP_RANGER.getLocation().getName(),
                 Pieces.HUNTER_CAPTAIN_BRAND.getLocation().getName(),
                 Pieces.PIRATE_SHIP_ADVENTURE.getLocation().getName(),
-                Locations.getPirateSightingNames()
+                Locations.getPirateSightingNames(),
+                winner
         );
         return forSignalingUpdate.signal(command)
                 .thenApply(result ->
                         switch (result) {
-                            case SignalUpdateResult.Success _ -> success();
+                            case SignalUpdateResult.Success _ -> success(winner);
                             case SignalUpdateResult.Failure failure -> failure(failure);
                         }
                 );
     }
 
-    private TurnFinishResult success() {
-        return new TurnFinishResult.Success();
+    private TurnFinishResult success(GameState.Winner winner) {
+        return switch (winner) {
+            case ONGOING -> new TurnFinishResult.GameOngoing();
+            case PIRATE -> new TurnFinishResult.PirateWins();
+            case HUNTER -> new TurnFinishResult.HunterWins();
+        };
     }
 
     private TurnFinishResult failure(SignalUpdateResult.Failure failure) {

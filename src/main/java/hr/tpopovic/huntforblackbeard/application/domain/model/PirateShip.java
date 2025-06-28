@@ -17,6 +17,12 @@ public final class PirateShip extends Piece {
     }
 
     @Override
+    public void changeLocation(Location destination) {
+        GameState.addLocationDiscoveredByPirate(destination);
+        super.changeLocation(destination);
+    }
+
+    @Override
     public void move(Location destination) {
         if (getAvailableDestinations().contains(destination)) {
             location.setPirateSighted(true);

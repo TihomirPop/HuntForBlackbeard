@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 public class GameController {
 
@@ -95,12 +96,8 @@ public class GameController {
 
     @FXML
     void onFinishTurnButtonPressed() {
-        forFinishingTurn.finishTurn()
-                .thenAccept(result -> {
-                    if (result instanceof TurnFinishResult.Failure failure) {
-                        AlertManager.showInfo("Turn Finish Error", failure.getMessage());
-                    }
-                });
+        CompletableFuture<TurnFinishResult> result = forFinishingTurn.finishTurn();
+        FinishTurnHandler.finish(result);
         disableButtons();
     }
 
