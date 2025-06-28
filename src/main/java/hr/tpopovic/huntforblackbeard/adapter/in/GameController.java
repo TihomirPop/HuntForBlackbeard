@@ -116,6 +116,11 @@ public class GameController {
         ChatOpener.openChatWindow();
     }
 
+    @FXML
+    void generateDocumentation() {
+        DocumentationGenerator.generate(gamePane.getScene().getWindow());
+    }
+
     private void handlePirateSightingResult(PirateSightingResult result) {
         switch (result) {
             case PirateSightingResult.Found _ -> searchForPiratesFound();

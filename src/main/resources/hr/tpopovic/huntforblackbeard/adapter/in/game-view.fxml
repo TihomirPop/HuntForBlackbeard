@@ -53,6 +53,11 @@
                         <MenuItem mnemonicParsing="false" onAction="#openChat" text="Open" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Docs">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#generateDocumentation" text="Generate" />
+               </items>
+            </Menu>
             </menus>
         </MenuBar>
         <AnchorPane fx:id="gamePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
