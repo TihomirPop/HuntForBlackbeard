@@ -1,6 +1,7 @@
 package hr.tpopovic.huntforblackbeard.adapter.out;
 
 import hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForChatting;
 import hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult;
 import hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand;
@@ -9,6 +10,7 @@ import hr.tpopovic.huntforblackbeard.rmi.ChatService;
 import hr.tpopovic.huntforblackbeard.rmi.Message;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
@@ -39,7 +41,19 @@ public class RmiChatService implements ForChatting {
 
     @Override
     public GetMessagesResult getMessages() {
-        return null;
+        try {
+            List<Message> messages = chatService.getMessages();
+            List<ChatMessage> chatMessages = messages.stream()
+                    .map(message -> new ChatMessage(
+                            Player.Type.valueOf(message.author()),
+                            message.content()
+                    ))
+                    .toList();
+
+            return new GetMessagesResult.Success(chatMessages);
+        } catch (RemoteException e) {
+            return new GetMessagesResult.Failure("Failed to retrieve messages: " + e.getMessage());
+        }
     }
 
 }
