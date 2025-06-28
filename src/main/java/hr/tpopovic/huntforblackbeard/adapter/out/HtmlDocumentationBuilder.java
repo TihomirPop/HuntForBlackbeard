@@ -7,7 +7,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationTemplates.*;
 
@@ -15,20 +16,23 @@ public class HtmlDocumentationBuilder {
 
     private static final String CLASS_PATH = "./target/classes/";
     private static final String CLASS_EXTENSION = ".class";
-    public static final String NBSP = "&nbsp;";
+    private static final String NBSP = "&nbsp;";
+
+    private static Set<String> allClassNames;
 
     private HtmlDocumentationBuilder() {
     }
 
     public static String build() throws HtmlDocumentBuilderException {
         StringBuilder classSections = new StringBuilder();
-        for (String className : getAllClassNames()) {
+        allClassNames = getAllClassNames();
+        for (String className : allClassNames) {
             appendClassSection(className, classSections);
         }
         return HTML_TEMPLATE.formatted(classSections.toString());
     }
 
-    private static List<String> getAllClassNames() throws HtmlDocumentBuilderException {
+    private static Set<String> getAllClassNames() throws HtmlDocumentBuilderException {
         try (var stream = Files.walk(Path.of(CLASS_PATH))) {
             return stream.filter(Files::isRegularFile)
                     .map(Path::toString)
@@ -36,7 +40,7 @@ public class HtmlDocumentationBuilder {
                     .filter(string -> !string.endsWith("module-info.class"))
                     .map(path -> path.substring(CLASS_PATH.length(), path.length() - CLASS_EXTENSION.length()))
                     .map(path -> path.replace("\\", "."))
-                    .toList();
+                    .collect(Collectors.toSet());
         } catch (IOException e) {
             throw new HtmlDocumentBuilderException("Failed to read class files from path: " + CLASS_PATH, e);
         }
@@ -45,7 +49,7 @@ public class HtmlDocumentationBuilder {
     private static void appendClassSection(String className, StringBuilder classSections) throws HtmlDocumentBuilderException {
         Class<?> clazz = getClassByName(className);
         StringBuilder classSection = new StringBuilder();
-        classSection.append(CLASS_SECTION_TEMPLATE.formatted(clazz.getName()));
+        classSection.append(CLASS_SECTION_TEMPLATE.formatted(clazz.getName(), clazz.getName()));
         appendClassType(classSection, clazz);
         appendExtends(classSection, clazz);
         appendInterfaces(classSection, clazz);
@@ -76,14 +80,15 @@ public class HtmlDocumentationBuilder {
         } else {
             classType = "Class";
         }
-
         classSection.append(TYPE_TEMPLATE.formatted(classType));
     }
 
     private static void appendExtends(StringBuilder classSection, Class<?> clazz) {
         Class<?> superclass = clazz.getSuperclass();
         if (superclass != null && !superclass.equals(Object.class)) {
-            String extendsPart = EXTENDS_TEMPLATE.formatted(superclass.getName());
+            String extendsPart = allClassNames.contains(superclass.getName())
+                    ? EXTENDS_TEMPLATE_WITH_LINK.formatted(superclass.getName(), superclass.getName())
+                    : EXTENDS_TEMPLATE.formatted(superclass.getName());
             classSection.append(extendsPart);
         }
     }
@@ -95,7 +100,9 @@ public class HtmlDocumentationBuilder {
         }
         StringBuilder implementsPart = new StringBuilder();
         for (Class<?> anInterface : interfaces) {
-            String interfaceItem = LIST_ITEM_TEMPLATE.formatted(anInterface.getName());
+            String interfaceItem = allClassNames.contains(anInterface.getName())
+                    ? LIST_ITEM_TEMPLATE_WITH_LINK.formatted(anInterface.getName(), anInterface.getName())
+                    : LIST_ITEM_TEMPLATE.formatted(anInterface.getName());
             implementsPart.append(interfaceItem);
         }
         classSection.append(IMPLEMENTS_TEMPLATE.formatted(implementsPart.toString()));
@@ -126,7 +133,10 @@ public class HtmlDocumentationBuilder {
             item.append("(<br>");
             for (int i = 0; i < parameterTypes.length; i++) {
                 item.append("&nbsp;&nbsp;&nbsp;&nbsp;")
-                        .append(parameterTypes[i].getName());
+                        .append(allClassNames.contains(parameterTypes[i].getName())
+                                ? LINK.formatted(parameterTypes[i].getName(), parameterTypes[i].getName())
+                                : parameterTypes[i].getName()
+                        );
                 if (i < parameterTypes.length - 1) {
                     item.append(",<br>");
                 } else {
@@ -149,7 +159,10 @@ public class HtmlDocumentationBuilder {
             StringBuilder methodItem = new StringBuilder();
             methodItem.append(Modifier.toString(method.getModifiers()))
                     .append(NBSP)
-                    .append(method.getReturnType().getName())
+                    .append(allClassNames.contains(method.getReturnType().getName())
+                            ? LINK.formatted(method.getReturnType().getName(), method.getReturnType().getName())
+                            : method.getReturnType().getName()
+                    )
                     .append(NBSP)
                     .append(method.getName());
 
@@ -171,7 +184,10 @@ public class HtmlDocumentationBuilder {
             StringBuilder fieldItem = new StringBuilder();
             fieldItem.append(Modifier.toString(field.getModifiers()))
                     .append(NBSP)
-                    .append(field.getType().getName())
+                    .append(allClassNames.contains(field.getType().getName())
+                            ? LINK.formatted(field.getType().getName(), field.getType().getName())
+                            : field.getType().getName()
+                    )
                     .append(NBSP)
                     .append(field.getName());
 

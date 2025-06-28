@@ -22,20 +22,32 @@ public class HtmlDocumentationTemplates {
 
     public static final String CLASS_SECTION_TEMPLATE = """
             <hr>
-            <h2>%s</h2>
+            <h2 id="%s">%s</h2>
             """;
 
     public static final String TYPE_TEMPLATE = "Type: %s";
 
     public static final String EXTENDS_TEMPLATE = "<p>Extends: %s</p>";
 
+    public static final String EXTENDS_TEMPLATE_WITH_LINK = """
+            <p>Extends: <a href="#%s">%s</a></p>
+            """;
+
     public static final String LIST_ITEM_TEMPLATE = "<li>%s</li>";
+
+    public static final String LIST_ITEM_TEMPLATE_WITH_LINK = """
+            <li><a href="#%s">%s</a></li>
+            """;
 
     public static final String IMPLEMENTS_TEMPLATE = """
             <p>Implemented interfaces:</p>
                 <ul>
                     %s
                 </ul>
+            """;
+
+    public static final String LINK = """
+            <a href="#%s">%s</a>
             """;
 
     public static final String CONSTRUCTORS_TEMPLATE = """
