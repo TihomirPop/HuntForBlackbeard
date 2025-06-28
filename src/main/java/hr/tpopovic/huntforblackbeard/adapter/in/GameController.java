@@ -111,6 +111,11 @@ public class GameController {
         handlePirateSightingResult(result);
     }
 
+    @FXML
+    void openChat() {
+        ChatOpener.openChatWindow();
+    }
+
     private void handlePirateSightingResult(PirateSightingResult result) {
         switch (result) {
             case PirateSightingResult.Found _ -> searchForPiratesFound();
