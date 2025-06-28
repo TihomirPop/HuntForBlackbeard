@@ -15,6 +15,7 @@
         <junit.version>5.10.2</junit.version>
         <assertj-core.version>4.0.0-M1</assertj-core.version>
         <slf4j.version>2.0.17</slf4j.version>
+        <fscontext.version>4.4.2</fscontext.version>
     </properties>
 
     <dependencies>
@@ -37,6 +38,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.messaging.mq</groupId>
+            <artifactId>fscontext</artifactId>
+            <version>${fscontext.version}</version>
         </dependency>
 
         <dependency>

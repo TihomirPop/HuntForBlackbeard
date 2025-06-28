@@ -24,6 +24,7 @@ public class ChatOpener {
         Stage newWindow = new Stage();
         newWindow.setTitle("Chat");
         newWindow.setScene(new Scene(root, 600, 400));
+        newWindow.setResizable(false);
         newWindow.show();
     }
 
