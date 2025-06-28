@@ -45,6 +45,7 @@ public class GameController {
     private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
     private final ForFinishingTurn forFinishingTurn = IocContainer.getInstance(ForFinishingTurn.class);
     private final ForDiscoveringPirateSightings forDiscoveringPirateSightings = IocContainer.getInstance(ForDiscoveringPirateSightings.class);
+    private final DocumentationGenerator documentationGenerator = IocContainer.getInstance(DocumentationGenerator.class);
 
     @FXML
     public void initialize() {
@@ -118,7 +119,7 @@ public class GameController {
 
     @FXML
     void generateDocumentation() {
-        DocumentationGenerator.generate(gamePane.getScene().getWindow());
+        documentationGenerator.generate(gamePane.getScene().getWindow());
     }
 
     private void handlePirateSightingResult(PirateSightingResult result) {

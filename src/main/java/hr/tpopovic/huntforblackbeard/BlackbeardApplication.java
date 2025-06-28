@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard;
 
+import hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator;
+import hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationGenerator;
 import hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
@@ -48,6 +50,8 @@ public class BlackbeardApplication extends javafx.application.Application {
         IocContainer.addClassToManage(TurnFinishingService.class);
         IocContainer.addClassToManage(PirateDiscoveryService.class);
         IocContainer.addClassToManage(RmiChatService.class);
+        IocContainer.addClassToManage(HtmlDocumentationGenerator.class);
+        IocContainer.addClassToManage(DocumentationGenerator.class);
 
         try {
             Registry registry = LocateRegistry.getRegistry(

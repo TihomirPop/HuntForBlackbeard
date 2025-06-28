@@ -17,7 +17,7 @@ public class HtmlDocumentationGenerator implements ForGeneratingDocumentation {
     public DocumentationGenerationResult generate(DocumentationGenerationCommand command) {
         requireNonNull(command, "DocumentationGenerationCommand cannot be null");
         File outputFile = command.outputFile();
-        String htmlContent = "";
+        String htmlContent = HtmlDocumentationBuilder.build();
 
         try {
             Path outputPath = outputFile.toPath();

@@ -17,37 +17,37 @@ public class HtmlDocumentationTemplates {
             </html>
             """;
 
-    public final String CLASS_SECTION_TEMPLATE = """
+    public static final String CLASS_SECTION_TEMPLATE = """
             <hr>
-                <h2>%s</h2>
+            <h2>%s</h2>
             """;
 
-    public final String EXTENDS_TEMPLATE = "<p>Extends: %</p>";
+    public static final String EXTENDS_TEMPLATE = "<p>Extends: %s</p>";
 
-    public final String LIST_ITEM_TEMPLATE = "<li>%s</li>";
+    public static final String LIST_ITEM_TEMPLATE = "<li>%s</li>";
 
-    public final String IMPLEMENTS_TEMPLATE = """
+    public static final String IMPLEMENTS_TEMPLATE = """
             <p>Implemented interfaces:</p>
                 <ul>
                     %s
                 </ul>
             """;
 
-    public final String CONSTRUCTORS_TEMPLATE = """
+    public static final String CONSTRUCTORS_TEMPLATE = """
             <p>Constructors:</p>
                 <ul>
                     %s
                 </ul>
             """;
 
-    public final String METHODS_TEMPLATE = """
+    public static final String METHODS_TEMPLATE = """
             <p>Methods:</p>
                 <ul>
                     %s
                 </ul>
             """;
 
-    public final String ATTRIBUTES_TEMPLATE = """
+    public static final String ATTRIBUTES_TEMPLATE = """
             <p>Attributes:</p>
                 <ul>
                     %s
