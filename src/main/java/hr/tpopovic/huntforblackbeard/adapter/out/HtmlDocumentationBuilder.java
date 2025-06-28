@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -23,14 +25,64 @@ public class HtmlDocumentationBuilder {
             StringBuilder classSection = new StringBuilder();
             classSection.append(CLASS_SECTION_TEMPLATE.formatted(clazz.getName()));
             appendExtends(classSection, clazz);
+            appendInterfaces(classSection, clazz);
+            appendConstructors(classSection, clazz);
             classSections.append(classSection);
         });
         return HTML_TEMPLATE.formatted(classSections.toString());
     }
 
+    private static void appendConstructors(StringBuilder classSection, Class<?> clazz) {
+        Constructor<?>[] constructors = clazz.getConstructors();
+        if (constructors.length == 0) {
+            return;
+        }
+        StringBuilder constructorsPart = new StringBuilder();
+        for (Constructor<?> constructor : constructors) {
+            StringBuilder constructorItem = new StringBuilder();
+            constructorItem.append(Modifier.toString(constructor.getModifiers()))
+                    .append("&nbsp;")
+                    .append(constructor.getName());
+
+            Class<?>[] parameterTypes = constructor.getParameterTypes();
+            if (parameterTypes.length > 0) {
+                constructorItem.append("(<br>");
+                for (int i = 0; i < parameterTypes.length; i++) {
+                    constructorItem.append("&nbsp;&nbsp;&nbsp;&nbsp;")
+                            .append(parameterTypes[i].getName());
+                    if (i < parameterTypes.length - 1) {
+                        constructorItem.append(",<br>");
+                    } else {
+                        constructorItem.append("<br>");
+                    }
+                }
+                constructorItem.append(")");
+            } else {
+                constructorItem.append("()");
+            }
+
+            constructorsPart.append(LIST_ITEM_TEMPLATE.formatted(constructorItem));
+        }
+        classSection.append(CONSTRUCTORS_TEMPLATE.formatted(constructorsPart.toString()));
+    }
+
+
+    private static void appendInterfaces(StringBuilder classSection, Class<?> clazz) {
+        Class<?>[] interfaces = clazz.getInterfaces();
+        if (interfaces.length == 0) {
+            return;
+        }
+        StringBuilder implementsPart = new StringBuilder();
+        for (Class<?> anInterface : interfaces) {
+            String interfaceItem = LIST_ITEM_TEMPLATE.formatted(anInterface.getName());
+            implementsPart.append(interfaceItem);
+        }
+        classSection.append(IMPLEMENTS_TEMPLATE.formatted(implementsPart.toString()));
+    }
+
     private static void appendExtends(StringBuilder classSection, Class<?> clazz) {
         Class<?> superclass = clazz.getSuperclass();
-        if(superclass != null && !superclass.equals(Object.class)) {
+        if (superclass != null && !superclass.equals(Object.class)) {
             String extendsPart = EXTENDS_TEMPLATE.formatted(superclass.getName());
             classSection.append(extendsPart);
         }
@@ -50,12 +102,12 @@ public class HtmlDocumentationBuilder {
         }
     }
 
-        private static Class<?> getClassByName (String className){
-            try {
-                return Class.forName(className);
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException("Class not found: " + className, e);
-            }
+    private static Class<?> getClassByName(String className) {
+        try {
+            return Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("Class not found: " + className, e);
         }
-
     }
+
+}
