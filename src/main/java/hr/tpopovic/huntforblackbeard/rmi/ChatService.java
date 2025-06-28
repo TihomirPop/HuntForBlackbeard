@@ -8,8 +8,8 @@ public interface ChatService extends Remote {
 
     String REMOTE_OBJECT_NAME = "hr.tpopovic.chat.ChatService";
 
-    void sendMessage(ChatMessage message) throws RemoteException;
+    void sendMessage(Message message) throws RemoteException;
 
-    List<ChatMessage> getMessages() throws RemoteException;
+    List<Message> getMessages() throws RemoteException;
 
 }

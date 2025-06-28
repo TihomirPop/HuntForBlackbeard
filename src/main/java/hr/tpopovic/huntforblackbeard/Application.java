@@ -1,14 +1,20 @@
 package hr.tpopovic.huntforblackbeard;
 
+import hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.domain.service.*;
+import hr.tpopovic.huntforblackbeard.rmi.ChatService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class Application extends javafx.application.Application {
 
@@ -44,6 +50,16 @@ public class Application extends javafx.application.Application {
         IocContainer.addClassToManage(PlayerPiecesService.class);
         IocContainer.addClassToManage(TurnFinishingService.class);
         IocContainer.addClassToManage(PirateDiscoveryService.class);
+        IocContainer.addClassToManage(RmiChatService.class);
+
+        try {
+            Registry registry = LocateRegistry.getRegistry("localhost", 4242);
+            ChatService chatService = (ChatService) registry.lookup(ChatService.REMOTE_OBJECT_NAME);
+            IocContainer.addInstanceToManage(ChatService.class, chatService);
+        } catch (RemoteException | NotBoundException e) {
+            throw new RuntimeException(e);
+        }
+
         launch();
     }
 

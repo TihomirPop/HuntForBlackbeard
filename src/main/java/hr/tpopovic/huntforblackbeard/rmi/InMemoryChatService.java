@@ -7,21 +7,21 @@ import java.util.List;
 
 public class InMemoryChatService implements ChatService {
 
-    private final List<ChatMessage> chatMessages;
+    private final List<Message> messages;
 
     public InMemoryChatService() {
-        chatMessages = Collections.synchronizedList(new ArrayList<>());
+        messages = Collections.synchronizedList(new ArrayList<>());
     }
 
     @Override
-    public void sendMessage(ChatMessage message) throws RemoteException {
-        chatMessages.add(message);
+    public void sendMessage(Message message) throws RemoteException {
+        messages.add(message);
     }
 
     @Override
-    public List<ChatMessage> getMessages() throws RemoteException {
-        synchronized (chatMessages) {
-            return List.copyOf(chatMessages);
+    public List<Message> getMessages() throws RemoteException {
+        synchronized (messages) {
+            return List.copyOf(messages);
         }
     }
 

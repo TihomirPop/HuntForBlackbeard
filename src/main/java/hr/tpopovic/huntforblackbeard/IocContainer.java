@@ -4,6 +4,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
+import static java.util.Objects.requireNonNull;
+
 public class IocContainer {
 
     private static final Map<Class<?>, Object> classInstances = new HashMap<>();
@@ -17,7 +19,14 @@ public class IocContainer {
         managedClasses.addAll(List.of(newClass.getInterfaces()));
     }
 
-    public static  <T> T getInstance(Class<T> type) {
+    public static void addInstanceToManage(Class<?> type, Object instance) {
+        requireNonNull(instance, "Instance cannot be null");
+        requireNonNull(type, "Type cannot be null");
+        managedClasses.add(type);
+        classInstances.put(type, instance);
+    }
+
+    public static <T> T getInstance(Class<T> type) {
         if (!managedClasses.contains(type)) {
             throw new IllegalArgumentException("Class or one of its dependencies isn't managed by the IoC container.");
         }
@@ -30,7 +39,7 @@ public class IocContainer {
     }
 
     private static <T> T createInstance(Class<T> type) {
-        if(type.isInterface()) {
+        if (type.isInterface()) {
             Class<?> managedClass = managedClasses.stream()
                     .filter(clazz -> !clazz.isInterface())
                     .filter(type::isAssignableFrom)

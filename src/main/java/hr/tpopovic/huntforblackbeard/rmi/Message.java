@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 import static java.util.Objects.requireNonNull;
 
-public record ChatMessage(
+public record Message(
         String author,
         String content
 ) implements Serializable {
 
-    public ChatMessage {
+    public Message {
         requireNonNull(author, "Author cannot be null");
         requireNonNull(content, "Content cannot be null");
     }
