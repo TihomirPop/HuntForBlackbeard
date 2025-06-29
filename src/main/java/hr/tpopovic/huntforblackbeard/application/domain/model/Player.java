@@ -45,6 +45,10 @@ public class Player {
         return numberOfMoves.equals(startingNumberOfMoves);
     }
 
+    public Type getType() {
+        return type;
+    }
+
     public enum Type {
         HUNTER,
         PIRATE

@@ -10,6 +10,7 @@ import static java.util.Objects.requireNonNull;
 public class GameState {
 
     private static Integer LOCATIONS_NEEDED_TO_WIN = 15;
+
     private static Player currentPlayer = Players.PIRATE;
     private static Integer turnCount = 0;
     private static final Set<Location> locationsDiscoveredByPirate = new HashSet<>();
@@ -94,6 +95,10 @@ public class GameState {
     public static void addLocationDiscoveredByPirate(Location destination) {
         requireNonNull(destination, "Location cannot be null");
         locationsDiscoveredByPirate.add(destination);
+    }
+
+    static Player.Type getCurrentPlayerType() {
+        return currentPlayer.getType();
     }
 
     public enum Winner {
