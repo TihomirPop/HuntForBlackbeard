@@ -69,7 +69,7 @@ public class ReplayController {
             fileChooser.getExtensionFilters().add(
                     new FileChooser.ExtensionFilter("Replay files", "*.xml")
             );
-            File file = fileChooser.showSaveDialog(gamePane.getScene().getWindow());
+            File file = fileChooser.showOpenDialog(gamePane.getScene().getWindow());
             GetReplayQuery query = new GetReplayQuery(file);
             GetReplayResult result = forReplaying.get(query);
             switch (result) {
