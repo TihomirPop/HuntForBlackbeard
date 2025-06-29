@@ -4,4 +4,6 @@ public interface ForReplaying {
 
     SaveReplayResult save(SaveReplayCommand command);
 
+    GetReplayResult get(GetReplayQuery query);
+
 }

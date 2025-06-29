@@ -3,9 +3,7 @@ package hr.tpopovic.huntforblackbeard.adapter.out;
 import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove;
 import hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn;
-import hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying;
-import hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand;
-import hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult;
+import hr.tpopovic.huntforblackbeard.application.port.out.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -76,6 +74,11 @@ public class XmlReplayManager implements ForReplaying {
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
         String fileName = "./replays/replay_%s_%s.xml".formatted(playerType, dateTime);
         return new File(fileName);
+    }
+
+    @Override
+    public GetReplayResult get(GetReplayQuery query) {
+        return null;
     }
 
 }
