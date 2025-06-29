@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
@@ -37,6 +38,8 @@ public class ReplayController {
     ImageView brand;
     @FXML
     ImageView adventure;
+    @FXML
+    Text currentPlayerText;
 
     private FXLocations locations;
     private FXPieces pieces;
@@ -111,7 +114,7 @@ public class ReplayController {
 
     private void onNewTurn(ReplayTurn turn) {
         Player.Type type = turn.playerType();
-
+        currentPlayerText.setText(type.name());
     }
 
     private void onNewMove(ReplayMove move) {
