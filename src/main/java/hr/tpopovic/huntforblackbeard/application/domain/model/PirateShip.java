@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard.application.domain.model;
 
+import hr.tpopovic.huntforblackbeard.application.domain.service.GameState;
+
 import java.util.Set;
 
 public final class PirateShip extends Piece {

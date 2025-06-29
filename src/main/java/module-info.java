@@ -12,4 +12,6 @@ module hr.tpopovic.huntforblackbeard {
     exports hr.tpopovic.huntforblackbeard.rmi to java.rmi;
     exports hr.tpopovic.huntforblackbeard.jndi to java.naming;
     exports hr.tpopovic.huntforblackbeard.application.domain.model;
+    exports hr.tpopovic.huntforblackbeard.application.port.in;
+    exports hr.tpopovic.huntforblackbeard.application.port.out;
 }

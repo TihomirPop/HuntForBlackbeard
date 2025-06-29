@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.application.port.in;
 
-import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
+import hr.tpopovic.huntforblackbeard.application.domain.service.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 
 import java.util.Set;

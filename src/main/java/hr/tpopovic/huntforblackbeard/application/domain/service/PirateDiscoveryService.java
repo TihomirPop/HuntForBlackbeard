@@ -17,11 +17,11 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
         requireNonNull(command, "PirateSightingCommand cannot be null");
         HunterPiece piece = (HunterPiece) Pieces.getPieceByName(command.pieceName());
 
-        if (!GameState.isCurrentPlayerHunter()) {
+        if (GameState.isNotCurrentPlayerHunter()) {
             return new PirateSightingResult.Failure("Only hunters can discover pirate sightings.");
         }
 
-        if (!GameState.isCurrentPlayersPiece(piece)) {
+        if (GameState.isNotCurrentPlayersPiece(piece)) {
             return new PirateSightingResult.Failure("It's not this piece's turn to discover pirates.");
         }
 
@@ -42,7 +42,7 @@ public class PirateDiscoveryService implements ForDiscoveringPirateSightings {
         Location destination = Locations.getLocationByName(command.destinationName());
         HunterPiece piece = (HunterPiece) Pieces.getPieceByName(command.pieceName());
 
-        if (!GameState.isCurrentPlayerHunter()) {
+        if (GameState.isNotCurrentPlayerHunter()) {
             return new PirateSightingResult.Failure("Only hunters can discover pirate sightings.");
         }
 

@@ -42,7 +42,7 @@ public class MovementService implements ForMovingPieces {
             return new MovementResult.Failure("Player has no moves left.");
         }
 
-        if (!GameState.isCurrentPlayersPiece(piece)) {
+        if (GameState.isNotCurrentPlayersPiece(piece)) {
             return new MovementResult.Failure("It's not this piece's turn to move.");
         }
 

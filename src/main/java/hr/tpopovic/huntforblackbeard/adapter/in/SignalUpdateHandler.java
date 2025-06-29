@@ -2,7 +2,7 @@ package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.IocContainer;
-import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
+import hr.tpopovic.huntforblackbeard.application.domain.service.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState;

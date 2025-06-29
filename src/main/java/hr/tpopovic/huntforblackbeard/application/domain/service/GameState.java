@@ -1,4 +1,6 @@
-package hr.tpopovic.huntforblackbeard.application.domain.model;
+package hr.tpopovic.huntforblackbeard.application.domain.service;
+
+import hr.tpopovic.huntforblackbeard.application.domain.model.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +12,7 @@ public class GameState {
     private static Integer LOCATIONS_NEEDED_TO_WIN = 15;
     private static Player currentPlayer = Players.PIRATE;
     private static Integer turnCount = 0;
-    private static Set<Location> locationsDiscoveredByPirate = new HashSet<>();
+    private static final Set<Location> locationsDiscoveredByPirate = new HashSet<>();
 
     private GameState() {
     }
@@ -36,8 +38,8 @@ public class GameState {
         return currentPlayer.canUseMove();
     }
 
-    public static boolean isCurrentPlayersPiece(Piece piece) {
-        return currentPlayer.getPieces().contains(piece);
+    public static boolean isNotCurrentPlayersPiece(Piece piece) {
+        return !currentPlayer.getPieces().contains(piece);
     }
 
     public static void currentPlayerMoves() {
@@ -64,8 +66,8 @@ public class GameState {
         return currentPlayer.isFirstMove();
     }
 
-    public static boolean isCurrentPlayerHunter() {
-        return currentPlayer == Players.HUNTER;
+    public static boolean isNotCurrentPlayerHunter() {
+        return currentPlayer != Players.HUNTER;
     }
 
     public static Winner getWinner() {
@@ -83,7 +85,7 @@ public class GameState {
     }
 
     private static boolean hasHunterWon() {
-        Location adventureLocation = Pieces.PIRATE_SHIP_ADVENTURE.location;
+        Location adventureLocation = Pieces.PIRATE_SHIP_ADVENTURE.getLocation();
         boolean adventureHasBeenDiscovered = Pieces.DISCOVERER.getPirateSightings().contains(adventureLocation);
         boolean hunterIsOnSameLocationAsAdventure = Pieces.forAnyHunterPiece(piece -> piece.getLocation().equals(adventureLocation));
         return adventureHasBeenDiscovered && hunterIsOnSameLocationAsAdventure;

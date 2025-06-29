@@ -1,7 +1,5 @@
 package hr.tpopovic.huntforblackbeard.message;
 
-import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
-
 import java.util.Set;
 
 public class SignalUpdateRequest extends Request {

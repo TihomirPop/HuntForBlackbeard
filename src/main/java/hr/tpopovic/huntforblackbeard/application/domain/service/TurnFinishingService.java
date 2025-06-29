@@ -1,6 +1,5 @@
 package hr.tpopovic.huntforblackbeard.application.domain.service;
 
-import hr.tpopovic.huntforblackbeard.application.domain.model.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Locations;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn;
