@@ -54,6 +54,7 @@ public class MovementService implements ForMovingPieces {
             piece.move(destination);
             GameState.currentPlayerMoves();
             Integer numberOfMoves = GameState.getCurrentPlayerMoves();
+            ReplayManager.makeMove(piece, destination);
             return new MovementResult.Success(numberOfMoves);
         } catch (IllegalArgumentException e) {
             return new MovementResult.Failure("Cannot move to the specified destination: " + e.getMessage());

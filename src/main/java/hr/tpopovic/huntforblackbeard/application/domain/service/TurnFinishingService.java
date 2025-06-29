@@ -2,20 +2,22 @@ package hr.tpopovic.huntforblackbeard.application.domain.service;
 
 import hr.tpopovic.huntforblackbeard.application.domain.model.Locations;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Pieces;
+import hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn;
 import hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult;
-import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
-import hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand;
-import hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult;
+import hr.tpopovic.huntforblackbeard.application.port.out.*;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class TurnFinishingService implements ForFinishingTurn {
 
     private final ForSignalingUpdate forSignalingUpdate;
+    private final ForReplaying forReplaying;
 
-    public TurnFinishingService(ForSignalingUpdate forSignalingUpdate) {
+    public TurnFinishingService(ForSignalingUpdate forSignalingUpdate, ForReplaying forReplaying) {
         this.forSignalingUpdate = forSignalingUpdate;
+        this.forReplaying = forReplaying;
     }
 
     @Override
@@ -41,10 +43,33 @@ public class TurnFinishingService implements ForFinishingTurn {
 
     private TurnFinishResult success(GameState.Winner winner) {
         return switch (winner) {
-            case ONGOING -> new TurnFinishResult.GameOngoing();
-            case PIRATE -> new TurnFinishResult.PirateWins();
-            case HUNTER -> new TurnFinishResult.HunterWins();
+            case ONGOING -> gameOngoing();
+            case PIRATE -> winnerPirate();
+            case HUNTER -> winnerHunter();
         };
+    }
+
+    private static TurnFinishResult.GameOngoing gameOngoing() {
+        ReplayManager.endTurn();
+        return new TurnFinishResult.GameOngoing();
+    }
+
+    private TurnFinishResult winnerPirate() {
+        return saveReplay(new TurnFinishResult.PirateWins());
+    }
+
+    private TurnFinishResult saveReplay(TurnFinishResult winnerResult) {
+        List<ReplayTurn> replayTurns = ReplayManager.endGame();
+        SaveReplayCommand command = new SaveReplayCommand(replayTurns);
+        SaveReplayResult result = forReplaying.save(command);
+        return switch (result) {
+            case SaveReplayResult.Success _ -> winnerResult;
+            case SaveReplayResult.Failure failure -> new TurnFinishResult.Failure(failure.getMessage());
+        };
+    }
+
+    private TurnFinishResult winnerHunter() {
+        return saveReplay(new TurnFinishResult.HunterWins());
     }
 
     private TurnFinishResult failure(SignalUpdateResult.Failure failure) {

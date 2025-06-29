@@ -13,6 +13,9 @@ public class ReplayManager {
             new ArrayList<>()
     );
 
+    private ReplayManager() {
+    }
+
     public static void makeMove(Piece piece, Location location) {
         ReplayMove replayMove = new ReplayMove(
                 piece.getName(),
@@ -24,14 +27,18 @@ public class ReplayManager {
 
     public static void endTurn() {
         replayTurns.add(currentReplayTurn);
+        Player.Type nextPlayerType = currentReplayTurn.playerType() == Player.Type.PIRATE
+                ? Player.Type.HUNTER
+                : Player.Type.PIRATE;
         currentReplayTurn = new ReplayTurn(
-                GameState.getCurrentPlayerType(),
+                nextPlayerType,
                 new ArrayList<>()
         );
     }
 
-    public static List<ReplayTurn> getReplayTurns() {
-        return new ArrayList<>(replayTurns);
+    public static List<ReplayTurn> endGame() {
+        replayTurns.add(currentReplayTurn);
+        return replayTurns;
     }
 
 }
