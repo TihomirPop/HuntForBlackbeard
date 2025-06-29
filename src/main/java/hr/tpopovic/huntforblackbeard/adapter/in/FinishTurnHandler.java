@@ -35,4 +35,5 @@ public class FinishTurnHandler {
     private static void failure(TurnFinishResult.Failure failure) {
         AlertManager.showInfo("Turn Finish Error", failure.getMessage());
     }
+
 }

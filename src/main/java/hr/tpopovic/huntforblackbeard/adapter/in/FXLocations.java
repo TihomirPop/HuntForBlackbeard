@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class FXLocations {
+
     private final Set<FXLocation> locations;
 
     private FXLocations(Set<FXLocation> locations) {
@@ -49,19 +50,20 @@ public class FXLocations {
     }
 
     public static class Builder {
+
         private final Set<FXLocation> locations = new HashSet<>();
 
         private Builder() {
         }
 
-        public Builder addLocation(FXLocation location) {
+        public void addLocation(FXLocation location) {
             locations.add(location);
-            return this;
         }
 
         public FXLocations build() {
             return new FXLocations(locations);
         }
+
     }
 
 }

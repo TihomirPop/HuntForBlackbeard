@@ -1,76 +1,48 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.AppProperties;
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 
 import java.util.List;
 
 public class GameInitializer {
 
-    private final AnchorPane gamePane;
-    private final ImageView jane;
-    private final ImageView ranger;
-    private final ImageView brand;
-    private final ImageView adventure;
-    private final ComboBox<String> selectedPieceComboBox;
-    private final Button finishTurnButton;
-    private final Button searchForPiratesButton;
-    private final Text numberOfMovesText;
-    private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
 
-    public GameInitializer(
-            AnchorPane gamePane,
-            ImageView jane,
-            ImageView ranger,
-            ImageView brand,
-            ImageView adventure,
-            ComboBox<String> selectedPieceComboBox,
-            Button finishTurnButton,
-            Button searchForPiratesButton, Text numberOfMovesText
-    ) {
-        this.gamePane = gamePane;
-        this.jane = jane;
-        this.ranger = ranger;
-        this.brand = brand;
-        this.adventure = adventure;
-        this.selectedPieceComboBox = selectedPieceComboBox;
-        this.finishTurnButton = finishTurnButton;
-        this.searchForPiratesButton = searchForPiratesButton;
-        this.numberOfMovesText = numberOfMovesText;
+    private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
+    private final GameController gameController;
+
+    public GameInitializer(GameController gameController) {
+        this.gameController = gameController;
     }
 
     InitializationResult initialize() {
         FXLocations.Builder locationsBuilder = FXLocations.builder();
-        List<Node> gamePaneChildren = List.copyOf(gamePane.getChildren());
+        List<Node> gamePaneChildren = List.copyOf(gameController.gamePane.getChildren());
         for (Node node : gamePaneChildren) {
             if (node instanceof Button button) {
-                FXLocationInitializer.initialize(button, gamePane, locationsBuilder);
+                FXLocationInitializer.initialize(button, gameController.gamePane, locationsBuilder);
             }
         }
 
         FXLocations locations = locationsBuilder.build();
         FXPieces pieces = FXPieces.builder()
-                .setJane(jane)
-                .setRanger(ranger)
-                .setBrand(brand)
-                .setAdventure(adventure)
+                .setJane(gameController.jane)
+                .setRanger(gameController.ranger)
+                .setBrand(gameController.brand)
+                .setAdventure(gameController.adventure)
                 .build();
 
         ObservableList<String> playerPieceNames = FXCollections.observableList(pieces.getPlayerPieceNames());
-        selectedPieceComboBox.setItems(playerPieceNames);
+        gameController.selectedPieceComboBox.setItems(playerPieceNames);
         String selectedPieceName = playerPieceNames.getFirst();
-        selectedPieceComboBox.setValue(selectedPieceName);
+        gameController.selectedPieceComboBox.setValue(selectedPieceName);
         FXPiece currentlySelectedPiece = pieces.findByName(selectedPieceName);
         MovementFetcher movementFetcher = new MovementFetcher(locations);
         movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
@@ -82,18 +54,18 @@ public class GameInitializer {
         if (AppProperties.getPlayerType() == Player.Type.HUNTER) {
             pieces.getAdventure().imageView().setVisible(false);
             locations.forEach(location -> location.button().setDisable(true));
-            selectedPieceComboBox.setDisable(true);
-            finishTurnButton.setDisable(true);
-            searchForPiratesButton.setDisable(true);
+            gameController.selectedPieceComboBox.setDisable(true);
+            gameController.finishTurnButton.setDisable(true);
+            gameController.searchForPiratesButton.setDisable(true);
         } else {
-            if (searchForPiratesButton.getParent() instanceof Pane pane) {
-                pane.getChildren().remove(searchForPiratesButton);
+            if (gameController.searchForPiratesButton.getParent() instanceof Pane pane) {
+                pane.getChildren().remove(gameController.searchForPiratesButton);
             }
         }
 
         NumberOfMovesHandler numberOfMovesHandler = new NumberOfMovesHandler(
                 forMovingPieces,
-                numberOfMovesText
+                gameController.numberOfMovesText
         );
         numberOfMovesHandler.updateNumberOfMoves();
 
@@ -102,9 +74,9 @@ public class GameInitializer {
                 movementFetcher,
                 pieces,
                 locations,
-                selectedPieceComboBox,
-                finishTurnButton,
-                searchForPiratesButton
+                gameController.selectedPieceComboBox,
+                gameController.finishTurnButton,
+                gameController.searchForPiratesButton
         );
         SignalUpdateServerSocket signalUpdateServerSocket = new SignalUpdateServerSocket(signalUpdateHandler);
         signalUpdateServerSocket.start();

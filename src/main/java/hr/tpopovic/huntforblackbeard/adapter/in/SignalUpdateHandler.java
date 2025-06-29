@@ -1,16 +1,16 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.AppProperties;
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.service.GameState;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState;
 import hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand;
 import hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult;
-import hr.tpopovic.huntforblackbeard.message.Response;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateResponse;
+import hr.tpopovic.huntforblackbeard.socket.Response;
+import hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest;
+import hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -102,7 +102,7 @@ public class SignalUpdateHandler {
         movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
         switch(GameState.Winner.findByName(request.getWinner())) {
             case ONGOING -> {
-                // Game is still ongoing, no action needed
+                // The game is ongoing, no action needed
             }
             case HUNTER -> {
                 AlertManager.showInfo("Game Over", "The Hunter has won the game!");

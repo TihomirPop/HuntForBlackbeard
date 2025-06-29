@@ -50,7 +50,7 @@ public final class FXPiece {
         this.startedSearching = startedSearching;
     }
 
-    enum Type {
+    public enum Type {
         HUNTER,
         PIRATE
     }

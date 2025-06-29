@@ -1,9 +1,9 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.AppProperties;
-import hr.tpopovic.huntforblackbeard.message.Response;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateResponse;
+import hr.tpopovic.huntforblackbeard.socket.Response;
+import hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest;
+import hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

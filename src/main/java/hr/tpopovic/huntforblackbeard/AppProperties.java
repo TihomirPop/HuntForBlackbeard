@@ -6,7 +6,6 @@ import hr.tpopovic.huntforblackbeard.jndi.JndiProperties;
 public class AppProperties {
 
     private static Player.Type playerType;
-    private static String serverHost;
     private static Integer serverPort;
     private static String clientHost;
     private static Integer clientPort;
@@ -16,10 +15,6 @@ public class AppProperties {
 
     public static Player.Type getPlayerType() {
         return playerType;
-    }
-
-    public static String getServerHost() {
-        return serverHost;
     }
 
     public static Integer getServerPort() {
@@ -44,7 +39,6 @@ public class AppProperties {
 
     private static void hunter() {
         playerType = Player.Type.HUNTER;
-        serverHost = JndiProperties.getHunterHostname();
         serverPort = JndiProperties.getHunterServerPort();
         clientHost = JndiProperties.getPirateHostname();
         clientPort = JndiProperties.getPirateServerPort();
@@ -52,7 +46,6 @@ public class AppProperties {
 
     private static void pirate() {
         playerType = Player.Type.PIRATE;
-        serverHost = JndiProperties.getPirateHostname();
         serverPort = JndiProperties.getPirateServerPort();
         clientHost = JndiProperties.getHunterHostname();
         clientPort = JndiProperties.getHunterServerPort();

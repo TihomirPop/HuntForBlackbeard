@@ -1,4 +1,4 @@
-package hr.tpopovic.huntforblackbeard.message;
+package hr.tpopovic.huntforblackbeard.socket;
 
 import java.io.Serializable;
 

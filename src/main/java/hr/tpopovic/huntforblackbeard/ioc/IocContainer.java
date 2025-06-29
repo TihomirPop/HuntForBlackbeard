@@ -1,4 +1,4 @@
-package hr.tpopovic.huntforblackbeard;
+package hr.tpopovic.huntforblackbeard.ioc;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -28,7 +28,7 @@ public class IocContainer {
 
     public static <T> T getInstance(Class<T> type) {
         if (!managedClasses.contains(type)) {
-            throw new IllegalArgumentException("Class or one of its dependencies isn't managed by the IoC container.");
+            throw new IocException("Class or one of its dependencies isn't managed by the IoC container.");
         }
 
         if (!classInstances.containsKey(type)) {
@@ -44,13 +44,13 @@ public class IocContainer {
                     .filter(clazz -> !clazz.isInterface())
                     .filter(type::isAssignableFrom)
                     .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException("No implementation found for the interface: " + type.getName()));
+                    .orElseThrow(() -> new IocException("No implementation found for the interface: " + type.getName()));
 
             return type.cast(getInstance(managedClass));
         }
 
         if (type.getConstructors().length > 1) {
-            throw new IllegalStateException("There is more than one constructor for this class.");
+            throw new IocException("There is more than one constructor for this class.");
         }
 
         try {
@@ -66,7 +66,7 @@ public class IocContainer {
 
             return constructor.newInstance(dependencies);
         } catch (InstantiationException | InvocationTargetException | IllegalAccessException e) {
-            throw new IllegalStateException("Failed to create an instance of " + type.getName(), e); //TODO: make custom exceptions
+            throw new IocException("Could not create an instance of class: " + type.getName(), e);
         }
     }
 

@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces;
 import hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery;
 import hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult;

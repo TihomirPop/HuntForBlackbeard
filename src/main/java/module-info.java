@@ -14,4 +14,5 @@ module hr.tpopovic.huntforblackbeard {
     exports hr.tpopovic.huntforblackbeard.application.domain.model;
     exports hr.tpopovic.huntforblackbeard.application.port.in;
     exports hr.tpopovic.huntforblackbeard.application.port.out;
+    exports hr.tpopovic.huntforblackbeard.ioc;
 }

@@ -84,7 +84,7 @@ public class XmlReplayManager implements ForReplaying {
         Document xmlReplay;
 
         try {
-            xmlReplay = DocumentBuilderFactory.newInstance()
+            xmlReplay = DocumentBuilderFactory.newDefaultInstance()
                     .newDocumentBuilder()
                     .parse(inputFile);
         } catch (ParserConfigurationException | IOException | SAXException e) {

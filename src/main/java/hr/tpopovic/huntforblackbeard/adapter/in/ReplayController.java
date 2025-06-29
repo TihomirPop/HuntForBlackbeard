@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove;
 import hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn;

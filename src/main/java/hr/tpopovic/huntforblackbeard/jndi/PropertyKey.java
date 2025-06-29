@@ -7,7 +7,8 @@ public enum PropertyKey {
     PIRATE_HOSTNAME("player.pirate.hostname"),
     PIRATE_SERVER_PORT("player.pirate.server.port"),
     RMI_HOSTNAME("rmi.hostname"),
-    RMI_SERVER_PORT("rmi.port");
+    RMI_SERVER_PORT("rmi.port"),
+    SIGHTING_IMAGE_PATH("sighting.image.path");
 
     private final String key;
 

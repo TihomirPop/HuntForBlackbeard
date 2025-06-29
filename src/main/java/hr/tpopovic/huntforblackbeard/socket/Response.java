@@ -1,6 +1,7 @@
-package hr.tpopovic.huntforblackbeard.message;
+package hr.tpopovic.huntforblackbeard.socket;
 
 public abstract class Response extends Message {
+
     private final Result result;
 
     protected Response(Result result) {
@@ -23,4 +24,5 @@ public abstract class Response extends Message {
         SUCCESS,
         FAILURE
     }
+
 }

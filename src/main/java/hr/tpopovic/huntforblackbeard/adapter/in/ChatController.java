@@ -1,7 +1,7 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.AppProperties;
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForChatting;
 import hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult;

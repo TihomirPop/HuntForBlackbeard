@@ -4,8 +4,8 @@ import hr.tpopovic.huntforblackbeard.AppProperties;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate;
 import hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand;
 import hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateRequest;
-import hr.tpopovic.huntforblackbeard.message.SignalUpdateResponse;
+import hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest;
+import hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

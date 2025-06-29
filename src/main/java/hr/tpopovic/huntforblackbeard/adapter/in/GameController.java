@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import hr.tpopovic.huntforblackbeard.application.port.in.*;
@@ -49,17 +49,7 @@ public class GameController {
 
     @FXML
     public void initialize() {
-        InitializationResult result = new GameInitializer(
-                gamePane,
-                jane,
-                ranger,
-                brand,
-                adventure,
-                selectedPieceComboBox,
-                finishTurnButton,
-                searchForPiratesButton,
-                numberOfMovesText
-        ).initialize();
+        InitializationResult result = new GameInitializer(this).initialize();
         this.locations = result.locations();
         this.pieces = result.pieces();
         this.currentlySelectedPiece = result.currentlySelectedPiece();

@@ -1,7 +1,5 @@
 package hr.tpopovic.huntforblackbeard.application.port.in;
 
-import hr.tpopovic.huntforblackbeard.application.domain.model.NumberOfMoves;
-
 public abstract sealed class NumberOfMovesResult {
 
     private NumberOfMovesResult() {

@@ -1,6 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand;
 import hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult;
 import hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation;

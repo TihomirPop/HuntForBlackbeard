@@ -29,4 +29,8 @@ public class JndiProperties {
         return PropertyReader.getIntegerValue(PropertyKey.RMI_SERVER_PORT);
     }
 
+    public static String getSightingImagePath() {
+        return PropertyReader.getStringValue(PropertyKey.SIGHTING_IMAGE_PATH);
+    }
+
 }

@@ -1,5 +1,6 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
+import hr.tpopovic.huntforblackbeard.jndi.JndiProperties;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -13,7 +14,6 @@ import static java.util.Objects.requireNonNull;
 
 class FXLocationInitializer {
 
-    private static final String PIRATE_SIGHTING_IMAGE_PATH = "/hr/tpopovic/huntforblackbeard/adapter/in/sighting.png"; //TODO: extract to config
     private static final int V_BOX_HEIGHT = 90;
     private static final int V_BOX_WIDTH = 30;
     private static final int V_BOX_SPACING = 10;
@@ -68,7 +68,7 @@ class FXLocationInitializer {
     }
 
     private static ImageView createPirateSightingImageView(String buttonId) {
-        URL resource = FXLocationInitializer.class.getResource(PIRATE_SIGHTING_IMAGE_PATH);
+        URL resource = FXLocationInitializer.class.getResource(JndiProperties.getSightingImagePath());
         requireNonNull(resource, "Resource not found: sighting.png");
         Image image = new Image(resource.toExternalForm());
         ImageView imageView = new ImageView(image);
