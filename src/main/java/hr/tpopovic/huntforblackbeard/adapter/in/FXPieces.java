@@ -1,6 +1,7 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
 import hr.tpopovic.huntforblackbeard.AppProperties;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
 import javafx.scene.image.ImageView;
 
 import java.util.List;
@@ -67,6 +68,16 @@ public class FXPieces {
         action.accept(ranger);
         action.accept(brand);
         action.accept(adventure);
+    }
+
+    public FXPiece findByName(Piece.Name name) {
+        return switch (name) {
+            case HUNTER_SHIP_JANE -> jane;
+            case HUNTER_SHIP_RANGER -> ranger;
+            case HUNTER_CAPTAIN_BRAND -> brand;
+            case PIRATE_SHIP_ADVENTURE -> adventure;
+            default -> throw new IllegalArgumentException("No piece found with name: " + name);
+        };
     }
 
     public static class Builder {
