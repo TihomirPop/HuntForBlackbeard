@@ -17,6 +17,7 @@ public class DocumentationGenerator {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save docs");
         fileChooser.setInitialFileName("HuntForBlackbeard.html");
+        fileChooser.setInitialDirectory(new File("./docs"));
         fileChooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("Text Files", "*.html")
         );
