@@ -97,6 +97,14 @@ public class GameState {
         locationsDiscoveredByPirate.add(destination);
     }
 
+    static Integer getLocationsNeededToWin() {
+        return LOCATIONS_NEEDED_TO_WIN;
+    }
+
+    static Integer getCountOfLocationsDiscoveredByPirate() {
+        return locationsDiscoveredByPirate.size();
+    }
+
     public enum Winner {
         HUNTER("Hunter"),
         PIRATE("Pirate"),

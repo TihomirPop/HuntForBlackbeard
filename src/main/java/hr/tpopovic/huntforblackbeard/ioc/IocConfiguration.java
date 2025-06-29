@@ -30,6 +30,7 @@ public class IocConfiguration {
         IocContainer.addClassToManage(HtmlDocumentationGenerator.class);
         IocContainer.addClassToManage(DocumentationGenerator.class);
         IocContainer.addClassToManage(XmlReplayManager.class);
+        IocContainer.addClassToManage(ExploredLocationService.class);
         addRmiChatServiceInstanceToManage();
     }
 
