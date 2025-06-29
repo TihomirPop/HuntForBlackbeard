@@ -16,6 +16,7 @@ public class GameInitializer {
 
 
     private final ForMovingPieces forMovingPieces = IocContainer.getInstance(ForMovingPieces.class);
+    private final PirateScoreUpdater pirateScoreUpdater = IocContainer.getInstance(PirateScoreUpdater.class);
     private final GameController gameController;
 
     public GameInitializer(GameController gameController) {
@@ -57,10 +58,14 @@ public class GameInitializer {
             gameController.selectedPieceComboBox.setDisable(true);
             gameController.finishTurnButton.setDisable(true);
             gameController.searchForPiratesButton.setDisable(true);
+            if (gameController.locationsNeededToWinText.getParent() instanceof Pane pane) {
+                pane.getChildren().remove(gameController.locationsNeededToWinText);
+            }
         } else {
             if (gameController.searchForPiratesButton.getParent() instanceof Pane pane) {
                 pane.getChildren().remove(gameController.searchForPiratesButton);
             }
+            pirateScoreUpdater.updateText(gameController.locationsNeededToWinText);
         }
 
         NumberOfMovesHandler numberOfMovesHandler = new NumberOfMovesHandler(

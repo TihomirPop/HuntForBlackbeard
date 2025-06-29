@@ -1,6 +1,7 @@
 package hr.tpopovic.huntforblackbeard.ioc;
 
 import hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator;
+import hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater;
 import hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationGenerator;
 import hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService;
 import hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket;
@@ -31,6 +32,7 @@ public class IocConfiguration {
         IocContainer.addClassToManage(DocumentationGenerator.class);
         IocContainer.addClassToManage(XmlReplayManager.class);
         IocContainer.addClassToManage(ExploredLocationService.class);
+        IocContainer.addClassToManage(PirateScoreUpdater.class);
         addRmiChatServiceInstanceToManage();
     }
 

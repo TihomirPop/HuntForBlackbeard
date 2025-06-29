@@ -1,5 +1,7 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
+import hr.tpopovic.huntforblackbeard.AppProperties;
+import hr.tpopovic.huntforblackbeard.application.domain.model.Player;
 import hr.tpopovic.huntforblackbeard.ioc.IocContainer;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Location;
 import hr.tpopovic.huntforblackbeard.application.domain.model.Piece;
@@ -36,6 +38,8 @@ public class GameController {
     Button finishTurnButton;
     @FXML
     Button searchForPiratesButton;
+    @FXML
+    Text locationsNeededToWinText;
 
     private FXLocations locations;
     private FXPieces pieces;
@@ -46,6 +50,7 @@ public class GameController {
     private final ForFinishingTurn forFinishingTurn = IocContainer.getInstance(ForFinishingTurn.class);
     private final ForDiscoveringPirateSightings forDiscoveringPirateSightings = IocContainer.getInstance(ForDiscoveringPirateSightings.class);
     private final DocumentationGenerator documentationGenerator = IocContainer.getInstance(DocumentationGenerator.class);
+    private final PirateScoreUpdater pirateScoreUpdater = IocContainer.getInstance(PirateScoreUpdater.class);
 
     @FXML
     public void initialize() {
@@ -160,6 +165,9 @@ public class GameController {
         movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
         currentlySelectedPiece.changeLocation(fxLocation);
         numberOfMovesHandler.setNumberOfMoves(success.getNumberOfMoves());
+        if(AppProperties.getPlayerType().equals(Player.Type.PIRATE)) {
+            pirateScoreUpdater.updateText(locationsNeededToWinText);
+        }
     }
 
     private void movementFailure(MovementResult.Failure failure) {
