@@ -19,6 +19,12 @@ public class ReplayOpener {
             root = loader.load();
         } catch (IOException e) {
             AlertManager.showInfo("Error", "Failed to load replay view: %s".formatted(e.getMessage()));
+            return;
+        }
+
+        if (root == null) {
+            AlertManager.showInfo("Error", "FXML root is null. Replay view cannot be loaded.");
+            return;
         }
 
         Stage newWindow = new Stage();

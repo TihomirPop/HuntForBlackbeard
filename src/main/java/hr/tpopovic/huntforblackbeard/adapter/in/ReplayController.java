@@ -1,16 +1,22 @@
 package hr.tpopovic.huntforblackbeard.adapter.in;
 
-import javafx.event.ActionEvent;
+import hr.tpopovic.huntforblackbeard.IocContainer;
+import hr.tpopovic.huntforblackbeard.application.port.out.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.util.List;
 
 
 public class ReplayController {
+
+    private final ForReplaying forReplaying = IocContainer.getInstance(ForReplaying.class);
 
     @FXML
     AnchorPane gamePane;
@@ -43,6 +49,30 @@ public class ReplayController {
                 .setBrand(brand)
                 .setAdventure(adventure)
                 .build();
+
+        Platform.runLater(() -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select file to replay from");
+            fileChooser.setInitialDirectory(new File("./replays"));
+            fileChooser.getExtensionFilters().add(
+                    new FileChooser.ExtensionFilter("Replay files", "*.xml")
+            );
+            File file = fileChooser.showSaveDialog(gamePane.getScene().getWindow());
+            GetReplayQuery query = new GetReplayQuery(file);
+            GetReplayResult result = forReplaying.get(query);
+            switch (result) {
+                case GetReplayResult.Success success -> success(success);
+                case GetReplayResult.Failure failure -> failure(failure);
+            }
+        });
+    }
+
+    private void success(GetReplayResult.Success success) {
+        System.out.println(success);
+    }
+
+    private void failure(GetReplayResult.Failure failure) {
+        AlertManager.showInfo("Replay error", failure.getMessage());
     }
 
 }
