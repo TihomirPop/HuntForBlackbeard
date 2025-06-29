@@ -118,6 +118,11 @@ public class GameController {
     }
 
     @FXML
+    void openReplay() {
+        ReplayOpener.openReplayWindow();
+    }
+
+    @FXML
     void generateDocumentation() {
         documentationGenerator.generate(gamePane.getScene().getWindow());
     }

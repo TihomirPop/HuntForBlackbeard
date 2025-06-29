@@ -48,6 +48,11 @@
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
+            <Menu mnemonicParsing="false" text="Game">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openReplay" text="Replay" />
+               </items>
+            </Menu>
                 <Menu mnemonicParsing="false" text="Chat">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#openChat" text="Open" />
