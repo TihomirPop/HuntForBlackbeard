@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HuntForBlackbeard</title>
+</head>
+<body>
+    <h1>Hunt For Blackbeard docs</h1>
+    <hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.text.Text<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;void&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Success</a>
+<br>)</li><li>public&nbsp;void&nbsp;setNumberOfMoves(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Integer<br>)</li><li>public&nbsp;void&nbsp;updateNumberOfMoves()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.lang.String&nbsp;REMAINING_MOVES_FORMAT</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</a>
+&nbsp;forMovingPieces</li><li>private final&nbsp;javafx.scene.text.Text&nbsp;numberOfMovesText</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$HunterWins">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$HunterWins</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$HunterWins()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Integer<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.Integer&nbsp;getNumberOfMoves()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.Integer&nbsp;numberOfMoves</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Success()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.FXLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.control.Button,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.layout.VBox,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.layout.VBox,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.image.ImageView<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.lang.String&nbsp;id()</li><li>public&nbsp;javafx.scene.image.ImageView&nbsp;pirateSightingImageView()</li><li>public&nbsp;javafx.scene.layout.VBox&nbsp;vBoxRight()</li><li>public&nbsp;javafx.scene.layout.VBox&nbsp;vBoxLeft()</li><li>public&nbsp;javafx.scene.control.Button&nbsp;button()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;id</li><li>private final&nbsp;javafx.scene.control.Button&nbsp;button</li><li>private final&nbsp;javafx.scene.layout.VBox&nbsp;vBoxRight</li><li>private final&nbsp;javafx.scene.layout.VBox&nbsp;vBoxLeft</li><li>private final&nbsp;javafx.scene.image.ImageView&nbsp;pirateSightingImageView</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Integer,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Integer<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.Integer&nbsp;getExploredLocationsCount()</li><li>public&nbsp;java.lang.Integer&nbsp;getNeededLocationsCount()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.Integer&nbsp;exploredLocationsCount</li><li>private final&nbsp;java.lang.Integer&nbsp;neededLocationsCount</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations$Builder</a>
+&nbsp;builder()</li><li>public&nbsp;void&nbsp;forEach(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.function.Consumer<br>)</li><li>private static&nbsp;java.lang.IllegalArgumentException&nbsp;lambda$findById$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$findById$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private static&nbsp;java.lang.String&nbsp;lambda$partitionByContains$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$partitionByContains$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+&nbsp;findById(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+&nbsp;findByButton(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public&nbsp;java.util.Map&nbsp;partitionByContains(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set<br>)</li><li>private static&nbsp;java.lang.IllegalArgumentException&nbsp;lambda$findByButton$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$findByButton$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.Set&nbsp;locations</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.ioc.IocContainer">hr.tpopovic.huntforblackbeard.ioc.IocContainer</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;java.lang.Object&nbsp;getInstance(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;java.lang.Object&nbsp;createInstance(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$createInstance$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>public static&nbsp;void&nbsp;addInstanceToManage(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public static&nbsp;void&nbsp;addClassToManage(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.ioc.IocException">hr.tpopovic.huntforblackbeard.ioc.IocException</a>
+&nbsp;lambda$createInstance$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.util.Map&nbsp;classInstances</li><li>private static final&nbsp;java.util.Set&nbsp;managedClasses</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.Set&nbsp;getLocations()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.Set&nbsp;locations</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService">hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn">hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate">hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Failure</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+&nbsp;saveReplay(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+<br>)</li><li>public&nbsp;java.util.concurrent.CompletableFuture&nbsp;finishTurn()</li><li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$GameOngoing">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$GameOngoing</a>
+&nbsp;gameOngoing()</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+&nbsp;winnerHunter()</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+&nbsp;lambda$finishTurn$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+&nbsp;winnerPirate()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate">hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate</a>
+&nbsp;forSignalingUpdate</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</a>
+&nbsp;forReplaying</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation">hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult</a>
+&nbsp;generate(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.socket.Response">hr.tpopovic.huntforblackbeard.socket.Response</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.socket.Message">hr.tpopovic.huntforblackbeard.socket.Message</a></p>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</a>
+&nbsp;getResult()</li><li>public&nbsp;boolean&nbsp;isFailure()</li><li>public&nbsp;boolean&nbsp;isSuccess()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</a>
+&nbsp;result</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;getName()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;getLocation()</li><li>public&nbsp;void&nbsp;move(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>public&nbsp;void&nbsp;changeLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>public abstract&nbsp;java.util.Set&nbsp;getAvailableDestinations()</li><li>&nbsp;void&nbsp;setLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;name</li><li>protected&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;location</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService$1">hr.tpopovic.huntforblackbeard.application.domain.service.TurnFinishingService$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$service$GameState$Winner</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse">hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.socket.Response">hr.tpopovic.huntforblackbeard.socket.Response</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.jndi.InitialDirContextCloseable">hr.tpopovic.huntforblackbeard.jndi.InitialDirContextCloseable</h2>
+Type: Class<p>Extends: javax.naming.directory.InitialDirContext</p><p>Implemented interfaces:</p>
+    <ul>
+        <li>java.lang.AutoCloseable</li>
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.jndi.InitialDirContextCloseable()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.lang.String&nbsp;CONFIGURATION_FILE_PROVIDER_URL</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationGenerator">hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationGenerator</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation">hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationGenerator()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult</a>
+&nbsp;generate(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator">hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;void&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.io.File<br>)</li><li>public&nbsp;void&nbsp;generate(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.stage.Window<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation">hr.tpopovic.huntforblackbeard.application.port.out.ForGeneratingDocumentation</a>
+&nbsp;forGeneratingDocumentation</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler">hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.control.ComboBox,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.control.Button,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.control.Button<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse">hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse</a>
+&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Failure</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse">hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse</a>
+&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse">hr.tpopovic.huntforblackbeard.socket.SignalUpdateResponse</a>
+&nbsp;update(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$updateFrontend$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private&nbsp;void&nbsp;updateFrontend(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</a>
+<br>)</li><li>private&nbsp;void&nbsp;disableAllButtons()</li><li>private static&nbsp;void&nbsp;lambda$updateFrontend$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$disableAllButtons$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private&nbsp;void&nbsp;lambda$success$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;org.slf4j.Logger&nbsp;log</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState">hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState</a>
+&nbsp;forUpdatingGameState</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</a>
+&nbsp;numberOfMovesHandler</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</a>
+&nbsp;movementFetcher</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+&nbsp;pieces</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;locations</li><li>private final&nbsp;javafx.scene.control.ComboBox&nbsp;selectedPieceComboBox</li><li>private final&nbsp;javafx.scene.control.Button&nbsp;finishTurnButton</li><li>private final&nbsp;javafx.scene.control.Button&nbsp;searchForPiratesButton</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Success()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.io.File<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.io.File&nbsp;inputFile()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.io.File&nbsp;inputFile</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService">hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForChatting">hr.tpopovic.huntforblackbeard.application.port.out.ForChatting</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.out.RmiChatService(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.rmi.ChatService">hr.tpopovic.huntforblackbeard.rmi.ChatService</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage">hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage</a>
+&nbsp;lambda$getMessages$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.rmi.Message">hr.tpopovic.huntforblackbeard.rmi.Message</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult</a>
+&nbsp;sendMessage(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult</a>
+&nbsp;getMessages()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.rmi.ChatService">hr.tpopovic.huntforblackbeard.rmi.ChatService</a>
+&nbsp;chatService</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+<br>)</li><li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$PirateWins">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$PirateWins</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$PirateWins()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Discoverer">hr.tpopovic.huntforblackbeard.application.domain.model.Discoverer</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.model.Discoverer(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.Set&nbsp;getAvailableDestinations()</li><li>public&nbsp;void&nbsp;addPirateSighting(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>public&nbsp;java.util.Set&nbsp;getPirateSightings()</li><li>public&nbsp;void&nbsp;clearPirateSightings()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.Set&nbsp;pirateSightings</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;adventureLocation()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;rangerLocation()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;brandLocation()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;janeLocation()</li><li>public&nbsp;java.util.Set&nbsp;pirateSightings()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;winner()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;janeLocation</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;rangerLocation</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;brandLocation</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;adventureLocation</li><li>private final&nbsp;java.util.Set&nbsp;pirateSightings</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;winner</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.rmi.ChatServer">hr.tpopovic.huntforblackbeard.rmi.ChatServer</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.rmi.ChatServer()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;main(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Ljava.lang.String;<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;int&nbsp;RANDOM_PORT_HINT</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage">hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.lang.String&nbsp;content()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;author()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;author</li><li>private final&nbsp;java.lang.String&nbsp;content</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.ioc.IocException">hr.tpopovic.huntforblackbeard.ioc.IocException</h2>
+Type: Class<p>Extends: java.lang.RuntimeException</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.ioc.IocException(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>public&nbsp;hr.tpopovic.huntforblackbeard.ioc.IocException(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Exception<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType()</li><li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.PirateDiscoveryService">hr.tpopovic.huntforblackbeard.application.domain.service.PirateDiscoveryService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings">hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.service.PirateDiscoveryService()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a>
+&nbsp;discover(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a>
+&nbsp;getPirateSightingResult(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece">hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a>
+&nbsp;startDiscovery(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.List<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType()</li><li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.util.List&nbsp;moves()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType</li><li>private final&nbsp;java.util.List&nbsp;moves</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;void&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult$Success</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$success$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$success$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>&nbsp;void&nbsp;updateMapWithAvailablePositionsForCurrentlySelectedPiece(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</a>
+&nbsp;forMovingPieces</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;locations</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.PirateShip">hr.tpopovic.huntforblackbeard.application.domain.model.PirateShip</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a></p>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;void&nbsp;move(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>public&nbsp;void&nbsp;changeLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>public&nbsp;java.util.Set&nbsp;getAvailableDestinations()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.AlertManager">hr.tpopovic.huntforblackbeard.adapter.in.AlertManager</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;showInfo(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;void&nbsp;lambda$showInfo$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.rmi.ChatService">hr.tpopovic.huntforblackbeard.rmi.ChatService</h2>
+Type: Interface<p>Implemented interfaces:</p>
+    <ul>
+        <li>java.rmi.Remote</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;void&nbsp;sendMessage(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.rmi.Message">hr.tpopovic.huntforblackbeard.rmi.Message</a>
+<br>)</li><li>public abstract&nbsp;java.util.List&nbsp;getMessages()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;java.lang.String&nbsp;REMOTE_OBJECT_NAME</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Location$Name;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Location$Name;&nbsp;$values()</li><li>private static&nbsp;java.lang.IllegalArgumentException&nbsp;lambda$findById$1()</li><li>private static&nbsp;boolean&nbsp;lambda$findById$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;findById(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;TOPSAIL_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;FISH_TOWN</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;NEUS_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;BATH_TOWN</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;NEW_BERN</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;HUNTING_QUARTER_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;CORE_BANKS</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;WEST_PAMLICO_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;OCRACOKE_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;OCRACOKE_ISLAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;EAST_PAMLICO_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;HATTERAS_BANK</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;CAPE_HATTERAS</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;MACHAPUNGA_BLUFF</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;ROANOKE_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;QUEEN_ANNES_CREEK</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;ALBEMARLE_COUNTY</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;BATS_GRAVE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;PASQUOTANK_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;NOTS_ISLAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;ALBEMARLE_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;ROANOKE_ISLAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;CURRITUCK_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;GUN_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;ROANOKE_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;CURRITUCK_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;JAMES_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;CAPE_HENRY</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;OFF_BOARD</li><li>public final&nbsp;java.lang.String&nbsp;displayName</li><li>public final&nbsp;java.lang.String&nbsp;id</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Location$Name;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.socket.Response$Result;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.socket.Response$Result;&nbsp;$values()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</a>
+&nbsp;SUCCESS</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.Response$Result">hr.tpopovic.huntforblackbeard.socket.Response$Result</a>
+&nbsp;FAILURE</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.socket.Response$Result;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.GameState">hr.tpopovic.huntforblackbeard.application.domain.service.GameState</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;boolean&nbsp;isFirstTurn()</li><li>public static&nbsp;boolean&nbsp;isFirstMove()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;getWinner()</li><li>public static&nbsp;void&nbsp;endTurn()</li><li>public static&nbsp;java.lang.Integer&nbsp;getCurrentPlayerMoves()</li><li>public static&nbsp;boolean&nbsp;isNotCurrentPlayersPiece(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+<br>)</li><li>public static&nbsp;boolean&nbsp;canCurrentPlayerMove()</li><li>public static&nbsp;void&nbsp;currentPlayerMoves()</li><li>public static&nbsp;boolean&nbsp;isNotCurrentPlayerHunter()</li><li>static&nbsp;java.lang.Integer&nbsp;getLocationsNeededToWin()</li><li>public static&nbsp;void&nbsp;addLocationDiscoveredByPirate(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>static&nbsp;java.lang.Integer&nbsp;getCountOfLocationsDiscoveredByPirate()</li><li>public static&nbsp;java.util.Set&nbsp;getCurrentPlayerPieces()</li><li>private static&nbsp;boolean&nbsp;hasPirateWon()</li><li>private static&nbsp;boolean&nbsp;hasHunterWon()</li><li>private static&nbsp;boolean&nbsp;lambda$hasHunterWon$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.lang.Integer&nbsp;LOCATIONS_NEEDED_TO_WIN</li><li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player">hr.tpopovic.huntforblackbeard.application.domain.model.Player</a>
+&nbsp;currentPlayer</li><li>private static&nbsp;java.lang.Integer&nbsp;turnCount</li><li>private static final&nbsp;java.util.Set&nbsp;locationsDiscoveredByPirate</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationBuilder">hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationBuilder</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;java.lang.String&nbsp;build()</li><li>private static&nbsp;void&nbsp;appendExtends(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;java.lang.Class&nbsp;getClassByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;void&nbsp;appendClassType(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$getAllClassNames$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;void&nbsp;appendClassSection(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$getAllClassNames$2(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;void&nbsp;appendFields(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;java.util.Set&nbsp;getAllClassNames()</li><li>private static&nbsp;void&nbsp;appendConstructors(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;void&nbsp;appendInterfaces(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$getAllClassNames$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.nio.file.Path<br>)</li><li>private static&nbsp;void&nbsp;appendMethods(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Class<br>)</li><li>private static&nbsp;void&nbsp;appendParameters(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Ljava.lang.Class;,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.StringBuilder<br>)</li><li>private static&nbsp;java.lang.String&nbsp;lambda$getAllClassNames$4(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;java.lang.String&nbsp;lambda$getAllClassNames$3(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.lang.String&nbsp;CLASS_PATH</li><li>private static final&nbsp;java.lang.String&nbsp;CLASS_EXTENSION</li><li>private static final&nbsp;java.lang.String&nbsp;NBSP</li><li>private static&nbsp;java.util.Set&nbsp;allClassNames</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket">hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate">hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.out.SignalUpdateClientSocket()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.concurrent.CompletableFuture&nbsp;signal(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult</a>
+&nbsp;sendRequest(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult</a>
+&nbsp;lambda$signal$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</a>
+<br>)</li><li>private static&nbsp;java.lang.String&nbsp;lambda$signal$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.concurrent.ExecutorService&nbsp;executor</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$1">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$model$Player$Type</li><li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$model$Piece$Name</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.HunterShip">hr.tpopovic.huntforblackbeard.application.domain.model.HunterShip</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece">hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece</a></p>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.Set&nbsp;getAvailableDestinations()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.ForChatting">hr.tpopovic.huntforblackbeard.application.port.out.ForChatting</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult</a>
+&nbsp;sendMessage(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand</a>
+<br>)</li><li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult</a>
+&nbsp;getMessages()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.rmi.Message">hr.tpopovic.huntforblackbeard.rmi.Message</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Implemented interfaces:</p>
+    <ul>
+        <li>java.io.Serializable</li>
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.rmi.Message(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.lang.String&nbsp;content()</li><li>public&nbsp;java.lang.String&nbsp;author()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;author</li><li>private final&nbsp;java.lang.String&nbsp;content</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.GameController">hr.tpopovic.huntforblackbeard.adapter.in.GameController</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.GameController()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;void&nbsp;initialize()</li><li>private static&nbsp;void&nbsp;lambda$searchForPiratesSighted$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>&nbsp;void&nbsp;onSearchForPiratesButtonPressed()</li><li>private static&nbsp;void&nbsp;lambda$searchForPiratesNotSighted$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$searchForPiratesSighted$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$searchForPiratesFound$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>&nbsp;void&nbsp;onFinishTurnButtonPressed()</li><li>&nbsp;void&nbsp;onMovementButtonPressed(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.event.ActionEvent<br>)</li><li>&nbsp;void&nbsp;generateDocumentation()</li><li>private static&nbsp;void&nbsp;lambda$disableButtons$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private&nbsp;void&nbsp;handlePirateSightingResult(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a>
+<br>)</li><li>private&nbsp;void&nbsp;movementSuccess(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Success</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>private&nbsp;void&nbsp;movementFailure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;searchForPiratesNotSighted()</li><li>&nbsp;void&nbsp;onPieceSelected()</li><li>private&nbsp;void&nbsp;disableButtons()</li><li>private&nbsp;void&nbsp;searchForPiratesFailure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;searchForPiratesFound()</li><li>private&nbsp;void&nbsp;searchForPiratesSighted(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Sighted">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Sighted</a>
+<br>)</li><li>&nbsp;void&nbsp;openChat()</li><li>&nbsp;void&nbsp;openReplay()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>&nbsp;javafx.scene.layout.AnchorPane&nbsp;gamePane</li><li>&nbsp;javafx.scene.control.ComboBox&nbsp;selectedPieceComboBox</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;jane</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;ranger</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;brand</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;adventure</li><li>&nbsp;javafx.scene.text.Text&nbsp;numberOfMovesText</li><li>&nbsp;javafx.scene.control.Button&nbsp;finishTurnButton</li><li>&nbsp;javafx.scene.control.Button&nbsp;searchForPiratesButton</li><li>&nbsp;javafx.scene.text.Text&nbsp;locationsNeededToWinText</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;locations</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+&nbsp;pieces</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;currentlySelectedPiece</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</a>
+&nbsp;numberOfMovesHandler</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</a>
+&nbsp;movementFetcher</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</a>
+&nbsp;forMovingPieces</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn">hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn</a>
+&nbsp;forFinishingTurn</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings">hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings</a>
+&nbsp;forDiscoveringPirateSightings</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator">hr.tpopovic.huntforblackbeard.adapter.in.DocumentationGenerator</a>
+&nbsp;documentationGenerator</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater">hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater</a>
+&nbsp;pirateScoreUpdater</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water$Sound">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water$Sound</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult</a>
+&nbsp;move(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand">hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand</a>
+<br>)</li><li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult</a>
+&nbsp;fetchNumberOfAvailableMoves(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery</a>
+<br>)</li><li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult</a>
+&nbsp;fetchAvailableMovementLocations(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.BlackbeardApplication">hr.tpopovic.huntforblackbeard.BlackbeardApplication</h2>
+Type: Class<p>Extends: javafx.application.Application</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.BlackbeardApplication()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;main(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Ljava.lang.String;<br>)</li><li>public&nbsp;void&nbsp;start(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.stage.Stage<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;org.slf4j.Logger&nbsp;log</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;getName()</li><li>public&nbsp;void&nbsp;removePiece(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+<br>)</li><li>public&nbsp;java.util.Set&nbsp;getOverWaterLocations()</li><li>transient&nbsp;void&nbsp;addOverWaterLocations(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Location;<br>)</li><li>transient&nbsp;void&nbsp;addOverLandLocations(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Location;<br>)</li><li>public&nbsp;void&nbsp;setPirateSighted(<br>&nbsp;&nbsp;&nbsp;&nbsp;boolean<br>)</li><li>public&nbsp;java.util.Set&nbsp;getOverLandLocations()</li><li>public&nbsp;boolean&nbsp;isPirateSighted()</li><li>public&nbsp;void&nbsp;addPiece(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+<br>)</li><li>public&nbsp;java.util.Set&nbsp;getPieces()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;name</li><li>private final&nbsp;java.util.Set&nbsp;overWaterLocations</li><li>private final&nbsp;java.util.Set&nbsp;overLandLocations</li><li>private final&nbsp;java.util.Set&nbsp;pieces</li><li>private&nbsp;boolean&nbsp;pirateSighted</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate">hr.tpopovic.huntforblackbeard.application.port.out.ForSignalingUpdate</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;java.util.concurrent.CompletableFuture&nbsp;signal(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand">hr.tpopovic.huntforblackbeard.application.port.out.SignalUpdateCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.ExploredLocationService">hr.tpopovic.huntforblackbeard.application.domain.service.ExploredLocationService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations">hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.service.ExploredLocationService()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult</a>
+&nbsp;fetch()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateServerSocket">hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateServerSocket</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateServerSocket(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler">hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;void&nbsp;start()</li><li>public&nbsp;void&nbsp;stop()</li><li>private&nbsp;void&nbsp;startSocket()</li><li>private&nbsp;void&nbsp;waitForAndHandleRequest(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.net.ServerSocket<br>)</li><li>private&nbsp;void&nbsp;handleRequest(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.net.Socket<br>)</li><li>private&nbsp;void&nbsp;lambda$waitForAndHandleRequest$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.net.Socket<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;org.slf4j.Logger&nbsp;log</li><li>private final&nbsp;java.util.concurrent.ExecutorService&nbsp;executor</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler">hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler</a>
+&nbsp;signalUpdateHandler</li><li>private volatile&nbsp;boolean&nbsp;running</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FinishTurnHandler">hr.tpopovic.huntforblackbeard.adapter.in.FinishTurnHandler</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>private static&nbsp;void&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$Failure</a>
+<br>)</li><li>private static&nbsp;void&nbsp;pirateWins()</li><li>private static&nbsp;void&nbsp;hunterWins()</li><li>public static&nbsp;void&nbsp;finish(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.concurrent.CompletableFuture<br>)</li><li>private static&nbsp;void&nbsp;lambda$finish$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a>
+<br>)</li><li>private static&nbsp;void&nbsp;gameOngoing()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Players">hr.tpopovic.huntforblackbeard.application.domain.model.Players</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player">hr.tpopovic.huntforblackbeard.application.domain.model.Player</a>
+&nbsp;getPlayerByType(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;int&nbsp;HUNTER_STARTING_NUMBER_OF_MOVES</li><li>private static final&nbsp;int&nbsp;PIRATE_STARTING_NUMBER_OF_MOVES</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player">hr.tpopovic.huntforblackbeard.application.domain.model.Player</a>
+&nbsp;HUNTER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player">hr.tpopovic.huntforblackbeard.application.domain.model.Player</a>
+&nbsp;PIRATE</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Integer<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.Integer&nbsp;getNumberOfMoves()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.Integer&nbsp;numberOfMoves</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getName()</li><li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner;&nbsp;$values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;findByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;HUNTER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;PIRATE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;ONGOING</li><li>private final&nbsp;java.lang.String&nbsp;name</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings">hr.tpopovic.huntforblackbeard.application.port.in.ForDiscoveringPirateSightings</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a>
+&nbsp;discover(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand</a>
+<br>)</li><li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a>
+&nbsp;startDiscovery(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingStartCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SendMessageCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage">hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage">hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage</a>
+&nbsp;chatMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage">hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage</a>
+&nbsp;chatMessage</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Player">hr.tpopovic.huntforblackbeard.application.domain.model.Player</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.model.Player(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set,<br>&nbsp;&nbsp;&nbsp;&nbsp;int<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;getType()</li><li>public&nbsp;boolean&nbsp;isFirstMove()</li><li>public&nbsp;void&nbsp;useMove()</li><li>public&nbsp;boolean&nbsp;canUseMove()</li><li>public&nbsp;void&nbsp;resetMoves()</li><li>public&nbsp;java.lang.Integer&nbsp;getNumberOfMoves()</li><li>public&nbsp;java.util.Set&nbsp;getPieces()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;type</li><li>private final&nbsp;java.util.Set&nbsp;pieces</li><li>private final&nbsp;int&nbsp;startingNumberOfMoves</li><li>private&nbsp;java.lang.Integer&nbsp;numberOfMoves</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.jndi.PropertyReader">hr.tpopovic.huntforblackbeard.jndi.PropertyReader</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;java.lang.String&nbsp;getStringValue(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+<br>)</li><li>public static&nbsp;java.lang.Integer&nbsp;getIntegerValue(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.lang.String&nbsp;CONFIGURATION_FILE_NAME</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a></p>
+<p>Methods:</p>
+    <ul>
+        <li>transient&nbsp;void&nbsp;addOverLandLocations(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Location;<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder</a>
+&nbsp;builder()</li><li>public&nbsp;void&nbsp;forEach(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.function.Consumer<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;findByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;findByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;getAdventure()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;getRanger()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;getJane()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;getBrand()</li><li>public&nbsp;java.util.List&nbsp;getPlayerPieceNames()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;jane</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;ranger</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;brand</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;adventure</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water$Blank">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water$Blank</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water$Ocean">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water$Ocean</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Water</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler$1">hr.tpopovic.huntforblackbeard.adapter.in.SignalUpdateHandler$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$service$GameState$Winner</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.ReplayOpener">hr.tpopovic.huntforblackbeard.adapter.in.ReplayOpener</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;openReplayWindow()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingPlayerPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingPlayerPieces</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a>
+&nbsp;fetch(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType()</li><li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.InitializationResult">hr.tpopovic.huntforblackbeard.adapter.in.InitializationResult</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.InitializationResult(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;locations()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+&nbsp;pieces()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</a>
+&nbsp;numberOfMovesHandler()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</a>
+&nbsp;movementFetcher()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;currentlySelectedPiece()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;locations</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+&nbsp;pieces</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;currentlySelectedPiece</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler">hr.tpopovic.huntforblackbeard.adapter.in.NumberOfMovesHandler</a>
+&nbsp;numberOfMovesHandler</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher">hr.tpopovic.huntforblackbeard.adapter.in.MovementFetcher</a>
+&nbsp;movementFetcher</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;destinationName()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;destinationName</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.io.File<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.io.File&nbsp;outputFile()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.io.File&nbsp;outputFile</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.ChatOpener">hr.tpopovic.huntforblackbeard.adapter.in.ChatOpener</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;openChatWindow()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand">hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;destination()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;destination</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land$Anchorage">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land$Anchorage</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land$Town">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land$Town</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult</a>
+&nbsp;get(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery</a>
+<br>)</li><li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult</a>
+&nbsp;save(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.socket.Request">hr.tpopovic.huntforblackbeard.socket.Request</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.socket.Message">hr.tpopovic.huntforblackbeard.socket.Message</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.socket.Request()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Locations$1">hr.tpopovic.huntforblackbeard.application.domain.model.Locations$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$model$Location$Name</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$NotSighted">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$NotSighted</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$NotSighted()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$GameOngoing">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$GameOngoing</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$GameOngoing()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.List<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.List&nbsp;getMessages()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.List&nbsp;messages</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.AppProperties">hr.tpopovic.huntforblackbeard.AppProperties</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;init(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>public static&nbsp;java.lang.String&nbsp;getClientHost()</li><li>public static&nbsp;java.lang.Integer&nbsp;getServerPort()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;getPlayerType()</li><li>public static&nbsp;java.lang.Integer&nbsp;getClientPort()</li><li>private static&nbsp;void&nbsp;hunter()</li><li>private static&nbsp;void&nbsp;pirate()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;playerType</li><li>private static&nbsp;java.lang.Integer&nbsp;serverPort</li><li>private static&nbsp;java.lang.String&nbsp;clientHost</li><li>private static&nbsp;java.lang.Integer&nbsp;clientPort</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.ReplayManager">hr.tpopovic.huntforblackbeard.application.domain.service.ReplayManager</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;java.util.List&nbsp;endGame()</li><li>public static&nbsp;void&nbsp;endTurn()</li><li>public static&nbsp;void&nbsp;makeMove(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.util.List&nbsp;replayTurns</li><li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn</a>
+&nbsp;currentReplayTurn</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.ChatController">hr.tpopovic.huntforblackbeard.adapter.in.ChatController</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.ChatController()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>&nbsp;void&nbsp;initialize()</li><li>private&nbsp;void&nbsp;sendMessageFailure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;getMessagesSuccess(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Success</a>
+<br>)</li><li>private&nbsp;void&nbsp;getChatMessages()</li><li>private&nbsp;void&nbsp;sendMessageSuccess()</li><li>private&nbsp;void&nbsp;getMessagesFailure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Failure</a>
+<br>)</li><li>&nbsp;void&nbsp;sendMessage()</li><li>private&nbsp;void&nbsp;lambda$initialize$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.event.ActionEvent<br>)</li><li>private static&nbsp;java.lang.String&nbsp;lambda$getMessagesSuccess$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage">hr.tpopovic.huntforblackbeard.application.domain.model.ChatMessage</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForChatting">hr.tpopovic.huntforblackbeard.application.port.out.ForChatting</a>
+&nbsp;forChatting</li><li>&nbsp;javafx.scene.control.TextField&nbsp;chatField</li><li>&nbsp;javafx.scene.control.TextArea&nbsp;chatArea</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService">hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingPlayerPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingPlayerPieces</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a>
+&nbsp;fetch(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesQuery</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a>
+&nbsp;fetchPiratePieces()</li><li>private static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a>
+&nbsp;fetchPlayerPieces(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player">hr.tpopovic.huntforblackbeard.application.domain.model.Player</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a>
+&nbsp;fetchHunterPieces()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.GameInitializer">hr.tpopovic.huntforblackbeard.adapter.in.GameInitializer</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.GameInitializer(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.GameController">hr.tpopovic.huntforblackbeard.adapter.in.GameController</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.InitializationResult">hr.tpopovic.huntforblackbeard.adapter.in.InitializationResult</a>
+&nbsp;initialize()</li><li>private static&nbsp;void&nbsp;lambda$initialize$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</a>
+&nbsp;forMovingPieces</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater">hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater</a>
+&nbsp;pirateScoreUpdater</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.GameController">hr.tpopovic.huntforblackbeard.adapter.in.GameController</a>
+&nbsp;gameController</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;destinationName()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;pieceName</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;destinationName</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult">hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.GetMessagesResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations">hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult</a>
+&nbsp;fetch()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.ioc.IocConfiguration">hr.tpopovic.huntforblackbeard.ioc.IocConfiguration</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;init()</li><li>private static&nbsp;void&nbsp;addRmiChatServiceInstanceToManage()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.ReplayController">hr.tpopovic.huntforblackbeard.adapter.in.ReplayController</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.ReplayController()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;void&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success</a>
+<br>)</li><li>private&nbsp;void&nbsp;onNewMove(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove</a>
+<br>)</li><li>private&nbsp;void&nbsp;onNewTurn(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn</a>
+<br>)</li><li>&nbsp;void&nbsp;initialize()</li><li>private&nbsp;void&nbsp;onFinishedReplay(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.List<br>)</li><li>private&nbsp;void&nbsp;lambda$success$2(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.event.ActionEvent<br>)</li><li>private&nbsp;void&nbsp;lambda$success$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayTurn</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.event.ActionEvent<br>)</li><li>private&nbsp;void&nbsp;lambda$success$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove">hr.tpopovic.huntforblackbeard.application.domain.model.ReplayMove</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.event.ActionEvent<br>)</li><li>private&nbsp;void&nbsp;lambda$initialize$0()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</a>
+&nbsp;forReplaying</li><li>&nbsp;javafx.scene.layout.AnchorPane&nbsp;gamePane</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;jane</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;ranger</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;brand</li><li>&nbsp;javafx.scene.image.ImageView&nbsp;adventure</li><li>&nbsp;javafx.scene.text.Text&nbsp;currentPlayerText</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;locations</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+&nbsp;pieces</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.List<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.List&nbsp;getReplayTurns()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.List&nbsp;replayTurns</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService">hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState">hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.service.GameStateUpdateService(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult</a>
+&nbsp;update(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand</a>
+<br>)</li><li>private static&nbsp;void&nbsp;lambda$update$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>private&nbsp;void&nbsp;updateLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+<br>)</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult</a>
+&nbsp;updateReplay(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</a>
+&nbsp;forReplaying</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Sighted">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Sighted</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Sighted(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;getLocation()</li><li>public&nbsp;java.util.Set&nbsp;getAvailableDestinations()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;location</li><li>private final&nbsp;java.util.Set&nbsp;availableDestinations</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.HunterPerson">hr.tpopovic.huntforblackbeard.application.domain.model.HunterPerson</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece">hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece</a></p>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.Set&nbsp;getAvailableDestinations()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces</a>
+&nbsp;build()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder</a>
+&nbsp;setRanger(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.image.ImageView<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder</a>
+&nbsp;setBrand(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.image.ImageView<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder</a>
+&nbsp;setJane(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.image.ImageView<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXPieces$Builder</a>
+&nbsp;setAdventure(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.image.ImageView<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;jane</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;ranger</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;brand</li><li>private&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</a>
+&nbsp;adventure</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Pieces">hr.tpopovic.huntforblackbeard.application.domain.model.Pieces</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;void&nbsp;initialize()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+&nbsp;getPieceByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+<br>)</li><li>public static&nbsp;boolean&nbsp;forAnyHunterPiece(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.function.Predicate<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+&nbsp;HUNTER_SHIP_JANE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+&nbsp;HUNTER_SHIP_RANGER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+&nbsp;HUNTER_CAPTAIN_BRAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a>
+&nbsp;PIRATE_SHIP_ADVENTURE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Discoverer">hr.tpopovic.huntforblackbeard.application.domain.model.Discoverer</a>
+&nbsp;DISCOVERER</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult$Success(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.util.Set&nbsp;getPieces()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.Set&nbsp;pieces</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult">hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PlayerPiecesResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type;&nbsp;$values()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</a>
+&nbsp;HUNTER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</a>
+&nbsp;PIRATE</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.socket.Message">hr.tpopovic.huntforblackbeard.socket.Message</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li>java.io.Serializable</li>
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.socket.Message()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult$Success()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXPiece">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.FXPiece(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.image.ImageView,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;name()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</a>
+&nbsp;type()</li><li>public&nbsp;void&nbsp;changeLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li><li>public&nbsp;boolean&nbsp;hasStartedSearching()</li><li>public&nbsp;void&nbsp;setStartedSearching(<br>&nbsp;&nbsp;&nbsp;&nbsp;boolean<br>)</li><li>public&nbsp;javafx.scene.image.ImageView&nbsp;imageView()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;name</li><li>private final&nbsp;javafx.scene.image.ImageView&nbsp;imageView</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type">hr.tpopovic.huntforblackbeard.adapter.in.FXPiece$Type</a>
+&nbsp;type</li><li>private&nbsp;boolean&nbsp;startedSearching</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationTemplates">hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentationTemplates</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;java.lang.String&nbsp;HTML_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;CLASS_SECTION_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;TYPE_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;EXTENDS_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;EXTENDS_TEMPLATE_WITH_LINK</li><li>public static final&nbsp;java.lang.String&nbsp;LIST_ITEM_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;LIST_ITEM_TEMPLATE_WITH_LINK</li><li>public static final&nbsp;java.lang.String&nbsp;IMPLEMENTS_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;LINK</li><li>public static final&nbsp;java.lang.String&nbsp;CONSTRUCTORS_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;METHODS_TEMPLATE</li><li>public static final&nbsp;java.lang.String&nbsp;FIELDS_TEMPLATE</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater">hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater</h2>
+Type: Class<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.in.PirateScoreUpdater(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations">hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>private&nbsp;void&nbsp;failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Failure</a>
+<br>)</li><li>private&nbsp;void&nbsp;success(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Success</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.text.Text<br>)</li><li>&nbsp;void&nbsp;updateText(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.text.Text<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;java.lang.String&nbsp;LOCATIONS_NEEDED_TO_WIN_FORMAT</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations">hr.tpopovic.huntforblackbeard.application.port.in.ForFetchingExploredLocations</a>
+&nbsp;forFetchingExploredLocations</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXLocationInitializer">hr.tpopovic.huntforblackbeard.adapter.in.FXLocationInitializer</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>static&nbsp;void&nbsp;initialize(<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.control.Button,<br>&nbsp;&nbsp;&nbsp;&nbsp;javafx.scene.layout.AnchorPane,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations$Builder</a>
+<br>)</li><li>private static&nbsp;javafx.scene.layout.VBox&nbsp;createVboxLeft(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;double,<br>&nbsp;&nbsp;&nbsp;&nbsp;double<br>)</li><li>private static&nbsp;javafx.scene.layout.VBox&nbsp;createVboxRight(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;double,<br>&nbsp;&nbsp;&nbsp;&nbsp;double<br>)</li><li>private static&nbsp;javafx.scene.image.ImageView&nbsp;createPirateSightingImageView(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private static final&nbsp;int&nbsp;V_BOX_HEIGHT</li><li>private static final&nbsp;int&nbsp;V_BOX_WIDTH</li><li>private static final&nbsp;int&nbsp;V_BOX_SPACING</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Found">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Found</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult">hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.PirateSightingResult$Found()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.in.FXLocations$Builder">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations$Builder</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocations">hr.tpopovic.huntforblackbeard.adapter.in.FXLocations</a>
+&nbsp;build()</li><li>public&nbsp;void&nbsp;addLocation(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.adapter.in.FXLocation">hr.tpopovic.huntforblackbeard.adapter.in.FXLocation</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.Set&nbsp;locations</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Player$Type;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Player$Type;&nbsp;$values()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;HUNTER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type">hr.tpopovic.huntforblackbeard.application.domain.model.Player$Type</a>
+&nbsp;PIRATE</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Player$Type;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.jndi.JndiProperties">hr.tpopovic.huntforblackbeard.jndi.JndiProperties</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;java.lang.Integer&nbsp;getRmiServerPort()</li><li>public static&nbsp;java.lang.String&nbsp;getSightingImagePath()</li><li>public static&nbsp;java.lang.Integer&nbsp;getHunterServerPort()</li><li>public static&nbsp;java.lang.String&nbsp;getPirateHostname()</li><li>public static&nbsp;java.lang.Integer&nbsp;getPirateServerPort()</li><li>public static&nbsp;java.lang.String&nbsp;getHunterHostname()</li><li>public static&nbsp;java.lang.String&nbsp;getRmiHostname()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.MovementService">hr.tpopovic.huntforblackbeard.application.domain.service.MovementService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces">hr.tpopovic.huntforblackbeard.application.port.in.ForMovingPieces</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.domain.service.MovementService()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult</a>
+&nbsp;move(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand">hr.tpopovic.huntforblackbeard.application.port.in.MovementCommand</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesResult</a>
+&nbsp;fetchNumberOfAvailableMoves(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery">hr.tpopovic.huntforblackbeard.application.port.in.NumberOfMovesQuery</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationResult</a>
+&nbsp;fetchAvailableMovementLocations(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery">hr.tpopovic.huntforblackbeard.application.port.in.MovementLocationQuery</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Players$1">hr.tpopovic.huntforblackbeard.application.domain.model.Players$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$model$Player$Type</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.jndi.JndiException">hr.tpopovic.huntforblackbeard.jndi.JndiException</h2>
+Type: Class<p>Extends: java.lang.RuntimeException</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.jndi.JndiException(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Exception<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.jndi.PropertyKey;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>public&nbsp;java.lang.String&nbsp;getKey()</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.jndi.PropertyKey;&nbsp;$values()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;HUNTER_HOSTNAME</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;HUNTER_SERVER_PORT</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;PIRATE_HOSTNAME</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;PIRATE_SERVER_PORT</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;RMI_HOSTNAME</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;RMI_SERVER_PORT</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.jndi.PropertyKey">hr.tpopovic.huntforblackbeard.jndi.PropertyKey</a>
+&nbsp;SIGHTING_IMAGE_PATH</li><li>private final&nbsp;java.lang.String&nbsp;key</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.jndi.PropertyKey;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Pieces$1">hr.tpopovic.huntforblackbeard.application.domain.model.Pieces$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$model$Piece$Name</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.XmlReplayManager">hr.tpopovic.huntforblackbeard.adapter.out.XmlReplayManager</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying">hr.tpopovic.huntforblackbeard.application.port.out.ForReplaying</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.out.XmlReplayManager()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayResult</a>
+&nbsp;get(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery">hr.tpopovic.huntforblackbeard.application.port.out.GetReplayQuery</a>
+<br>)</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayResult</a>
+&nbsp;save(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand</a>
+<br>)</li><li>private&nbsp;java.io.File&nbsp;getFile()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;java.lang.String&nbsp;TURNS_TAG_NAME</li><li>public static final&nbsp;java.lang.String&nbsp;TURN_TAG_NAME</li><li>public static final&nbsp;java.lang.String&nbsp;PLAYER_TAG_NAME</li><li>public static final&nbsp;java.lang.String&nbsp;MOVES_TAG_NAME</li><li>public static final&nbsp;java.lang.String&nbsp;MOVE_TAG_NAME</li><li>public static final&nbsp;java.lang.String&nbsp;PIECE_TAG_NAME</li><li>public static final&nbsp;java.lang.String&nbsp;DESTINATION_TAG_NAME</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState">hr.tpopovic.huntforblackbeard.application.port.in.ForUpdatingGameState</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult</a>
+&nbsp;update(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand</a>
+<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn">hr.tpopovic.huntforblackbeard.application.port.in.ForFinishingTurn</h2>
+Type: Interface<p>Methods:</p>
+    <ul>
+        <li>public abstract&nbsp;java.util.concurrent.CompletableFuture&nbsp;finishTurn()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService$1">hr.tpopovic.huntforblackbeard.application.domain.service.PlayerPiecesService$1</h2>
+Type: Class<p>Attributes:</p>
+    <ul>
+        <li>static final&nbsp;[I&nbsp;$SwitchMap$hr$tpopovic$huntforblackbeard$application$domain$model$Player$Type</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;adventureLocation()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;rangerLocation()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;brandLocation()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;janeLocation()</li><li>public&nbsp;java.util.Set&nbsp;pirateSightings()</li><li>public&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;winner()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;janeLocation</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;rangerLocation</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;brandLocation</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+&nbsp;adventureLocation</li><li>private final&nbsp;java.util.Set&nbsp;pirateSightings</li><li>private final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner">hr.tpopovic.huntforblackbeard.application.domain.service.GameState$Winner</a>
+&nbsp;winner</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult">hr.tpopovic.huntforblackbeard.application.port.out.SendMessageResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand">hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand</h2>
+Type: Record<p>Extends: java.lang.Record</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.SaveReplayCommand(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.List<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public final&nbsp;boolean&nbsp;equals(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Object<br>)</li><li>public final&nbsp;java.lang.String&nbsp;toString()</li><li>public final&nbsp;int&nbsp;hashCode()</li><li>public&nbsp;java.util.List&nbsp;replayTurns()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.List&nbsp;replayTurns</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Failure">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece">hr.tpopovic.huntforblackbeard.application.domain.model.HunterPiece</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece">hr.tpopovic.huntforblackbeard.application.domain.model.Piece</a></p>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;void&nbsp;finishSearching()</li><li>public&nbsp;boolean&nbsp;hasFinishedSearching()</li><li>public&nbsp;void&nbsp;clearSearching()</li><li>public&nbsp;void&nbsp;startSearching()</li><li>public&nbsp;boolean&nbsp;hasStartedSearching()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private&nbsp;boolean&nbsp;hasStartedSearching</li><li>private&nbsp;boolean&nbsp;hasFinishedSearching</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.MovementResult">hr.tpopovic.huntforblackbeard.application.port.in.MovementResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Locations">hr.tpopovic.huntforblackbeard.application.domain.model.Locations</h2>
+Type: Class<p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;getLocationByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Name</a>
+<br>)</li><li>public static&nbsp;java.util.Set&nbsp;getPirateSightings()</li><li>public static&nbsp;void&nbsp;clearPirateSightings()</li><li>public static&nbsp;java.util.Set&nbsp;getPirateSightingNames()</li><li>public static&nbsp;java.util.Set&nbsp;getPirateStartingLocations()</li><li>private static&nbsp;void&nbsp;lambda$clearPirateSightings$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$getPirateStartingLocations$0(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$getPirateStartingLocations$1(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li><li>private static&nbsp;boolean&nbsp;lambda$getPirateStartingLocations$2(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;TOPSAIL_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;FISH_TOWN</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;NEUS_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;BATH_TOWN</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;NEW_BERN</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;HUNTING_QUARTER_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;CORE_BANKS</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;WEST_PAMLICO_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;OCRACOKE_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;OCRACOKE_ISLAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;EAST_PAMLICO_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;HATTERAS_BANK</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;CAPE_HATTERAS</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;MACHAPUNGA_BLUFF</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;ROANOKE_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;QUEEN_ANNES_CREEK</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;ALBEMARLE_COUNTY</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;BATS_GRAVE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;PASQUOTANK_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;NOTS_ISLAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;ALBEMARLE_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;ROANOKE_ISLAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;CURRITUCK_SOUND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;GUN_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;ROANOKE_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;CURRITUCK_INLET</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;JAMES_RIVER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;CAPE_HENRY</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location">hr.tpopovic.huntforblackbeard.application.domain.model.Location</a>
+&nbsp;OFF_BOARD</li><li>private static final&nbsp;java.util.Set&nbsp;locationSet</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Failure">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Failure</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult">hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.ExploredLocationsResult$Failure(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getMessage()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;message</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Success">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult">hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.out.DocumentationGenerationResult$Success()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult">hr.tpopovic.huntforblackbeard.application.port.in.TurnFinishResult</h2>
+Type: Class<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</h2>
+Type: Enum<p>Extends: java.lang.Enum</p><p>Methods:</p>
+    <ul>
+        <li>public static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name;&nbsp;values()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;valueOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li><li>private static&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name;&nbsp;$values()</li><li>public&nbsp;java.lang.String&nbsp;getDisplayName()</li><li>public static&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;findByName(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;HUNTER_SHIP_JANE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;HUNTER_SHIP_RANGER</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;HUNTER_CAPTAIN_BRAND</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;PIRATE_SHIP_ADVENTURE</li><li>public static final&nbsp;<a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name">hr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name</a>
+&nbsp;DISCOVERER</li><li>private final&nbsp;java.lang.String&nbsp;displayName</li><li>private static final&nbsp;[Lhr.tpopovic.huntforblackbeard.application.domain.model.Piece$Name;&nbsp;$VALUES</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Success">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Success</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult">hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.application.port.in.UpdateGameStateResult$Success()</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentBuilderException">hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentBuilderException</h2>
+Type: Class<p>Extends: java.lang.Exception</p><p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.adapter.out.HtmlDocumentBuilderException(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.Exception<br>)</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land$Blank">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land$Blank</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land">hr.tpopovic.huntforblackbeard.application.domain.model.Location$Land</a></p>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest">hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest</h2>
+Type: Class<p>Extends: <a href="#hr.tpopovic.huntforblackbeard.socket.Request">hr.tpopovic.huntforblackbeard.socket.Request</a></p>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.socket.SignalUpdateRequest(<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.util.Set,<br>&nbsp;&nbsp;&nbsp;&nbsp;java.lang.String<br>)</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;java.lang.String&nbsp;getRangerLocation()</li><li>public&nbsp;java.lang.String&nbsp;getAdventureLocation()</li><li>public&nbsp;java.lang.String&nbsp;getBrandLocation()</li><li>public&nbsp;java.lang.String&nbsp;getJaneLocation()</li><li>public&nbsp;java.util.Set&nbsp;getPirateSightings()</li><li>public&nbsp;java.lang.String&nbsp;getWinner()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.lang.String&nbsp;janeLocation</li><li>private final&nbsp;java.lang.String&nbsp;rangerLocation</li><li>private final&nbsp;java.lang.String&nbsp;brandLocation</li><li>private final&nbsp;java.lang.String&nbsp;adventureLocation</li><li>private final&nbsp;java.util.Set&nbsp;pirateSightings</li><li>private final&nbsp;java.lang.String&nbsp;winner</li>
+    </ul>
+<hr>
+<h2 id="hr.tpopovic.huntforblackbeard.rmi.InMemoryChatService">hr.tpopovic.huntforblackbeard.rmi.InMemoryChatService</h2>
+Type: Class<p>Implemented interfaces:</p>
+    <ul>
+        <li><a href="#hr.tpopovic.huntforblackbeard.rmi.ChatService">hr.tpopovic.huntforblackbeard.rmi.ChatService</a></li>
+
+    </ul>
+<p>Constructors:</p>
+    <ul>
+        <li>public&nbsp;hr.tpopovic.huntforblackbeard.rmi.InMemoryChatService()</li>
+    </ul>
+<p>Methods:</p>
+    <ul>
+        <li>public&nbsp;void&nbsp;sendMessage(<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hr.tpopovic.huntforblackbeard.rmi.Message">hr.tpopovic.huntforblackbeard.rmi.Message</a>
+<br>)</li><li>public&nbsp;java.util.List&nbsp;getMessages()</li>
+    </ul>
+<p>Attributes:</p>
+    <ul>
+        <li>private final&nbsp;java.util.List&nbsp;messages</li>
+    </ul>
+
+</body>
+</html>
