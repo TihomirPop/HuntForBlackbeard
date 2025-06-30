@@ -6,6 +6,7 @@ public abstract sealed class MovementResult {
     }
 
     public static final class Success extends MovementResult {
+
         private final Integer numberOfMoves;
 
         public Success(Integer numberOfMoves) {

@@ -6,8 +6,6 @@ import java.util.Set;
 
 public abstract sealed class PirateSightingResult {
 
-
-
     private PirateSightingResult() {
     }
 
@@ -32,6 +30,7 @@ public abstract sealed class PirateSightingResult {
         public Set<Location.Name> getAvailableDestinations() {
             return availableDestinations;
         }
+
     }
 
     public static final class NotSighted extends PirateSightingResult {

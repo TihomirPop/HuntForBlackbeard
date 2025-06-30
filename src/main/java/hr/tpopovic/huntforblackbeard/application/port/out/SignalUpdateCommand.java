@@ -13,7 +13,8 @@ public record SignalUpdateCommand(
         Location.Name brandLocation,
         Location.Name adventureLocation,
         Set<Location.Name> pirateSightings,
-        GameState.Winner winner) {
+        GameState.Winner winner
+) {
 
     public SignalUpdateCommand {
         requireNonNull(janeLocation, "Jane's location cannot be null");

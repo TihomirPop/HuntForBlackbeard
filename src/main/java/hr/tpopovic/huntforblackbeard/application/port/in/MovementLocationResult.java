@@ -10,6 +10,7 @@ public abstract sealed class MovementLocationResult {
     }
 
     public static final class Success extends MovementLocationResult {
+
         private final Set<Location.Name> locations;
 
         public Success(Set<Location.Name> locations) {
@@ -19,6 +20,7 @@ public abstract sealed class MovementLocationResult {
         public Set<Location.Name> getLocations() {
             return locations;
         }
+
     }
 
     public static final class Failure extends MovementLocationResult {

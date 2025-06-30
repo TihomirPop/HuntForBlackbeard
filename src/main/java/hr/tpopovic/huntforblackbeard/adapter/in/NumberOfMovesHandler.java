@@ -21,16 +21,26 @@ public class NumberOfMovesHandler {
     }
 
     public void updateNumberOfMoves() {
-        NumberOfMovesQuery numberOfMovesQuery = new NumberOfMovesQuery(AppProperties.getPlayerType());
-        NumberOfMovesResult numberOfMovesResult = forMovingPieces.fetchNumberOfAvailableMoves(numberOfMovesQuery);
-        if (numberOfMovesResult instanceof NumberOfMovesResult.Success success) {
-            numberOfMovesText.setText(REMAINING_MOVES_FORMAT.formatted(success.getNumberOfMoves()));
+        NumberOfMovesQuery query = new NumberOfMovesQuery(AppProperties.getPlayerType());
+        NumberOfMovesResult result = forMovingPieces.fetchNumberOfAvailableMoves(query);
+
+        switch (result) {
+            case NumberOfMovesResult.Success success -> success(success);
+            case NumberOfMovesResult.Failure failure -> failure(failure);
         }
     }
 
     public void setNumberOfMoves(Integer numberOfMoves) {
         requireNonNull(numberOfMoves, "Number of moves cannot be null");
         numberOfMovesText.setText(REMAINING_MOVES_FORMAT.formatted(numberOfMoves));
+    }
+
+    private void success(NumberOfMovesResult.Success success) {
+        numberOfMovesText.setText(REMAINING_MOVES_FORMAT.formatted(success.getNumberOfMoves()));
+    }
+
+    private void failure(NumberOfMovesResult.Failure failure) {
+        AlertManager.showInfo("Failed to fetch number of moves", failure.getMessage());
     }
 
 }

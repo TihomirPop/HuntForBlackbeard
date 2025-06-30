@@ -11,4 +11,5 @@ public record NumberOfMovesQuery(
     public NumberOfMovesQuery {
         requireNonNull(playerType, "Player type must not be null");
     }
+
 }

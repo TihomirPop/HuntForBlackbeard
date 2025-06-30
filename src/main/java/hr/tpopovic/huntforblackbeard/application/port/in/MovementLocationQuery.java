@@ -15,4 +15,5 @@ public record MovementLocationQuery(
     public MovementLocationQuery(String name) {
         this(Piece.Name.findByName(name));
     }
+
 }

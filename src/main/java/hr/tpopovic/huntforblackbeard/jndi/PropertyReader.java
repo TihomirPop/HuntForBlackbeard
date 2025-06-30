@@ -21,7 +21,7 @@ public class PropertyReader {
             }
             return props.getProperty(key.getKey());
         } catch (NamingException | IOException e) {
-            throw new RuntimeException("Failed to read the configuration key " + key.getKey(), e);
+            throw new JndiException("Failed to read the configuration key " + key.getKey(), e);
         }
     }
 

@@ -13,4 +13,5 @@ public record Message(
         requireNonNull(author, "Author cannot be null");
         requireNonNull(content, "Content cannot be null");
     }
+
 }

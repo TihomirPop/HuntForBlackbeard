@@ -122,6 +122,19 @@ public class GameController {
         documentationGenerator.generate(gamePane.getScene().getWindow());
     }
 
+    private void movementSuccess(MovementResult.Success success, FXLocation fxLocation) {
+        movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
+        currentlySelectedPiece.changeLocation(fxLocation);
+        numberOfMovesHandler.setNumberOfMoves(success.getNumberOfMoves());
+        if (AppProperties.getPlayerType().equals(Player.Type.PIRATE)) {
+            pirateScoreUpdater.updateText(locationsNeededToWinText);
+        }
+    }
+
+    private void movementFailure(MovementResult.Failure failure) {
+        AlertManager.showInfo("Movement Error", failure.getMessage());
+    }
+
     private void handlePirateSightingResult(PirateSightingResult result) {
         switch (result) {
             case PirateSightingResult.Found _ -> searchForPiratesFound();
@@ -131,9 +144,9 @@ public class GameController {
         }
     }
 
-    private void searchForPiratesNotSighted() {
+    private void searchForPiratesFound() {
+        pieces.getAdventure().imageView().setVisible(true);
         locations.forEach(location -> location.button().setVisible(false));
-        AlertManager.showInfo("Pirate Sighting", "No pirates sighted at this location.");
     }
 
     private void searchForPiratesSighted(PirateSightingResult.Sighted sighted) {
@@ -145,9 +158,9 @@ public class GameController {
                 .forEach(location -> location.button().setVisible(false));
     }
 
-    private void searchForPiratesFound() {
-        pieces.getAdventure().imageView().setVisible(true);
+    private void searchForPiratesNotSighted() {
         locations.forEach(location -> location.button().setVisible(false));
+        AlertManager.showInfo("Pirate Sighting", "No pirates sighted at this location.");
     }
 
     private void searchForPiratesFailure(PirateSightingResult.Failure failure) {
@@ -159,19 +172,6 @@ public class GameController {
         selectedPieceComboBox.setDisable(true);
         finishTurnButton.setDisable(true);
         searchForPiratesButton.setDisable(true);
-    }
-
-    private void movementSuccess(MovementResult.Success success, FXLocation fxLocation) {
-        movementFetcher.updateMapWithAvailablePositionsForCurrentlySelectedPiece(currentlySelectedPiece);
-        currentlySelectedPiece.changeLocation(fxLocation);
-        numberOfMovesHandler.setNumberOfMoves(success.getNumberOfMoves());
-        if(AppProperties.getPlayerType().equals(Player.Type.PIRATE)) {
-            pirateScoreUpdater.updateText(locationsNeededToWinText);
-        }
-    }
-
-    private void movementFailure(MovementResult.Failure failure) {
-        AlertManager.showInfo("Movement Error", failure.getMessage());
     }
 
 }

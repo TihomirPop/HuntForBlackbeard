@@ -17,4 +17,5 @@ public class AlertManager {
             alert.showAndWait();
         });
     }
+
 }

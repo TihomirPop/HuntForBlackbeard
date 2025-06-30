@@ -13,7 +13,9 @@ public class ReplayOpener {
     }
 
     public static void openReplayWindow() {
-        FXMLLoader loader = new FXMLLoader(ReplayOpener.class.getResource("/hr/tpopovic/huntforblackbeard/adapter/in/replay-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+                ReplayOpener.class.getResource("/hr/tpopovic/huntforblackbeard/adapter/in/replay-view.fxml")
+        );
         Parent root;
         try {
             root = loader.load();

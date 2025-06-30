@@ -11,4 +11,5 @@ public record PlayerPiecesQuery(
     public PlayerPiecesQuery {
         requireNonNull(playerType, "Player type must not be null");
     }
+
 }

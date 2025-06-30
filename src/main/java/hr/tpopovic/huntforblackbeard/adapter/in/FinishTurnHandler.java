@@ -21,7 +21,7 @@ public class FinishTurnHandler {
     }
 
     private static void gameOngoing() {
-        // No action needed, game continues
+        // No action needed, the game continues
     }
 
     private static void hunterWins() {
